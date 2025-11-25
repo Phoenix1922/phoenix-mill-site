@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact Us | Phoenix Mill Events</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Header (same as other pages) -->
+  <header class="site-header">
+    <div class="header-top">
+      <div class="logo">
+        <a href="index.html">Phoenix Mill Events</a>
+      </div>
+      <div class="header-contact">
+        <a href="mailto:info@phoenixmillevents.com">info@phoenixmillevents.com</a>
+        <span class="separator">|</span>
+        <a href="tel:17342529747">734-252-9747</a>
+        <a class="btn btn-primary" href="contact.html">Book Now</a>
+      </div>
+    </div>
+
+    <nav class="main-nav">
+      <ul>
+        <li><a href="history.html">History</a></li>
+        <li class="has-submenu">
+          <a href="meet-our-team.html">About Us</a>
+          <ul class="submenu">
+            <li><a href="meet-our-team.html">Meet Our Team</a></li>
+          </ul>
+        </li>
+        <li class="has-submenu">
+          <a href="our-venue.html">Our Venue</a>
+          <ul class="submenu">
+            <li><a href="weddings.html">Weddings</a></li>
+            <li><a href="corporate-events.html">Corporate</a></li>
+            <li><a href="social.html">Social</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="https://my.matterport.com" target="_blank" rel="noopener">3D Tour</a></li>
+          </ul>
+        </li>
+        <li><a href="tour-our-space.html">Tour Our Space</a></li>
+        <li><a href="preferred-vendors.html">Preferred Vendors</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero hero-inner">
+      <div class="hero-content">
+        <p class="eyebrow">Get in Touch</p>
+        <h1>Contact Phoenix Mill Events</h1>
+        <p class="hero-subtitle">
+          Tell us about your event and we’ll follow up with availability, pricing, and next steps.
+        </p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="page-inner page-two-column">
+        <div>
+          <h2>Event Inquiry Form</h2>
+          <form class="contact-form" method="post" action="#">
+            <div class="form-row">
+              <label for="name">Name *</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+
+            <div class="form-row">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+
+            <div class="form-row">
+              <label for="phone">Phone *</label>
+              <input type="tel" id="phone" name="phone" required />
+            </div>
+
+            <div class="form-row">
+              <label for="event-type">Event Type *</label>
+              <select id="event-type" name="event-type" required>
+                <option value="">Please select</option>
+                <option>Wedding</option>
+                <option>Corporate Event</option>
+                <option>Social Event</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <label for="guest-count">Estimated Guest Count</label>
+              <input type="number" id="guest-count" name="guest-count" min="1" />
+            </div>
+
+            <div class="form-row">
+              <label for="event-date">Preferred Event Date</label>
+              <input type="date" id="event-date" name="event-date" />
+            </div>
+
+            <div class="form-row">
+              <label for="message">Tell us about your event</label>
+              <textarea id="message" name="message" rows="5"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit Inquiry</button>
+          </form>
+        </div>
+
+        <aside class="contact-sidebar">
+          <h2>Contact Details</h2>
+          <p><strong>Phoenix Mill Events</strong></p>
+          <p>
+            15000 Edward N Hines Dr<br />
+            Plymouth, MI 48170
+          </p>
+          <p>
+            Phone: <a href="tel:17342529747">734-252-9747</a><br />
+            Email: <a href="mailto:info@phoenixmillevents.com">info@phoenixmillevents.com</a>
+          </p>
+          <h3>Follow Us</h3>
+          <p>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener">Instagram</a><br />
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+          </p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <nav class="footer-nav">
+      <a href="history.html">History</a>
+      <a href="meet-our-team.html">About Us</a>
+      <a href="our-venue.html">Our Venue</a>
+      <a href="tour-our-space.html">Tour Our Space</a>
+      <a href="preferred-vendors.html">Preferred Vendors</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+    <p class="footer-meta">
+      © <span id="year"></span> Phoenix Mill Events · Plymouth, Michigan
+    </p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
