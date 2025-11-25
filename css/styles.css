@@ -324,3 +324,46 @@ body {
 .page-inner p {
   margin: 0.4rem 0;
 }
+
+/* Two-column layout for contact page */
+.page-two-column {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 2rem;
+}
+
+.contact-form .form-row {
+  margin-bottom: 1rem;
+}
+
+.contact-form label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.45rem 0.55rem;
+  border-radius: 0.3rem;
+  border: 1px solid #d1d5db;
+  font-size: 0.95rem;
+  font-family: inherit;
+}
+
+.contact-sidebar h2 {
+  margin-top: 0;
+}
+
+.contact-sidebar h3 {
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 800px) {
+  .page-two-column {
+    grid-template-columns: 1fr;
+  }
+}
