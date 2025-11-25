@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Phoenix Mill Events | Historic Event Venue in Plymouth, MI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-top">
+      <div class="logo">
+        <!-- Replace with your logo image if you like -->
+        <a href="index.html">Phoenix Mill Events</a>
+      </div>
+      <div class="header-contact">
+        <a href="mailto:[email protected]">[email protected]</a>
+        <span class="separator">|</span>
+        <a href="tel:17342529747">734-252-9747</a>
+        <a class="btn btn-primary" href="contact.html">Book Now</a>
+      </div>
+    </div>
+
+    <nav class="main-nav">
+      <ul>
+        <li><a href="history.html">History</a></li>
+        <li class="has-submenu">
+          <a href="meet-our-team.html">About Us</a>
+          <ul class="submenu">
+            <li><a href="meet-our-team.html">Meet Our Team</a></li>
+          </ul>
+        </li>
+        <li class="has-submenu">
+          <a href="our-venue.html">Our Venue</a>
+          <ul class="submenu">
+            <li><a href="weddings.html">Weddings</a></li>
+            <li><a href="corporate-events.html">Corporate</a></li>
+            <li><a href="social.html">Social</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="https://my.matterport.com" target="_blank" rel="noopener">3D Tour</a></li>
+          </ul>
+        </li>
+        <li><a href="tour-our-space.html">Tour Our Space</a></li>
+        <li><a href="preferred-vendors.html">Preferred Vendors</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">Welcome to</p>
+        <h1>Phoenix Mill Events</h1>
+        <p class="hero-subtitle">
+          A historic Ford “Village Industry” factory transformed into a one-of-a-kind event venue in Hines Park.
+        </p>
+        <a class="btn btn-primary" href="tour-our-space.html">Plan Your Event Now</a>
+      </div>
+    </section>
+
+    <!-- Highlighted event types -->
+    <section class="feature-cards">
+      <article class="feature-card">
+        <h2>Weddings</h2>
+        <p>
+          Your venue should be as historic and memorable as your wedding. Celebrate your love story in a 100-year-old
+          brick factory surrounded by beautiful Hines Park and the River Rouge.
+        </p>
+        <a href="weddings.html" class="text-link">Read More →</a>
+      </article>
+
+      <article class="feature-card">
+        <h2>Corporate Events</h2>
+        <p>
+          From conferences and trainings to dinners and celebrations, our flexible space can be tailored to your
+          company’s needs – with history and character you won’t find in a hotel ballroom.
+        </p>
+        <a href="corporate-events.html" class="text-link">Read More →</a>
+      </article>
+
+      <article class="feature-card">
+        <h2>Social Events</h2>
+        <p>
+          Birthdays, anniversaries, reunions, car club meetups, and more – host your next celebration in a landmark
+          factory that helped power the “Arsenal of Democracy”.
+        </p>
+        <a href="social.html" class="text-link">Read More →</a>
+      </article>
+    </section>
+
+    <!-- Overview / History teaser -->
+    <section class="history-teaser">
+      <h2>Overview &amp; History</h2>
+      <p>
+        Built between 1920–1922, the Phoenix Mill factory produced parts for the Ford Model T and Model A and later
+        supported the WWII effort as part of the “Arsenal of Democracy.” Today, the restored building retains its
+        historic character while offering modern amenities for weddings, corporate events, and celebrations.
+      </p>
+      <a href="history.html" class="btn btn-secondary">Read Full History</a>
+    </section>
+
+    <!-- Contact strip -->
+    <section class="contact-strip">
+      <div>
+        <h2>Contact</h2>
+        <p>Phoenix Mill Events</p>
+        <p>15000 Edward N Hines Dr<br />Plymouth, MI 48170</p>
+        <p><a href="tel:17342529747">734-252-9747</a><br />
+           <a href="mailto:[email protected]">[email protected]</a>
+        </p>
+      </div>
+      <div class="contact-strip-actions">
+        <a class="btn btn-primary" href="contact.html">Inquire About Your Event</a>
+        <div class="social-links">
+          <a href="https://www.instagram.com" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials (static placeholder; can be enhanced later) -->
+    <section class="testimonials">
+      <h2>Testimonials</h2>
+      <figure class="testimonial">
+        <blockquote>
+          “This was a great venue for our business event. It was a great atmosphere, unique space &amp; professional
+          people to work with. I highly recommend for your next event!”
+        </blockquote>
+        <figcaption>— Carrie Bloink</figcaption>
+      </figure>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <nav class="footer-nav">
+      <a href="history.html">History</a>
+      <a href="meet-our-team.html">About Us</a>
+      <a href="our-venue.html">Our Venue</a>
+      <a href="tour-our-space.html">Tour Our Space</a>
+      <a href="preferred-vendors.html">Preferred Vendors</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+    <p class="footer-meta">
+      © <span id="year"></span> Phoenix Mill Events · Plymouth, Michigan
+    </p>
+  </footer>
+
+  <script>
+    // Tiny helper to keep the year updated
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
