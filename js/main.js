@@ -22,13 +22,16 @@ if (navToggle && nav) {
   });
 }
 
-/* Hero Slider (horizontal translate) */
+/* Hero Slider (true horizontal slide) */
 (function initSlider(){
   const slider = document.querySelector("[data-slider]");
   if (!slider) return;
 
-  const track = slider.querySelector(".hero__track");
-  if (!track) return;
+  const track = slider.querySelector("[data-track]");
+  if (!track) {
+    console.warn("Hero slider: missing [data-track] element in HTML.");
+    return;
+  }
 
   const slides = Array.from(track.querySelectorAll(".slide"));
   if (slides.length <= 1) return;
@@ -68,23 +71,19 @@ if (navToggle && nav) {
   const next = () => go(idx + 1);
   const prev = () => go(idx - 1);
 
-  if (nextBtn) nextBtn.addEventListener("click", () => { next(); restart(); });
-  if (prevBtn) prevBtn.addEventListener("click", () => { prev(); restart(); });
+  if (nextBtn) nextBtn.addEventListener("click", next);
+  if (prevBtn) prevBtn.addEventListener("click", prev);
 
+  // Auto-advance
   const start = () => {
     stop();
     timer = setInterval(() => {
       if (!isPaused) next();
-    }, 5500);
+    }, 6500);
   };
-
   const stop = () => {
     if (timer) clearInterval(timer);
     timer = null;
-  };
-
-  const restart = () => {
-    start();
   };
 
   slider.addEventListener("mouseenter", () => { isPaused = true; });
@@ -113,7 +112,6 @@ if (navToggle && nav) {
 
     if (Math.abs(dx) > 40) {
       dx < 0 ? next() : prev();
-      restart();
     }
   }, { passive: true });
 
@@ -129,6 +127,7 @@ if (navToggle && nav) {
   const quotes = Array.from(root.querySelectorAll(".quote"));
   const prev = root.querySelector("[data-qprev]");
   const next = root.querySelector("[data-qnext]");
+
   if (quotes.length <= 1) return;
 
   let i = 0;
