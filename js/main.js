@@ -1,11 +1,8 @@
 console.log("main.js loaded OK");
 
-/* ---------------------------
-   Mobile nav
----------------------------- */
+/* Mobile nav */
 const navToggle = document.querySelector(".navToggle");
 const nav = document.querySelector(".nav");
-
 if (navToggle && nav) {
   navToggle.addEventListener("click", () => {
     const expanded = navToggle.getAttribute("aria-expanded") === "true";
@@ -25,51 +22,53 @@ if (navToggle && nav) {
   });
 }
 
-/* ---------------------------
-   HERO CAROUSEL (Prestige-style)
-   Uses EXISTING .hero__track
----------------------------- */
-(function initHeroSlider() {
+/* Hero Slider */
+(function initSlider(){
   const slider = document.querySelector("[data-slider]");
   if (!slider) return;
 
-  const track = slider.querySelector(".hero__track");
-  const slides = Array.from(track.querySelectorAll(".slide"));
+  const existingTrack = slider.querySelector(".hero__track");
+  if (existingTrack) return; // prevent double-init if script runs twice
 
+  const slides = Array.from(slider.querySelectorAll(".slide"));
   if (slides.length <= 1) return;
 
   const prevBtn = slider.querySelector("[data-prev]");
   const nextBtn = slider.querySelector("[data-next]");
   const dotsWrap = slider.querySelector("[data-dots]");
 
-  let index = 0;
+  // Build track to match CSS
+  const track = document.createElement("div");
+  track.className = "hero__track";
+
+  // Move slides into track
+  slides.forEach(s => track.appendChild(s));
+  slider.insertBefore(track, slider.firstChild);
+
+  const trackSlides = Array.from(track.querySelectorAll(".slide"));
+
+  let idx = 0;
   let timer = null;
   let paused = false;
 
-  // Ensure correct sizing
-  track.style.display = "flex";
-  track.style.width = `${slides.length * 100}%`;
-  slides.forEach(slide => {
-    slide.style.width = `${100 / slides.length}%`;
-  });
-
-  function go(i) {
-    index = (i + slides.length) % slides.length;
-    track.style.transform = `translateX(-${index * (100 / slides.length)}%)`;
-    updateDots();
-  }
-
-  function updateDots() {
+  const setDots = () => {
     if (!dotsWrap) return;
-    [...dotsWrap.children].forEach((d, i) =>
-      d.classList.toggle("is-active", i === index)
-    );
-  }
+    Array.from(dotsWrap.children).forEach((d, k) => {
+      d.classList.toggle("is-active", k === idx);
+    });
+  };
 
-  // Build dots
+  const go = (i) => {
+    idx = (i + trackSlides.length) % trackSlides.length;
+
+    // Avoid Safari blank-frame glitches
+    track.style.transform = `translateX(-${idx * 100}%)`;
+    setDots();
+  };
+
   if (dotsWrap) {
     dotsWrap.innerHTML = "";
-    slides.forEach((_, i) => {
+    trackSlides.forEach((_, i) => {
       const b = document.createElement("button");
       b.type = "button";
       b.addEventListener("click", () => go(i));
@@ -77,82 +76,81 @@ if (navToggle && nav) {
     });
   }
 
-  function next() { go(index + 1); }
-  function prev() { go(index - 1); }
+  const next = () => go(idx + 1);
+  const prev = () => go(idx - 1);
 
-  nextBtn && nextBtn.addEventListener("click", next);
-  prevBtn && prevBtn.addEventListener("click", prev);
+  nextBtn && nextBtn.addEventListener("click", () => next());
+  prevBtn && prevBtn.addEventListener("click", () => prev());
 
-  // Auto-advance
-  function start() {
+  const start = () => {
     stop();
     timer = setInterval(() => {
       if (!paused) next();
-    }, 6000);
-  }
-
-  function stop() {
+    }, 5500);
+  };
+  const stop = () => {
     if (timer) clearInterval(timer);
     timer = null;
-  }
+  };
 
-  slider.addEventListener("mouseenter", () => paused = true);
-  slider.addEventListener("mouseleave", () => paused = false);
-  slider.addEventListener("focusin", () => paused = true);
-  slider.addEventListener("focusout", () => paused = false);
+  slider.addEventListener("mouseenter", () => { paused = true; });
+  slider.addEventListener("mouseleave", () => { paused = false; });
+  slider.addEventListener("focusin", () => { paused = true; });
+  slider.addEventListener("focusout", () => { paused = false; });
 
-  // Touch swipe
+  // Swipe (mobile)
   let startX = 0;
+  let isDown = false;
 
-  slider.addEventListener("touchstart", e => {
+  slider.addEventListener("touchstart", (e) => {
+    if (!e.touches || !e.touches.length) return;
+    isDown = true;
     startX = e.touches[0].clientX;
     paused = true;
   }, { passive: true });
 
-  slider.addEventListener("touchend", e => {
-    const endX = e.changedTouches[0].clientX;
-    const dx = endX - startX;
+  slider.addEventListener("touchend", (e) => {
+    if (!isDown) return;
+    isDown = false;
     paused = false;
 
+    const endX = (e.changedTouches && e.changedTouches.length)
+      ? e.changedTouches[0].clientX
+      : startX;
+
+    const dx = endX - startX;
     if (Math.abs(dx) > 40) {
       dx < 0 ? next() : prev();
     }
   }, { passive: true });
 
-  // Init
   go(0);
   start();
 })();
 
-/* ---------------------------
-   Testimonials
----------------------------- */
-(function initQuotes() {
+/* Testimonials */
+(function initQuotes(){
   const root = document.querySelector("[data-quotes]");
   if (!root) return;
 
-  const quotes = [...root.querySelectorAll(".quote")];
+  const quotes = Array.from(root.querySelectorAll(".quote"));
   const prev = root.querySelector("[data-qprev]");
   const next = root.querySelector("[data-qnext]");
-
   if (quotes.length <= 1) return;
 
   let i = 0;
-  function show(n) {
+  const show = (n) => {
     i = (n + quotes.length) % quotes.length;
     quotes.forEach((q, k) => q.classList.toggle("is-active", k === i));
-  }
+  };
 
   prev && prev.addEventListener("click", () => show(i - 1));
   next && next.addEventListener("click", () => show(i + 1));
-
   show(0);
 })();
 
-/* ---------------------------
-   Video modal
----------------------------- */
-(function initVideo() {
+/* Video modal */
+(function initVideo(){
   const modal = document.querySelector("[data-modal]");
   if (!modal) return;
 
@@ -160,31 +158,24 @@ if (navToggle && nav) {
   const closeEls = modal.querySelectorAll("[data-close]");
   const videoBtns = document.querySelectorAll("[data-video]");
 
-  function open(url) {
+  const open = (url) => {
     modal.hidden = false;
     const embed = url.includes("youtube.com/watch")
       ? url.replace("watch?v=", "embed/")
       : url;
     iframe.src = embed + (embed.includes("?") ? "&" : "?") + "autoplay=1";
-  }
+  };
 
-  function close() {
+  const close = () => {
     modal.hidden = true;
     iframe.src = "";
-  }
+  };
 
-  videoBtns.forEach(btn =>
-    btn.addEventListener("click", () => open(btn.dataset.video))
-  );
-
+  videoBtns.forEach(btn => btn.addEventListener("click", () => open(btn.dataset.video)));
   closeEls.forEach(el => el.addEventListener("click", close));
-  document.addEventListener("keydown", e => {
-    if (e.key === "Escape") close();
-  });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
 })();
 
-/* ---------------------------
-   Footer year
----------------------------- */
+/* Footer year */
 const y = document.getElementById("year");
 if (y) y.textContent = new Date().getFullYear();
