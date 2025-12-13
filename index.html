@@ -48,10 +48,9 @@
   <!-- Hero carousel -->
   <section class="hero" aria-label="Featured highlights">
     <div class="hero__slider" data-slider>
-
-      <!-- ✅ Track wrapper added (this is the fix) -->
-      <div class="hero__track">
-        <!-- Slide 1 (video-style) -->
+      <!-- IMPORTANT: track wrapper must exist -->
+      <div class="hero__track" data-track>
+        <!-- Slide 1 -->
         <div class="slide" style="background-image:url('assets/img/hero-1.jpg')">
           <div class="wrap slide__content">
             <p class="kicker">Historic venue • Modern events</p>
@@ -59,7 +58,7 @@
             <p class="lead">A timeless space for weddings, corporate gatherings, celebrations, and community events.</p>
             <div class="actions">
               <a class="btn" href="get-started.html">Get Started</a>
-              <button class="btn btn--ghost" data-video="https://www.youtube.com/watch?v=VIDEO_ID">Watch video</button>
+              <button class="btn btn--ghost" type="button" data-video="https://www.youtube.com/watch?v=VIDEO_ID">Watch video</button>
             </div>
           </div>
         </div>
@@ -91,10 +90,9 @@
         </div>
       </div>
 
-      <button class="sliderBtn prev" aria-label="Previous slide" data-prev>‹</button>
-      <button class="sliderBtn next" aria-label="Next slide" data-next>›</button>
+      <button class="sliderBtn prev" aria-label="Previous slide" type="button" data-prev>‹</button>
+      <button class="sliderBtn next" aria-label="Next slide" type="button" data-next>›</button>
       <div class="dots" aria-label="Carousel dots" data-dots></div>
-
     </div>
   </section>
 
@@ -188,7 +186,7 @@
     </div>
   </section>
 
-  <!-- Testimonials carousel (near bottom) -->
+  <!-- Testimonials -->
   <section class="section" id="testimonials">
     <div class="wrap">
       <div class="sectionHead">
@@ -211,8 +209,8 @@
         </blockquote>
 
         <div class="quoteControls">
-          <button class="btn btn--ghost btn--sm" data-qprev>Prev</button>
-          <button class="btn btn--ghost btn--sm" data-qnext>Next</button>
+          <button class="btn btn--ghost btn--sm" type="button" data-qprev>Prev</button>
+          <button class="btn btn--ghost btn--sm" type="button" data-qnext>Next</button>
         </div>
       </div>
     </div>
@@ -227,18 +225,9 @@
       </div>
 
       <div class="cards">
-        <a class="articleCard" href="#">
-          <h3>Layout ideas for 100 guests</h3>
-          <p>What works best for flow, photos, and comfort.</p>
-        </a>
-        <a class="articleCard" href="#">
-          <h3>Corporate event checklist</h3>
-          <p>A simple plan for an event that runs itself.</p>
-        </a>
-        <a class="articleCard" href="#">
-          <h3>Vendor coordination tips</h3>
-          <p>How we keep everything smooth and on time.</p>
-        </a>
+        <a class="articleCard" href="#"><h3>Layout ideas for 100 guests</h3><p>What works best for flow, photos, and comfort.</p></a>
+        <a class="articleCard" href="#"><h3>Corporate event checklist</h3><p>A simple plan for an event that runs itself.</p></a>
+        <a class="articleCard" href="#"><h3>Vendor coordination tips</h3><p>How we keep everything smooth and on time.</p></a>
       </div>
     </div>
   </section>
@@ -267,13 +256,13 @@
   <div class="modal" hidden data-modal>
     <div class="modal__backdrop" data-close></div>
     <div class="modal__panel" role="dialog" aria-modal="true" aria-label="Video">
-      <button class="modal__close" aria-label="Close" data-close>✕</button>
+      <button class="modal__close" aria-label="Close" type="button" data-close>✕</button>
       <div class="modal__body">
         <iframe title="Video" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
       </div>
     </div>
   </div>
 
-  <script defer src="./js/main.js"></script>
+  <script defer src="js/main.js"></script>
 </body>
 </html>
