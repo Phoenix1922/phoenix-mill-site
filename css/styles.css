@@ -81,13 +81,25 @@ a:hover{opacity:.9}
   min-height: 520px;
   overflow:hidden;
 }
+
+/* --- CAROUSEL FIX (prevents vertical stacking) --- */
 .slide{
-  position:absolute;inset:0;
-  background-size:cover;background-position:center;
-  opacity:0;transform:scale(1.02);
+  position:absolute;
+  top:0;left:0;right:0;bottom:0; /* explicit instead of inset to avoid odd overrides */
+  background-size:cover;
+  background-position:center;
+  opacity:0;
+  pointer-events:none; /* hidden slides can’t be interacted with */
+  transform:scale(1.02);
   transition: opacity .5s ease, transform .7s ease;
 }
-.slide.is-active{opacity:1;transform:scale(1)}
+.slide.is-active{
+  opacity:1;
+  pointer-events:auto;
+  transform:scale(1);
+}
+/* ------------------------------------------------ */
+
 .slide::before{
   content:"";
   position:absolute;inset:0;
@@ -169,24 +181,24 @@ h2{font-size:44px}
 .articleCard:hover{transform: translateY(-2px);transition: transform .15s ease}
 
 .parallax{
-  position: relative;
-  min-height: 420px;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  position: relative;
+  min-height: 420px;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 .parallax__overlay{
-  position: absolute;
-  inset: 0;
-  background: rgba(15,42,32,.55);
-  display: flex;
-  align-items: center;
+  position: absolute;
+  inset: 0;
+  background: rgba(15,42,32,.55);
+  display: flex;
+  align-items: center;
 }
 .parallax__content{
-  position: relative;
-  z-index: 2;
-  color: #fff;
-  padding: 72px 0;
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  padding: 72px 0;
 }
 
 .logoRow{
