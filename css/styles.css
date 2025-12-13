@@ -24,6 +24,7 @@ a:hover{opacity:.9}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
 .dot{margin:0 10px;opacity:.6}
 
+/* Topbar */
 .topbar{
   background: #0f2a20;
   color: #e7f0ea;
@@ -35,6 +36,7 @@ a:hover{opacity:.9}
 }
 .topbar a{color:#e7f0ea}
 
+/* Header */
 .header{
   position:sticky;top:0;z-index:50;
   background: rgba(242,230,207,.86);
@@ -56,6 +58,7 @@ a:hover{opacity:.9}
 .nav a{font-weight:600;color:var(--ink)}
 .navToggle{display:none}
 
+/* Buttons */
 .btn{
   display:inline-flex;align-items:center;justify-content:center;
   padding:12px 18px;
@@ -74,31 +77,47 @@ a:hover{opacity:.9}
 }
 .btn--sm{padding:9px 14px;font-size:14px}
 
+/* HERO (Prestige-style sliding carousel) */
 .hero{position:relative}
 .hero__slider{
   position:relative;
   height: 72vh;
   min-height: 520px;
   overflow:hidden;
+  background: #000;
 }
+
+/* This track is injected by JS and holds slides side-by-side */
+.slidesTrack{
+  height: 100%;
+  display:flex;
+  will-change: transform;
+  transition: transform .65s cubic-bezier(.22,.61,.36,1);
+}
+
+/* Slides are full viewport width inside the track */
 .slide{
-  position:absolute;inset:0;
-  background-size:cover;background-position:center;
-  opacity:0;transform:scale(1.02);
-  transition: opacity .5s ease, transform .7s ease;
+  position: relative;
+  flex: 0 0 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
 }
-.slide.is-active{opacity:1;transform:scale(1)}
+
+/* Dark gradient overlay for readability */
 .slide::before{
   content:"";
   position:absolute;inset:0;
   background: linear-gradient(90deg, rgba(15,42,32,.78) 0%, rgba(15,42,32,.25) 55%, rgba(15,42,32,.05) 100%);
 }
+
 .slide__content{
   position:relative;
   padding: 80px 0;
   color:#f3f3f3;
   max-width: 720px;
 }
+
 .kicker{letter-spacing:.2em;text-transform:uppercase;font-size:12px;opacity:.9}
 h1,h2{font-family: Georgia, "Times New Roman", serif; margin:10px 0 10px}
 h1{font-size:52px}
@@ -114,6 +133,7 @@ h2{font-size:44px}
   background: rgba(15,42,32,.35);
   color:#fff;font-size:26px;line-height:0;
   cursor:pointer;
+  z-index: 5;
 }
 .sliderBtn.prev{left:16px}
 .sliderBtn.next{right:16px}
@@ -121,6 +141,7 @@ h2{font-size:44px}
 .dots{
   position:absolute;left:0;right:0;bottom:18px;
   display:flex;justify-content:center;gap:8px;
+  z-index: 6;
 }
 .dots button{
   width:10px;height:10px;border-radius:99px;
@@ -130,6 +151,7 @@ h2{font-size:44px}
 }
 .dots button.is-active{background:#fff}
 
+/* Sections */
 .section{padding:64px 0}
 .section--alt{background: rgba(255,255,255,.38)}
 .sectionHead{margin-bottom:18px}
@@ -168,30 +190,36 @@ h2{font-size:44px}
 .articleCard{display:block}
 .articleCard:hover{transform: translateY(-2px);transition: transform .15s ease}
 
+/* Parallax */
 .parallax{
-  position: relative;
-  min-height: 420px;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  position: relative;
+  min-height: 420px;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 .parallax__overlay{
-  position: absolute;
-  inset: 0;
-  background: rgba(15,42,32,.55);
-  display: flex;
-  align-items: center;
+  position: absolute;
+  inset: 0;
+  background: rgba(15,42,32,.55);
+  display: flex;
+  align-items: center;
 }
 .parallax__content{
-  position: relative;
-  z-index: 2;
-  color: #fff;
-  padding: 72px 0;
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  padding: 72px 0;
 }
 
-.logoRow{
-  display:flex;flex-wrap:wrap;gap:12px;
+/* iOS Safari fallback (no true fixed attachment) */
+@supports (-webkit-touch-callout: none) {
+  .parallax{
+    background-attachment: scroll;
+  }
 }
+
+.logoRow{display:flex;flex-wrap:wrap;gap:12px}
 .logoPill{
   padding:10px 14px;
   border-radius:999px;
@@ -212,6 +240,7 @@ h2{font-size:44px}
 .quote cite{display:block;margin-top:10px;opacity:.8;font-style:normal;font-weight:700}
 .quoteControls{display:flex;gap:10px;margin-top:12px}
 
+/* Footer */
 .footer{
   background: #0f2a20;
   color:#e7f0ea;
@@ -257,5 +286,11 @@ h2{font-size:44px}
   h1{font-size:40px}
   h2{font-size:34px}
   .nav{display:none}
-  .navToggle{display:inline-flex;gap:10px;align-items:center;border:1px solid rgba(23,58,44,.25);background:transparent;border-radius:999px;padding:10px 14px}
+  .navToggle{
+    display:inline-flex;gap:10px;align-items:center;
+    border:1px solid rgba(23,58,44,.25);
+    background:transparent;border-radius:999px;padding:10px 14px
+  }
+  .hero__slider{min-height: 520px}
+  .slide__content{padding: 64px 0}
 }
