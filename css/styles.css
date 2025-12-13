@@ -81,8 +81,12 @@ a:hover{opacity:.9}
 .hero{position:relative}
 .hero__slider{
   position:relative;
-  height: 72vh;
+
+  /* FIX: use stable viewport units so iPhone/Safari doesn't crop the hero */
+  height: 72vh;      /* fallback */
+  height: 72svh;     /* preferred on modern browsers */
   min-height: 520px;
+
   overflow:hidden;
   background: #000;
 }
@@ -92,6 +96,10 @@ a:hover{opacity:.9}
   height: 100%;
   width: 100%;
   display:flex;
+
+  /* FIX: make sure children stretch full height */
+  align-items: stretch;
+
   will-change: transform;
   transition: transform .65s cubic-bezier(.22,.61,.36,1);
 }
@@ -101,7 +109,10 @@ a:hover{opacity:.9}
   position: relative;
   flex: 0 0 100%;
   min-width: 100%;
+
+  /* FIX: hard lock slide height to the hero */
   height: 100%;
+
   background-size: cover;
   background-position: center;
 }
@@ -214,8 +225,8 @@ h2{font-size:44px}
   padding: 72px 0;
 }
 
-/* iOS Safari fallback (no true fixed attachment) */
-@supports (-webkit-touch-callout: none) {
+/* FIX: iOS/touch fallback WITHOUT breaking Mac Safari */
+@media (hover: none) and (pointer: coarse) {
   .parallax{
     background-attachment: scroll;
   }
