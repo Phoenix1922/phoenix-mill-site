@@ -1,260 +1,177 @@
 console.log("main.js loaded OK");
 
-// ------------------------------
-// Mobile nav
-// ------------------------------
-const navToggle = document.querySelector('.navToggle');
-const nav = document.querySelector('.nav');
-
-function setNavOpen(isOpen) {
-  if (!navToggle || !nav) return;
-
-  navToggle.setAttribute('aria-expanded', String(isOpen));
-
-  if (isOpen) {
-    nav.style.display = 'flex';
-    nav.style.flexDirection = 'column';
-    nav.style.gap = '14px';
-    nav.style.position = 'absolute';
-    nav.style.top = '62px';
-    nav.style.right = '20px';
-    nav.style.background = 'rgba(242,230,207,.98)';
-    nav.style.padding = '14px';
-    nav.style.border = '1px solid rgba(23,58,44,.15)';
-    nav.style.borderRadius = '14px';
-    nav.style.boxShadow = '0 10px 28px rgba(0,0,0,.10)';
-  } else {
-    // Let your CSS control desktop nav; on mobile we hide it
-    nav.style.display = 'none';
-  }
-}
-
+/* Mobile nav */
+const navToggle = document.querySelector(".navToggle");
+const nav = document.querySelector(".nav");
 if (navToggle && nav) {
-  // Start closed on mobile widths
-  if (window.matchMedia('(max-width: 900px)').matches) {
-    setNavOpen(false);
-  }
+  navToggle.addEventListener("click", () => {
+    const expanded = navToggle.getAttribute("aria-expanded") === "true";
+    navToggle.setAttribute("aria-expanded", String(!expanded));
 
-  navToggle.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-    setNavOpen(!expanded);
-  });
-
-  // Close when clicking outside
-  document.addEventListener('click', (e) => {
-    const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-    if (!expanded) return;
-    if (nav.contains(e.target) || navToggle.contains(e.target)) return;
-    setNavOpen(false);
-  });
-
-  // If you resize back to desktop, restore normal CSS behavior
-  window.addEventListener('resize', () => {
-    if (!window.matchMedia('(max-width: 900px)').matches) {
-      nav.style.display = 'flex';
-      nav.style.position = '';
-      nav.style.top = '';
-      nav.style.right = '';
-      nav.style.flexDirection = '';
-      nav.style.gap = '';
-      nav.style.background = '';
-      nav.style.padding = '';
-      nav.style.border = '';
-      nav.style.borderRadius = '';
-      nav.style.boxShadow = '';
-      navToggle.setAttribute('aria-expanded', 'false');
-    } else {
-      // On mobile, keep it closed unless explicitly opened
-      const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-      setNavOpen(expanded);
-    }
+    nav.style.display = expanded ? "none" : "flex";
+    nav.style.flexDirection = "column";
+    nav.style.gap = "14px";
+    nav.style.position = "absolute";
+    nav.style.top = "62px";
+    nav.style.right = "20px";
+    nav.style.background = "rgba(242,230,207,.98)";
+    nav.style.padding = "14px";
+    nav.style.border = "1px solid rgba(23,58,44,.15)";
+    nav.style.borderRadius = "14px";
+    nav.style.zIndex = "60";
   });
 }
 
-
-// ------------------------------
-// Hero slider
-// ------------------------------
+/* Prestige-style Hero Slider (true horizontal slide) */
 (function initSlider(){
-  const slider = document.querySelector('[data-slider]');
+  const slider = document.querySelector("[data-slider]");
   if (!slider) return;
 
-  const slides = Array.from(slider.querySelectorAll('.slide'));
-  if (!slides.length) {
-    console.log("No .slide elements found inside [data-slider].");
-    return;
-  }
+  const slides = Array.from(slider.querySelectorAll(".slide"));
+  if (slides.length <= 1) return;
 
-  const prevBtn = slider.querySelector('[data-prev]');
-  const nextBtn = slider.querySelector('[data-next]');
-  const dotsWrap = slider.querySelector('[data-dots]');
+  const prevBtn = slider.querySelector("[data-prev]");
+  const nextBtn = slider.querySelector("[data-next]");
+  const dotsWrap = slider.querySelector("[data-dots]");
 
-  let idx = slides.findIndex(s => s.classList.contains('is-active'));
-  if (idx < 0) idx = 0;
+  // Build track and move slides into it (no HTML edits needed)
+  const track = document.createElement("div");
+  track.className = "slidesTrack";
 
-  const setActive = (i) => {
-    const safe = ((i % slides.length) + slides.length) % slides.length;
+  slides.forEach(s => track.appendChild(s));
+  // Put track as the first child so buttons/dots remain on top
+  slider.insertBefore(track, slider.firstChild);
 
-    slides.forEach((s, k) => s.classList.toggle('is-active', k === safe));
+  let idx = 0;
+  let timer = null;
+  let isPaused = false;
 
-    if (dotsWrap) {
-      Array.from(dotsWrap.children).forEach((d, k) =>
-        d.classList.toggle('is-active', k === safe)
-      );
-    }
-
-    idx = safe;
+  const setActiveDot = () => {
+    if (!dotsWrap) return;
+    Array.from(dotsWrap.children).forEach((d, k) => {
+      d.classList.toggle("is-active", k === idx);
+    });
   };
 
-  // Build dots once
-  if (dotsWrap && !dotsWrap.dataset.built) {
-    dotsWrap.innerHTML = '';
+  const go = (i) => {
+    idx = (i + slides.length) % slides.length;
+    track.style.transform = `translateX(-${idx * 100}%)`;
+    setActiveDot();
+  };
+
+  // Dots
+  if (dotsWrap) {
+    dotsWrap.innerHTML = "";
     slides.forEach((_, i) => {
-      const b = document.createElement('button');
-      b.type = 'button';
-      b.setAttribute('aria-label', `Go to slide ${i + 1}`);
-      b.addEventListener('click', () => {
-        stopAuto();
-        setActive(i);
-        startAuto();
-      });
+      const b = document.createElement("button");
+      b.type = "button";
+      b.addEventListener("click", () => go(i));
       dotsWrap.appendChild(b);
     });
-    dotsWrap.dataset.built = 'true';
   }
 
-  const next = () => setActive(idx + 1);
-  const prev = () => setActive(idx - 1);
+  const next = () => go(idx + 1);
+  const prev = () => go(idx - 1);
 
-  nextBtn?.addEventListener('click', () => {
-    stopAuto();
-    next();
-    startAuto();
-  });
+  nextBtn && nextBtn.addEventListener("click", next);
+  prevBtn && prevBtn.addEventListener("click", prev);
 
-  prevBtn?.addEventListener('click', () => {
-    stopAuto();
-    prev();
-    startAuto();
-  });
-
-  // Optional: swipe on mobile
-  let startX = null;
-  slider.addEventListener('touchstart', (e) => {
-    startX = e.touches?.[0]?.clientX ?? null;
-  }, { passive: true });
-
-  slider.addEventListener('touchend', (e) => {
-    if (startX == null) return;
-    const endX = e.changedTouches?.[0]?.clientX ?? null;
-    if (endX == null) return;
-    const dx = endX - startX;
-    if (Math.abs(dx) > 40) {
-      stopAuto();
-      dx < 0 ? next() : prev();
-      startAuto();
-    }
-    startX = null;
-  }, { passive: true });
-
-  // Auto-advance (pauses when tab hidden)
-  let timer = null;
-
-  function startAuto() {
-    stopAuto();
-    timer = setInterval(next, 7000);
-  }
-
-  function stopAuto() {
+  // Auto-advance with pause on hover/focus
+  const start = () => {
+    stop();
+    timer = setInterval(() => {
+      if (!isPaused) next();
+    }, 6500);
+  };
+  const stop = () => {
     if (timer) clearInterval(timer);
     timer = null;
-  }
+  };
 
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) stopAuto();
-    else startAuto();
-  });
+  slider.addEventListener("mouseenter", () => { isPaused = true; });
+  slider.addEventListener("mouseleave", () => { isPaused = false; });
+  slider.addEventListener("focusin", () => { isPaused = true; });
+  slider.addEventListener("focusout", () => { isPaused = false; });
 
-  // Initialize state and run
-  setActive(idx);
-  startAuto();
+  // Touch swipe (phone)
+  let startX = 0;
+  let isDown = false;
+
+  slider.addEventListener("touchstart", (e) => {
+    if (!e.touches || !e.touches.length) return;
+    isDown = true;
+    startX = e.touches[0].clientX;
+    isPaused = true;
+  }, { passive: true });
+
+  slider.addEventListener("touchend", (e) => {
+    if (!isDown) return;
+    isDown = false;
+    isPaused = false;
+
+    const endX = (e.changedTouches && e.changedTouches.length) ? e.changedTouches[0].clientX : startX;
+    const dx = endX - startX;
+
+    if (Math.abs(dx) > 40) {
+      dx < 0 ? next() : prev();
+    }
+  }, { passive: true });
+
+  // Init
+  go(0);
+  start();
 })();
 
-
-// ------------------------------
-// Testimonials
-// ------------------------------
+/* Testimonials */
 (function initQuotes(){
-  const root = document.querySelector('[data-quotes]');
+  const root = document.querySelector("[data-quotes]");
   if (!root) return;
 
-  const quotes = Array.from(root.querySelectorAll('.quote'));
-  if (!quotes.length) return;
+  const quotes = Array.from(root.querySelectorAll(".quote"));
+  const prev = root.querySelector("[data-qprev]");
+  const next = root.querySelector("[data-qnext]");
 
-  const prev = root.querySelector('[data-qprev]');
-  const next = root.querySelector('[data-qnext]');
+  if (quotes.length <= 1) return;
 
-  let i = quotes.findIndex(q => q.classList.contains('is-active'));
-  if (i < 0) i = 0;
-
+  let i = 0;
   const show = (n) => {
-    const safe = ((n % quotes.length) + quotes.length) % quotes.length;
-    quotes.forEach((q, k) => q.classList.toggle('is-active', k === safe));
-    i = safe;
+    i = (n + quotes.length) % quotes.length;
+    quotes.forEach((q, k) => q.classList.toggle("is-active", k === i));
   };
 
-  prev?.addEventListener('click', () => show(i - 1));
-  next?.addEventListener('click', () => show(i + 1));
+  prev && prev.addEventListener("click", () => show(i - 1));
+  next && next.addEventListener("click", () => show(i + 1));
 
-  show(i);
+  show(0);
 })();
 
-
-// ------------------------------
-// Video modal
-// ------------------------------
+/* Video modal */
 (function initVideo(){
-  const modal = document.querySelector('[data-modal]');
+  const modal = document.querySelector("[data-modal]");
   if (!modal) return;
 
-  const iframe = modal.querySelector('iframe');
-  if (!iframe) return;
-
-  const closeEls = modal.querySelectorAll('[data-close]');
-  const videoBtns = document.querySelectorAll('[data-video]');
-
-  const toEmbed = (url) => {
-    if (!url) return '';
-    if (url.includes('youtube.com/watch')) return url.replace('watch?v=', 'embed/');
-    if (url.includes('youtu.be/')) return url.replace('youtu.be/', 'www.youtube.com/embed/');
-    return url;
-  };
+  const iframe = modal.querySelector("iframe");
+  const closeEls = modal.querySelectorAll("[data-close]");
+  const videoBtns = document.querySelectorAll("[data-video]");
 
   const open = (url) => {
     modal.hidden = false;
-    const embed = toEmbed(url);
-    iframe.src = embed + (embed.includes('?') ? '&' : '?') + 'autoplay=1';
+    const embed = url.includes("youtube.com/watch")
+      ? url.replace("watch?v=", "embed/")
+      : url;
+    iframe.src = embed + (embed.includes("?") ? "&" : "?") + "autoplay=1";
   };
 
   const close = () => {
     modal.hidden = true;
-    iframe.src = '';
+    iframe.src = "";
   };
 
-  videoBtns.forEach(btn => btn.addEventListener('click', () => open(btn.dataset.video)));
-  closeEls.forEach(el => el.addEventListener('click', close));
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
-
-  // Click outside panel closes
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) close();
-  });
+  videoBtns.forEach(btn => btn.addEventListener("click", () => open(btn.dataset.video)));
+  closeEls.forEach(el => el.addEventListener("click", close));
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
 })();
 
-
-// ------------------------------
-// Footer year
-// ------------------------------
-const y = document.getElementById('year');
+/* Footer year */
+const y = document.getElementById("year");
 if (y) y.textContent = new Date().getFullYear();
