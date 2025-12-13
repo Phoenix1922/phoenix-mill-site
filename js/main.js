@@ -1,8 +1,11 @@
 console.log("main.js loaded OK");
 
-/* Mobile nav */
+/* ---------------------------
+   Mobile nav
+---------------------------- */
 const navToggle = document.querySelector(".navToggle");
 const nav = document.querySelector(".nav");
+
 if (navToggle && nav) {
   navToggle.addEventListener("click", () => {
     const expanded = navToggle.getAttribute("aria-expanded") === "true";
@@ -22,44 +25,48 @@ if (navToggle && nav) {
   });
 }
 
-/* Prestige-style Hero Slider (true horizontal slide) */
-(function initSlider(){
+/* ---------------------------
+   HERO CAROUSEL (Prestige-style)
+   Uses EXISTING .hero__track
+---------------------------- */
+(function initHeroSlider() {
   const slider = document.querySelector("[data-slider]");
   if (!slider) return;
 
-  const slides = Array.from(slider.querySelectorAll(".slide"));
+  const track = slider.querySelector(".hero__track");
+  const slides = Array.from(track.querySelectorAll(".slide"));
+
   if (slides.length <= 1) return;
 
   const prevBtn = slider.querySelector("[data-prev]");
   const nextBtn = slider.querySelector("[data-next]");
   const dotsWrap = slider.querySelector("[data-dots]");
 
-  // Build track and move slides into it (no HTML edits needed)
-  const track = document.createElement("div");
-  track.className = "slidesTrack";
-
-  slides.forEach(s => track.appendChild(s));
-  // Put track as the first child so buttons/dots remain on top
-  slider.insertBefore(track, slider.firstChild);
-
-  let idx = 0;
+  let index = 0;
   let timer = null;
-  let isPaused = false;
+  let paused = false;
 
-  const setActiveDot = () => {
+  // Ensure correct sizing
+  track.style.display = "flex";
+  track.style.width = `${slides.length * 100}%`;
+  slides.forEach(slide => {
+    slide.style.width = `${100 / slides.length}%`;
+  });
+
+  function go(i) {
+    index = (i + slides.length) % slides.length;
+    track.style.transform = `translateX(-${index * (100 / slides.length)}%)`;
+    updateDots();
+  }
+
+  function updateDots() {
     if (!dotsWrap) return;
-    Array.from(dotsWrap.children).forEach((d, k) => {
-      d.classList.toggle("is-active", k === idx);
-    });
-  };
+    [...dotsWrap.children].forEach((d, i) =>
+      d.classList.toggle("is-active", i === index)
+    );
+  }
 
-  const go = (i) => {
-    idx = (i + slides.length) % slides.length;
-    track.style.transform = `translateX(-${idx * 100}%)`;
-    setActiveDot();
-  };
-
-  // Dots
+  // Build dots
   if (dotsWrap) {
     dotsWrap.innerHTML = "";
     slides.forEach((_, i) => {
@@ -70,47 +77,42 @@ if (navToggle && nav) {
     });
   }
 
-  const next = () => go(idx + 1);
-  const prev = () => go(idx - 1);
+  function next() { go(index + 1); }
+  function prev() { go(index - 1); }
 
   nextBtn && nextBtn.addEventListener("click", next);
   prevBtn && prevBtn.addEventListener("click", prev);
 
-  // Auto-advance with pause on hover/focus
-  const start = () => {
+  // Auto-advance
+  function start() {
     stop();
     timer = setInterval(() => {
-      if (!isPaused) next();
-    }, 6500);
-  };
-  const stop = () => {
+      if (!paused) next();
+    }, 6000);
+  }
+
+  function stop() {
     if (timer) clearInterval(timer);
     timer = null;
-  };
+  }
 
-  slider.addEventListener("mouseenter", () => { isPaused = true; });
-  slider.addEventListener("mouseleave", () => { isPaused = false; });
-  slider.addEventListener("focusin", () => { isPaused = true; });
-  slider.addEventListener("focusout", () => { isPaused = false; });
+  slider.addEventListener("mouseenter", () => paused = true);
+  slider.addEventListener("mouseleave", () => paused = false);
+  slider.addEventListener("focusin", () => paused = true);
+  slider.addEventListener("focusout", () => paused = false);
 
-  // Touch swipe (phone)
+  // Touch swipe
   let startX = 0;
-  let isDown = false;
 
-  slider.addEventListener("touchstart", (e) => {
-    if (!e.touches || !e.touches.length) return;
-    isDown = true;
+  slider.addEventListener("touchstart", e => {
     startX = e.touches[0].clientX;
-    isPaused = true;
+    paused = true;
   }, { passive: true });
 
-  slider.addEventListener("touchend", (e) => {
-    if (!isDown) return;
-    isDown = false;
-    isPaused = false;
-
-    const endX = (e.changedTouches && e.changedTouches.length) ? e.changedTouches[0].clientX : startX;
+  slider.addEventListener("touchend", e => {
+    const endX = e.changedTouches[0].clientX;
     const dx = endX - startX;
+    paused = false;
 
     if (Math.abs(dx) > 40) {
       dx < 0 ? next() : prev();
@@ -122,22 +124,24 @@ if (navToggle && nav) {
   start();
 })();
 
-/* Testimonials */
-(function initQuotes(){
+/* ---------------------------
+   Testimonials
+---------------------------- */
+(function initQuotes() {
   const root = document.querySelector("[data-quotes]");
   if (!root) return;
 
-  const quotes = Array.from(root.querySelectorAll(".quote"));
+  const quotes = [...root.querySelectorAll(".quote")];
   const prev = root.querySelector("[data-qprev]");
   const next = root.querySelector("[data-qnext]");
 
   if (quotes.length <= 1) return;
 
   let i = 0;
-  const show = (n) => {
+  function show(n) {
     i = (n + quotes.length) % quotes.length;
     quotes.forEach((q, k) => q.classList.toggle("is-active", k === i));
-  };
+  }
 
   prev && prev.addEventListener("click", () => show(i - 1));
   next && next.addEventListener("click", () => show(i + 1));
@@ -145,8 +149,10 @@ if (navToggle && nav) {
   show(0);
 })();
 
-/* Video modal */
-(function initVideo(){
+/* ---------------------------
+   Video modal
+---------------------------- */
+(function initVideo() {
   const modal = document.querySelector("[data-modal]");
   if (!modal) return;
 
@@ -154,24 +160,31 @@ if (navToggle && nav) {
   const closeEls = modal.querySelectorAll("[data-close]");
   const videoBtns = document.querySelectorAll("[data-video]");
 
-  const open = (url) => {
+  function open(url) {
     modal.hidden = false;
     const embed = url.includes("youtube.com/watch")
       ? url.replace("watch?v=", "embed/")
       : url;
     iframe.src = embed + (embed.includes("?") ? "&" : "?") + "autoplay=1";
-  };
+  }
 
-  const close = () => {
+  function close() {
     modal.hidden = true;
     iframe.src = "";
-  };
+  }
 
-  videoBtns.forEach(btn => btn.addEventListener("click", () => open(btn.dataset.video)));
+  videoBtns.forEach(btn =>
+    btn.addEventListener("click", () => open(btn.dataset.video))
+  );
+
   closeEls.forEach(el => el.addEventListener("click", close));
-  document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") close();
+  });
 })();
 
-/* Footer year */
+/* ---------------------------
+   Footer year
+---------------------------- */
 const y = document.getElementById("year");
 if (y) y.textContent = new Date().getFullYear();
