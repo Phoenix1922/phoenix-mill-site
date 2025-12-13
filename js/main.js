@@ -22,36 +22,26 @@ if (navToggle && nav) {
   });
 }
 
-/* Hero Slider */
+/* Hero Slider (horizontal translate) */
 (function initSlider(){
   const slider = document.querySelector("[data-slider]");
   if (!slider) return;
 
-  const existingTrack = slider.querySelector(".hero__track");
-  if (existingTrack) return; // prevent double-init if script runs twice
+  const track = slider.querySelector(".hero__track");
+  if (!track) return;
 
-  const slides = Array.from(slider.querySelectorAll(".slide"));
+  const slides = Array.from(track.querySelectorAll(".slide"));
   if (slides.length <= 1) return;
 
   const prevBtn = slider.querySelector("[data-prev]");
   const nextBtn = slider.querySelector("[data-next]");
   const dotsWrap = slider.querySelector("[data-dots]");
 
-  // Build track to match CSS
-  const track = document.createElement("div");
-  track.className = "hero__track";
-
-  // Move slides into track
-  slides.forEach(s => track.appendChild(s));
-  slider.insertBefore(track, slider.firstChild);
-
-  const trackSlides = Array.from(track.querySelectorAll(".slide"));
-
   let idx = 0;
   let timer = null;
-  let paused = false;
+  let isPaused = false;
 
-  const setDots = () => {
+  const setActiveDot = () => {
     if (!dotsWrap) return;
     Array.from(dotsWrap.children).forEach((d, k) => {
       d.classList.toggle("is-active", k === idx);
@@ -59,16 +49,15 @@ if (navToggle && nav) {
   };
 
   const go = (i) => {
-    idx = (i + trackSlides.length) % trackSlides.length;
-
-    // Avoid Safari blank-frame glitches
+    idx = (i + slides.length) % slides.length;
     track.style.transform = `translateX(-${idx * 100}%)`;
-    setDots();
+    setActiveDot();
   };
 
+  // Dots
   if (dotsWrap) {
     dotsWrap.innerHTML = "";
-    trackSlides.forEach((_, i) => {
+    slides.forEach((_, i) => {
       const b = document.createElement("button");
       b.type = "button";
       b.addEventListener("click", () => go(i));
@@ -79,26 +68,31 @@ if (navToggle && nav) {
   const next = () => go(idx + 1);
   const prev = () => go(idx - 1);
 
-  nextBtn && nextBtn.addEventListener("click", () => next());
-  prevBtn && prevBtn.addEventListener("click", () => prev());
+  if (nextBtn) nextBtn.addEventListener("click", () => { next(); restart(); });
+  if (prevBtn) prevBtn.addEventListener("click", () => { prev(); restart(); });
 
   const start = () => {
     stop();
     timer = setInterval(() => {
-      if (!paused) next();
+      if (!isPaused) next();
     }, 5500);
   };
+
   const stop = () => {
     if (timer) clearInterval(timer);
     timer = null;
   };
 
-  slider.addEventListener("mouseenter", () => { paused = true; });
-  slider.addEventListener("mouseleave", () => { paused = false; });
-  slider.addEventListener("focusin", () => { paused = true; });
-  slider.addEventListener("focusout", () => { paused = false; });
+  const restart = () => {
+    start();
+  };
 
-  // Swipe (mobile)
+  slider.addEventListener("mouseenter", () => { isPaused = true; });
+  slider.addEventListener("mouseleave", () => { isPaused = false; });
+  slider.addEventListener("focusin", () => { isPaused = true; });
+  slider.addEventListener("focusout", () => { isPaused = false; });
+
+  // Touch swipe
   let startX = 0;
   let isDown = false;
 
@@ -106,21 +100,20 @@ if (navToggle && nav) {
     if (!e.touches || !e.touches.length) return;
     isDown = true;
     startX = e.touches[0].clientX;
-    paused = true;
+    isPaused = true;
   }, { passive: true });
 
   slider.addEventListener("touchend", (e) => {
     if (!isDown) return;
     isDown = false;
-    paused = false;
+    isPaused = false;
 
-    const endX = (e.changedTouches && e.changedTouches.length)
-      ? e.changedTouches[0].clientX
-      : startX;
-
+    const endX = (e.changedTouches && e.changedTouches.length) ? e.changedTouches[0].clientX : startX;
     const dx = endX - startX;
+
     if (Math.abs(dx) > 40) {
       dx < 0 ? next() : prev();
+      restart();
     }
   }, { passive: true });
 
@@ -144,8 +137,9 @@ if (navToggle && nav) {
     quotes.forEach((q, k) => q.classList.toggle("is-active", k === i));
   };
 
-  prev && prev.addEventListener("click", () => show(i - 1));
-  next && next.addEventListener("click", () => show(i + 1));
+  if (prev) prev.addEventListener("click", () => show(i - 1));
+  if (next) next.addEventListener("click", () => show(i + 1));
+
   show(0);
 })();
 
