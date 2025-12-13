@@ -1,162 +1,275 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Phoenix Mill Events | Historic Event Venue in Plymouth, MI</title>
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap"
-  rel="stylesheet"
-/>  
-  <link rel="stylesheet" href="css/styles.css" />
+  <title>Phoenix Mill Events</title>
+  <meta name="description" content="Phoenix Mill Events — a historic venue for weddings, corporate events, celebrations, and more." />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="header-top">
-      <div class="logo">
-        <!-- Replace with your logo image if you like -->
-        <a href="index.html">Phoenix Mill Events</a>
+  <!-- Top contact ribbon -->
+  <div class="topbar">
+    <div class="wrap topbar__inner">
+      <div class="topbar__left">
+        <a href="tel:+1XXXXXXXXXX">Call: (XXX) XXX-XXXX</a>
+        <span class="dot">•</span>
+        <a href="mailto:hello@phoenixmillevents.com">hello@phoenixmillevents.com</a>
       </div>
-      <div class="header-contact">
-        <a href="mailto:[email protected]">[email protected]</a>
-        <span class="separator">|</span>
-        <a href="tel:17342529747">734-252-9747</a>
-        <a class="btn btn-primary" href="contact.html">Book Now</a>
+      <div class="topbar__right">
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <span class="dot">•</span>
+        <a href="#" aria-label="Facebook">Facebook</a>
       </div>
     </div>
+  </div>
 
-    <nav class="main-nav">
-      <ul>
-        <li><a href="history.html">History</a></li>
-        <li class="has-submenu">
-          <a href="meet-our-team.html">About Us</a>
-          <ul class="submenu">
-            <li><a href="meet-our-team.html">Meet Our Team</a></li>
-          </ul>
-        </li>
-        <li class="has-submenu">
-          <a href="our-venue.html">Our Venue</a>
-          <ul class="submenu">
-            <li><a href="weddings.html">Weddings</a></li>
-            <li><a href="corporate-events.html">Corporate</a></li>
-            <li><a href="social.html">Social</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="https://my.matterport.com" target="_blank" rel="noopener">3D Tour</a></li>
-          </ul>
-        </li>
-        <li><a href="tour-our-space.html">Tour Our Space</a></li>
-        <li><a href="preferred-vendors.html">Preferred Vendors</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-      </ul>
-    </nav>
+  <!-- Header / Nav -->
+  <header class="header">
+    <div class="wrap header__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__name">Phoenix Mill Events</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="#venue">Our Venue</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#setups">Setups</a>
+        <a href="#vendors">Vendors</a>
+        <a href="#articles">Articles</a>
+        <a class="btn btn--sm" href="get-started.html">Get Started</a>
+      </nav>
+
+      <button class="navToggle" aria-label="Open menu" aria-expanded="false">Menu</button>
+    </div>
   </header>
 
-  <main>
-    <!-- Hero -->
-    <section class="hero">
-      <div class="hero-content">
-        <p class="eyebrow">Welcome to</p>
-        <h1>Phoenix Mill Events</h1>
-        <p class="hero-subtitle">
-          A historic Ford “Village Industry” factory transformed into a one-of-a-kind event venue in Hines Park.
-        </p>
-        <a class="btn btn-primary" href="tour-our-space.html">Plan Your Event Now</a>
-      </div>
-    </section>
-
-    <!-- Highlighted event types -->
-    <section class="feature-cards">
-      <article class="feature-card">
-        <h2>Weddings</h2>
-        <p>
-          Your venue should be as historic and memorable as your wedding. Celebrate your love story in a 100-year-old
-          brick factory surrounded by beautiful Hines Park and the River Rouge.
-        </p>
-        <a href="weddings.html" class="text-link">Read More →</a>
-      </article>
-
-      <article class="feature-card">
-        <h2>Corporate Events</h2>
-        <p>
-          From conferences and trainings to dinners and celebrations, our flexible space can be tailored to your
-          company’s needs – with history and character you won’t find in a hotel ballroom.
-        </p>
-        <a href="corporate-events.html" class="text-link">Read More →</a>
-      </article>
-
-      <article class="feature-card">
-        <h2>Social Events</h2>
-        <p>
-          Birthdays, anniversaries, reunions, car club meetups, and more – host your next celebration in a landmark
-          factory that helped power the “Arsenal of Democracy”.
-        </p>
-        <a href="social.html" class="text-link">Read More →</a>
-      </article>
-    </section>
-
-    <!-- Overview / History teaser -->
-    <section class="history-teaser">
-      <h2>Overview &amp; History</h2>
-      <p>
-        Built between 1920–1922, the Phoenix Mill factory produced parts for the Ford Model T and Model A and later
-        supported the WWII effort as part of the “Arsenal of Democracy.” Today, the restored building retains its
-        historic character while offering modern amenities for weddings, corporate events, and celebrations.
-      </p>
-      <a href="history.html" class="btn btn-secondary">Read Full History</a>
-    </section>
-
-    <!-- Contact strip -->
-    <section class="contact-strip">
-      <div>
-        <h2>Contact</h2>
-        <p>Phoenix Mill Events</p>
-        <p>15000 Edward N Hines Dr<br />Plymouth, MI 48170</p>
-        <p><a href="tel:17342529747">734-252-9747</a><br />
-           <a href="mailto:[email protected]">[email protected]</a>
-        </p>
-      </div>
-      <div class="contact-strip-actions">
-        <a class="btn btn-primary" href="contact.html">Inquire About Your Event</a>
-        <div class="social-links">
-          <a href="https://www.instagram.com" target="_blank" rel="noopener">Instagram</a>
-          <a href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+  <!-- Hero carousel -->
+  <section class="hero" aria-label="Featured highlights">
+    <div class="hero__slider" data-slider>
+      <!-- Slide 1 (video-style) -->
+      <div class="slide is-active" style="background-image:url('assets/img/hero-1.jpg')">
+        <div class="wrap slide__content">
+          <p class="kicker">Historic venue • Modern events</p>
+          <h1>Phoenix Mill Events</h1>
+          <p class="lead">A timeless space for weddings, corporate gatherings, celebrations, and community events.</p>
+          <div class="actions">
+            <a class="btn" href="get-started.html">Get Started</a>
+            <button class="btn btn--ghost" data-video="https://www.youtube.com/watch?v=VIDEO_ID">Watch video</button>
+          </div>
         </div>
       </div>
-    </section>
 
-    <!-- Testimonials (static placeholder; can be enhanced later) -->
-    <section class="testimonials">
-      <h2>Testimonials</h2>
-      <figure class="testimonial">
-        <blockquote>
-          “This was a great venue for our business event. It was a great atmosphere, unique space &amp; professional
-          people to work with. I highly recommend for your next event!”
+      <!-- Slide 2 -->
+      <div class="slide" style="background-image:url('assets/img/hero-2.jpg')">
+        <div class="wrap slide__content">
+          <p class="kicker">Weddings</p>
+          <h2>Elegant. Warm. Unforgettable.</h2>
+          <p class="lead">Ceremony, cocktail hour, and reception layouts that fit your style.</p>
+          <div class="actions">
+            <a class="btn" href="#setups">View setups</a>
+            <a class="btn btn--ghost" href="get-started.html">Check availability</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="slide" style="background-image:url('assets/img/hero-3.jpg')">
+        <div class="wrap slide__content">
+          <p class="kicker">Corporate + Community</p>
+          <h2>Meetings, trainings, launches</h2>
+          <p class="lead">Bring your people together in a space that feels premium—without feeling stuffy.</p>
+          <div class="actions">
+            <a class="btn" href="#capabilities">See capabilities</a>
+            <a class="btn btn--ghost" href="get-started.html">Get a quote</a>
+          </div>
+        </div>
+      </div>
+
+      <button class="sliderBtn prev" aria-label="Previous slide" data-prev>‹</button>
+      <button class="sliderBtn next" aria-label="Next slide" data-next>›</button>
+
+      <div class="dots" aria-label="Carousel dots" data-dots></div>
+    </div>
+  </section>
+
+  <!-- Intro / Get Started block -->
+  <section class="section" id="venue">
+    <div class="wrap grid2">
+      <div>
+        <h2>Host your next event in a space with real character.</h2>
+        <p class="muted">
+          Phoenix Mill blends historic charm with flexible layouts—perfect for weddings, corporate events,
+          celebrations, photo shoots, and more.
+        </p>
+        <div class="actions">
+          <a class="btn" href="get-started.html">Get Started</a>
+          <a class="btn btn--ghost" href="#capabilities">Explore capabilities</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Quick facts</h3>
+        <ul class="list">
+          <li>Flexible layouts + multiple setups</li>
+          <li>Vendor-friendly</li>
+          <li>Great for weddings + corporate events</li>
+          <li>Historic ambiance</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Capabilities -->
+  <section class="section section--alt" id="capabilities">
+    <div class="wrap">
+      <div class="sectionHead">
+        <h2>Full capabilities</h2>
+        <p class="muted">Everything you need to host an event that runs smoothly from start to finish.</p>
+      </div>
+
+      <div class="cards">
+        <div class="capCard"><h3>Weddings</h3><p>Ceremony + reception layouts, photo-friendly spaces, warm ambiance.</p></div>
+        <div class="capCard"><h3>Corporate</h3><p>Trainings, town halls, launches, workshops, offsites.</p></div>
+        <div class="capCard"><h3>Celebrations</h3><p>Birthdays, anniversaries, showers, reunions.</p></div>
+        <div class="capCard"><h3>Community</h3><p>Fundraisers, nonprofit events, seasonal gatherings.</p></div>
+        <div class="capCard"><h3>Vendor partners</h3><p>Preferred vendors and easy coordination.</p></div>
+        <div class="capCard"><h3>Flexible setups</h3><p>Multiple configurations to match your event size and style.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Parallax section -->
+  <section class="parallax" style="background-image:url('assets/img/parallax-1.jpg')">
+    <div class="parallax__overlay">
+      <div class="wrap parallax__content">
+        <h2>Historic charm. Modern experiences.</h2>
+        <p>As you scroll, the venue stays present—like the model site you shared.</p>
+        <a class="btn" href="get-started.html">Start your inquiry</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Setups -->
+  <section class="section" id="setups">
+    <div class="wrap">
+      <div class="sectionHead">
+        <h2>Popular setups</h2>
+        <p class="muted">A few examples—these become clickable later if you want.</p>
+      </div>
+
+      <div class="cards">
+        <div class="setupCard"><h3>Ceremony</h3><p>Classic aisle + seating.</p></div>
+        <div class="setupCard"><h3>Reception</h3><p>Tables, dance floor, head table.</p></div>
+        <div class="setupCard"><h3>Corporate</h3><p>Theater, classroom, or rounds.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vendor partners -->
+  <section class="section section--alt" id="vendors">
+    <div class="wrap">
+      <div class="sectionHead">
+        <h2>Preferred vendor partners</h2>
+        <p class="muted">Logos here (we’ll add images later).</p>
+      </div>
+
+      <div class="logoRow">
+        <div class="logoPill">Vendor 1</div>
+        <div class="logoPill">Vendor 2</div>
+        <div class="logoPill">Vendor 3</div>
+        <div class="logoPill">Vendor 4</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials carousel (near bottom) -->
+  <section class="section" id="testimonials">
+    <div class="wrap">
+      <div class="sectionHead">
+        <h2>What people say</h2>
+        <p class="muted">Swap these for real quotes whenever you want.</p>
+      </div>
+
+      <div class="quoteBox" data-quotes>
+        <blockquote class="quote is-active">
+          “Beautiful space and a smooth experience from planning to the final song.”
+          <cite>— Guest</cite>
         </blockquote>
-        <figcaption>— Carrie Bloink</figcaption>
-      </figure>
-    </section>
-  </main>
+        <blockquote class="quote">
+          “Our team event felt premium and easy. Great flow and great vibe.”
+          <cite>— Corporate client</cite>
+        </blockquote>
+        <blockquote class="quote">
+          “The venue photographs incredibly well — our guests loved it.”
+          <cite>— Wedding couple</cite>
+        </blockquote>
 
-  <footer class="site-footer">
-    <nav class="footer-nav">
-      <a href="history.html">History</a>
-      <a href="meet-our-team.html">About Us</a>
-      <a href="our-venue.html">Our Venue</a>
-      <a href="tour-our-space.html">Tour Our Space</a>
-      <a href="preferred-vendors.html">Preferred Vendors</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="contact.html">Contact Us</a>
-    </nav>
-    <p class="footer-meta">
-      © <span id="year"></span> Phoenix Mill Events · Plymouth, Michigan
-    </p>
+        <div class="quoteControls">
+          <button class="btn btn--ghost btn--sm" data-qprev>Prev</button>
+          <button class="btn btn--ghost btn--sm" data-qnext>Next</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Articles -->
+  <section class="section section--alt" id="articles">
+    <div class="wrap">
+      <div class="sectionHead">
+        <h2>Articles & ideas</h2>
+        <p class="muted">Each card can link to a simple page describing a layout, feature, or story.</p>
+      </div>
+
+      <div class="cards">
+        <a class="articleCard" href="#">
+          <h3>Layout ideas for 100 guests</h3>
+          <p>What works best for flow, photos, and comfort.</p>
+        </a>
+        <a class="articleCard" href="#">
+          <h3>Corporate event checklist</h3>
+          <p>A simple plan for an event that runs itself.</p>
+        </a>
+        <a class="articleCard" href="#">
+          <h3>Vendor coordination tips</h3>
+          <p>How we keep everything smooth and on time.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <div>
+        <h3>Phoenix Mill Events</h3>
+        <p class="muted">Address line • City, MI • ZIP</p>
+        <p class="muted">Hours: Mon–Fri 10–7 • Sat 10–4 • Sun Closed</p>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p><a href="tel:+1XXXXXXXXXX">(XXX) XXX-XXXX</a></p>
+        <p><a href="mailto:hello@phoenixmillevents.com">hello@phoenixmillevents.com</a></p>
+        <p><a href="get-started.html">Get Started</a></p>
+      </div>
+    </div>
+    <div class="wrap footer__bottom">
+      <span>© <span id="year"></span> Phoenix Mill Events</span>
+    </div>
   </footer>
 
-  <script>
-    // Tiny helper to keep the year updated
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <!-- Video modal -->
+  <div class="modal" hidden data-modal>
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__panel" role="dialog" aria-modal="true" aria-label="Video">
+      <button class="modal__close" aria-label="Close" data-close>✕</button>
+      <div class="modal__body">
+        <iframe title="Video" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
