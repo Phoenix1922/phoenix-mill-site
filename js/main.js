@@ -1,3 +1,4 @@
+console.log("main.js loaded OK");
 // Mobile nav (simple: toggle class + show/hide nav)
 const navToggle = document.querySelector('.navToggle');
 const nav = document.querySelector('.nav');
