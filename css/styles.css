@@ -1,4 +1,3 @@
-body { outline: 12px solid magenta !important; }
 :root{
   --bg: #f2e6cf;
   --bg2:#efe0c5;
@@ -78,17 +77,24 @@ a:hover{opacity:.9}
 }
 .btn--sm{padding:9px 14px;font-size:14px}
 
-/* HERO */
+/* HERO (Prestige-style sliding carousel) */
 .hero{position:relative}
 .hero__slider{
   position:relative;
+  width: 100%;
   height: 72vh;
   min-height: 520px;
   overflow:hidden;
-  background:#000;
+  background: #000;
+  touch-action: pan-y; /* helps mobile swipes not fight scrolling */
 }
 
-/* Track holds slides side-by-side */
+/* IMPORTANT:
+   JS creates class="slidesTrack"
+   Your old CSS was using .hero__track
+   We support BOTH so you can't get mismatched again.
+*/
+.slidesTrack,
 .hero__track{
   height: 100%;
   width: 100%;
@@ -97,14 +103,14 @@ a:hover{opacity:.9}
   transition: transform .65s cubic-bezier(.22,.61,.36,1);
 }
 
-/* Each slide is full width of slider */
+/* Slides are full viewport width inside the track */
 .slide{
   position: relative;
   flex: 0 0 100%;
   min-width: 100%;
   height: 100%;
   background-size: cover;
-  background-position: center;
+  background-position: center center;
 }
 
 /* Dark gradient overlay for readability */
@@ -215,7 +221,7 @@ h2{font-size:44px}
   padding: 72px 0;
 }
 
-/* iOS Safari fallback */
+/* iOS Safari fallback (no true fixed attachment) */
 @supports (-webkit-touch-callout: none) {
   .parallax{
     background-attachment: scroll;
@@ -292,7 +298,7 @@ h2{font-size:44px}
   .navToggle{
     display:inline-flex;gap:10px;align-items:center;
     border:1px solid rgba(23,58,44,.25);
-    background:transparent;border-radius:999px;padding:10px 14px;
+    background:transparent;border-radius:999px;padding:10px 14px
   }
   .hero__slider{min-height: 520px}
   .slide__content{padding: 64px 0}
