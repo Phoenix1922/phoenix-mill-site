@@ -4,55 +4,116 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Phoenix Mill Events</title>
-  <link rel="stylesheet" href="css/styles.css?v=2" />
+  <meta name="description" content="Phoenix Mill Events — a historic venue for weddings, corporate events, celebrations, and more." />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 
 <body>
   <!-- Top contact ribbon -->
   <div class="topbar">
     <div class="wrap topbar__inner">
-      <div>Call: (XXX) XXX-XXXX • hello@phoenixmillevents.com</div>
-      <div>Instagram • Facebook</div>
+      <div class="topbar__left">
+        <a href="tel:+1XXXXXXXXXX">Call: (XXX) XXX-XXXX</a>
+        <span class="dot">•</span>
+        <a href="mailto:hello@phoenixmillevents.com">hello@phoenixmillevents.com</a>
+      </div>
+      <div class="topbar__right">
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <span class="dot">•</span>
+        <a href="#" aria-label="Facebook">Facebook</a>
+      </div>
     </div>
   </div>
 
   <!-- Header / Nav -->
   <header class="header">
     <div class="wrap header__inner">
-      <div class="brand__name">Phoenix Mill Events</div>
+      <a class="brand" href="index.html">
+        <span class="brand__name">Phoenix Mill Events</span>
+      </a>
+
       <nav class="nav" aria-label="Primary">
         <a href="#venue">Our Venue</a>
         <a href="#capabilities">Capabilities</a>
         <a href="#setups">Setups</a>
         <a href="#vendors">Vendors</a>
         <a href="#articles">Articles</a>
-        <a class="btn btn--sm" href="#get-started">Get Started</a>
+        <a class="btn btn--sm" href="get-started.html">Get Started</a>
       </nav>
+
       <button class="navToggle" aria-label="Open menu" aria-expanded="false">Menu</button>
     </div>
   </header>
 
-  <!-- Hero placeholder (NO images yet) -->
-  <section class="hero">
-    <div class="hero__placeholder">
-      <div class="wrap">
-        <p class="kicker">Historic venue • Modern events</p>
-        <h1>Phoenix Mill Events</h1>
-        <p class="lead">This is just a placeholder hero. No assets yet.</p>
-        <div class="actions">
-          <a class="btn" href="#get-started">Get Started</a>
-          <a class="btn btn--ghost" href="#venue">Explore</a>
+  <!-- HERO CAROUSEL (no assets needed yet — uses gradients) -->
+  <section class="hero" aria-label="Featured highlights">
+    <div class="hero__slider" data-slider>
+      <div class="hero__track" data-track>
+        <!-- Slide 1 -->
+        <div class="slide" style="background-image: linear-gradient(120deg, rgba(15,42,32,.95), rgba(15,42,32,.55));">
+          <div class="wrap slide__content">
+            <p class="kicker">Historic venue • Modern events</p>
+            <h1>Phoenix Mill Events</h1>
+            <p class="lead">A timeless space for weddings, corporate gatherings, celebrations, and community events.</p>
+            <div class="actions">
+              <a class="btn" href="get-started.html">Get Started</a>
+              <button class="btn btn--ghost" data-video="https://www.youtube.com/watch?v=VIDEO_ID">Watch video</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide" style="background-image: linear-gradient(120deg, rgba(31,74,56,.95), rgba(15,42,32,.55));">
+          <div class="wrap slide__content">
+            <p class="kicker">Weddings</p>
+            <h2>Elegant. Warm. Unforgettable.</h2>
+            <p class="lead">Ceremony, cocktail hour, and reception layouts that fit your style.</p>
+            <div class="actions">
+              <a class="btn" href="#setups">View setups</a>
+              <a class="btn btn--ghost" href="get-started.html">Check availability</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slide" style="background-image: linear-gradient(120deg, rgba(23,58,44,.95), rgba(15,42,32,.55));">
+          <div class="wrap slide__content">
+            <p class="kicker">Corporate + Community</p>
+            <h2>Meetings, trainings, launches</h2>
+            <p class="lead">Bring your people together in a space that feels premium—without feeling stuffy.</p>
+            <div class="actions">
+              <a class="btn" href="#capabilities">See capabilities</a>
+              <a class="btn btn--ghost" href="get-started.html">Get a quote</a>
+            </div>
+          </div>
         </div>
       </div>
+
+      <button class="sliderBtn prev" aria-label="Previous slide" type="button" data-prev>‹</button>
+      <button class="sliderBtn next" aria-label="Next slide" type="button" data-next>›</button>
+
+      <div class="dots" aria-label="Carousel dots" data-dots></div>
     </div>
   </section>
 
+  <!-- Intro -->
   <section class="section" id="venue">
     <div class="wrap">
-      <h2>Venue section placeholder</h2>
-      <p class="muted">We’re only confirming layout is rendering correctly.</p>
+      <h2>Host your next event in a space with real character.</h2>
+      <p class="muted">Phoenix Mill blends historic charm with flexible layouts—perfect for weddings, corporate events, celebrations, photo shoots, and more.</p>
     </div>
   </section>
+
+  <!-- Video modal -->
+  <div class="modal" hidden data-modal>
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__panel" role="dialog" aria-modal="true" aria-label="Video">
+      <button class="modal__close" aria-label="Close" data-close type="button">✕</button>
+      <div class="modal__body">
+        <iframe title="Video" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
 
   <script defer src="./js/main.js"></script>
 </body>
