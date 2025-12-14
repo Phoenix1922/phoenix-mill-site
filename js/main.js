@@ -199,3 +199,50 @@ if (navToggle && nav) {
 /* Footer year */
 const y = document.getElementById("year");
 if (y) y.textContent = new Date().getFullYear();
+
+// ===== Step 3: Faux-parallax (works on iPhone + desktop) =====
+(function () {
+  const sections = Array.from(document.querySelectorAll("[data-parallax]"));
+  if (!sections.length) return;
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduceMotion) return;
+
+  let ticking = false;
+
+  function update() {
+    ticking = false;
+
+    const vh = window.innerHeight || 1;
+
+    sections.forEach(section => {
+      const media = section.querySelector("[data-parallax-media]");
+      if (!media) return;
+
+      const rect = section.getBoundingClientRect();
+
+      // Skip if far offscreen
+      if (rect.bottom < -200 || rect.top > vh + 200) return;
+
+      // progress: 0 when top hits bottom of viewport, 1 when bottom hits top
+      const progress = (vh - rect.top) / (vh + rect.height);
+      const clamped = Math.max(0, Math.min(1, progress));
+
+      // Move image layer: adjust strength here (try 50–110)
+      const strength = 90;
+      const y = (clamped - 0.5) * strength;
+
+      media.style.transform = `translate3d(0, ${y}px, 0)`;
+    });
+  }
+
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(update);
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  onScroll(); // initial
+})();
