@@ -24,121 +24,99 @@ if (navToggle && nav) {
 
 /* HERO CAROUSEL (true horizontal sliding, no drift) */
 (function initHeroCarousel() {
-  const slider = document.querySelector("[data-slider]");
-  if (!slider) return;
+  const slider = document.querySelector("[data-slider]");
+  if (!slider) return;
 
-  const track = slider.querySelector("[data-track]");
-  if (!track) return;
+  const track = slider.querySelector("[data-track]");
+  if (!track) return;
 
-  const slides = Array.from(track.querySelectorAll(".slide"));
-  if (slides.length <= 1) return;
+  const slides = Array.from(track.querySelectorAll(".slide"));
+  if (slides.length <= 1) return;
 
-  const prevBtn = slider.querySelector("[data-prev]");
-  const nextBtn = slider.querySelector("[data-next]");
-  const dotsWrap = slider.querySelector("[data-dots]");
+  const prevBtn = slider.querySelector("[data-prev]");
+  const nextBtn = slider.querySelector("[data-next]");
+  const dotsWrap = slider.querySelector("[data-dots]");
 
-  let idx = 0;
-  let timer = null;
-  let paused = false;
+  let idx = 0;
+  let timer = null;
+  let paused = false;
 
-  // Force exact geometry so translate math is correct (prevents drift/peeking)
-  const count = slides.length;
-  track.style.width = `${count * 100}%`;
-  slides.forEach((s) => {
-    s.style.flex = `0 0 ${100 / count}%`;
-    s.style.width = `${100 / count}%`;
-  });
+  // Force viewport-based sizing (NO percentage math)
+  slides.forEach(slide => {
+    slide.style.width = "100vw";
+    slide.style.flex = "0 0 100vw";
+  });
 
-  function setDots() {
-    if (!dotsWrap) return;
-    Array.from(dotsWrap.children).forEach((d, k) => d.classList.toggle("is-active", k === idx));
-  }
+  track.style.width = `${slides.length * 100}vw`;
 
-  function go(i, { instant = false } = {}) {
-    idx = (i + count) % count;
+  function updatePosition(instant = false) {
+    if (instant) track.style.transition = "none";
+    track.style.transform = `translate3d(-${idx * 100}vw, 0, 0)`;
+    if (instant) requestAnimationFrame(() => {
+      track.style.transition = "";
+    });
+    updateDots();
+  }
 
-    if (instant) track.classList.add("is-instant");
+  function updateDots() {
+    if (!dotsWrap) return;
+    [...dotsWrap.children].forEach((d, i) =>
+      d.classList.toggle("is-active", i === idx)
+    );
+  }
 
-    // Because track width is count*100%, we move by 100/count each step
-    const step = 100 / count;
-    track.style.transform = `translate3d(-${idx * step}%, 0, 0)`;
+  function go(i) {
+    idx = (i + slides.length) % slides.length;
+    updatePosition();
+  }
 
-    if (instant) requestAnimationFrame(() => track.classList.remove("is-instant"));
+  function next() { go(idx + 1); }
+  function prev() { go(idx - 1); }
 
-    setDots();
-  }
+  if (dotsWrap) {
+    dotsWrap.innerHTML = "";
+    slides.forEach((_, i) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.addEventListener("click", () => go(i));
+      dotsWrap.appendChild(b);
+    });
+  }
 
-  // Build dots
-  if (dotsWrap) {
-    dotsWrap.innerHTML = "";
-    slides.forEach((_, i) => {
-      const b = document.createElement("button");
-      b.type = "button";
-      b.addEventListener("click", () => go(i));
-      dotsWrap.appendChild(b);
-    });
-  }
+  nextBtn && nextBtn.addEventListener("click", next);
+  prevBtn && prevBtn.addEventListener("click", prev);
 
-  const next = () => go(idx + 1);
-  const prev = () => go(idx - 1);
+  function start() {
+    stop();
+    timer = setInterval(() => {
+      if (!paused) next();
+    }, 4500);
+  }
 
-  nextBtn && nextBtn.addEventListener("click", next);
-  prevBtn && prevBtn.addEventListener("click", prev);
+  function stop() {
+    if (timer) clearInterval(timer);
+  }
 
-  function start() {
-    stop();
-    timer = setInterval(() => {
-      if (!paused) next();
-    }, 4500);
-  }
+  slider.addEventListener("mouseenter", () => paused = true);
+  slider.addEventListener("mouseleave", () => paused = false);
+  slider.addEventListener("focusin", () => paused = true);
+  slider.addEventListener("focusout", () => paused = false);
 
-  function stop() {
-    if (timer) clearInterval(timer);
-    timer = null;
-  }
+  // Touch swipe
+  let startX = 0;
+  slider.addEventListener("touchstart", e => {
+    startX = e.touches[0].clientX;
+    paused = true;
+  }, { passive: true });
 
-  // Pause on hover/focus
-  slider.addEventListener("mouseenter", () => (paused = true));
-  slider.addEventListener("mouseleave", () => (paused = false));
-  slider.addEventListener("focusin", () => (paused = true));
-  slider.addEventListener("focusout", () => (paused = false));
+  slider.addEventListener("touchend", e => {
+    const dx = e.changedTouches[0].clientX - startX;
+    paused = false;
+    if (Math.abs(dx) > 40) dx < 0 ? next() : prev();
+  }, { passive: true });
 
-  // Touch swipe
-  let startX = 0;
-  let down = false;
-
-  slider.addEventListener(
-    "touchstart",
-    (e) => {
-      if (!e.touches || !e.touches.length) return;
-      down = true;
-      paused = true;
-      startX = e.touches[0].clientX;
-    },
-    { passive: true }
-  );
-
-  slider.addEventListener(
-    "touchend",
-    (e) => {
-      if (!down) return;
-      down = false;
-      paused = false;
-
-      const endX =
-        e.changedTouches && e.changedTouches.length ? e.changedTouches[0].clientX : startX;
-      const dx = endX - startX;
-
-      if (Math.abs(dx) > 40) {
-        dx < 0 ? next() : prev();
-      }
-    },
-    { passive: true }
-  );
-
-  // Init
-  go(0, { instant: true });
-  start();
+  updatePosition(true);
+  start();
 })();
 
 /* Video modal */
