@@ -22,7 +22,7 @@ if (navToggle && nav) {
   });
 }
 
-/* Hero Slider (horizontal, forced widths for Safari) */
+/* Hero Slider (true horizontal track) */
 (function initSlider(){
   const slider = document.querySelector("[data-slider]");
   if (!slider) return;
@@ -34,22 +34,12 @@ if (navToggle && nav) {
   const nextBtn = slider.querySelector("[data-next]");
   const dotsWrap = slider.querySelector("[data-dots]");
 
-  // Create track that matches CSS: .slidesTrack
+  // Build track and move slides into it (no HTML edits needed)
   const track = document.createElement("div");
-  track.className = "slidesTrack";
+  track.className = "hero__track";
 
-  // Move slides into track
   slides.forEach(s => track.appendChild(s));
-
-  // Put track at top (buttons/dots remain after it)
   slider.insertBefore(track, slider.firstChild);
-
-  // FORCE track width so Safari can't reflow slides into the same frame
-  track.style.width = `${slides.length * 100}%`;
-  slides.forEach(s => {
-    s.style.width = `${100 / slides.length}%`;
-    s.style.flex = `0 0 ${100 / slides.length}%`;
-  });
 
   let idx = 0;
   let timer = null;
@@ -64,8 +54,7 @@ if (navToggle && nav) {
 
   const go = (i) => {
     idx = (i + slides.length) % slides.length;
-    const pct = (100 / slides.length) * idx;
-    track.style.transform = `translate3d(-${pct}%, 0, 0)`;
+    track.style.transform = `translateX(-${idx * 100}%)`;
     setActiveDot();
   };
 
@@ -83,15 +72,15 @@ if (navToggle && nav) {
   const next = () => go(idx + 1);
   const prev = () => go(idx - 1);
 
-  nextBtn && nextBtn.addEventListener("click", next);
-  prevBtn && prevBtn.addEventListener("click", prev);
+  if (nextBtn) nextBtn.addEventListener("click", next);
+  if (prevBtn) prevBtn.addEventListener("click", prev);
 
-  // Auto-advance
+  // Auto-advance (shorter + sane)
   const start = () => {
     stop();
     timer = setInterval(() => {
       if (!isPaused) next();
-    }, 5200);
+    }, 5500);
   };
   const stop = () => {
     if (timer) clearInterval(timer);
@@ -131,60 +120,6 @@ if (navToggle && nav) {
   start();
 })();
 
-/* Parallax (layer approach: no weird “background seams”) */
-(function initParallax(){
-  const sections = Array.from(document.querySelectorAll(".parallax"));
-  if (!sections.length) return;
-
-  // Build background layers once
-  for (const el of sections) {
-    // Pull existing background-image (from inline style)
-    const bg = getComputedStyle(el).backgroundImage;
-
-    // Create layer if not already present
-    if (!el.querySelector(".parallax__bg")) {
-      const layer = document.createElement("div");
-      layer.className = "parallax__bg";
-      layer.style.backgroundImage = bg;
-      el.prepend(layer);
-    }
-
-    // Clear background on the section so only the layer renders
-    el.style.backgroundImage = "none";
-  }
-
-  let ticking = false;
-
-  const update = () => {
-    ticking = false;
-    const vh = window.innerHeight;
-
-    for (const el of sections) {
-      const rect = el.getBoundingClientRect();
-      if (rect.bottom < 0 || rect.top > vh) continue;
-
-      const layer = el.querySelector(".parallax__bg");
-      if (!layer) continue;
-
-      // 0 at top of viewport, 1 at bottom
-      const progress = (rect.top + rect.height) / (vh + rect.height);
-      const offset = (progress - 0.5) * 80; // strength
-
-      layer.style.transform = `translate3d(0, ${offset}px, 0)`;
-    }
-  };
-
-  const requestUpdate = () => {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(update);
-  };
-
-  window.addEventListener("scroll", requestUpdate, { passive: true });
-  window.addEventListener("resize", requestUpdate);
-  requestUpdate();
-})();
-
 /* Testimonials */
 (function initQuotes(){
   const root = document.querySelector("[data-quotes]");
@@ -193,6 +128,7 @@ if (navToggle && nav) {
   const quotes = Array.from(root.querySelectorAll(".quote"));
   const prev = root.querySelector("[data-qprev]");
   const next = root.querySelector("[data-qnext]");
+
   if (quotes.length <= 1) return;
 
   let i = 0;
@@ -201,8 +137,9 @@ if (navToggle && nav) {
     quotes.forEach((q, k) => q.classList.toggle("is-active", k === i));
   };
 
-  prev && prev.addEventListener("click", () => show(i - 1));
-  next && next.addEventListener("click", () => show(i + 1));
+  if (prev) prev.addEventListener("click", () => show(i - 1));
+  if (next) next.addEventListener("click", () => show(i + 1));
+
   show(0);
 })();
 
