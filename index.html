@@ -6,12 +6,89 @@
   <title>Phoenix Mill Test</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body style="font-family: system-ui; padding: 40px;">
-  <h1 style="margin:0 0 8px;">Phoenix Mill — Pages Test</h1>
-  <p style="margin:0 0 16px;">If you can see this, GitHub Pages is serving index.html correctly.</p>
-  <div class="test-box">
-  LIME BOX TEST (CSS LOADED)
-</div>
-<script defer src="js/main.js"></script>
+<body>
+  <!-- Top contact ribbon -->
+  <div class="topbar">
+    <div class="wrap topbar__inner">
+      <div class="topbar__left">
+        <a href="tel:+1XXXXXXXXXX">Call: (XXX) XXX-XXXX</a>
+        <span class="dot">•</span>
+        <a href="mailto:hello@phoenixmillevents.com">hello@phoenixmillevents.com</a>
+      </div>
+      <div class="topbar__right">
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <span class="dot">•</span>
+        <a href="#" aria-label="Facebook">Facebook</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header / Nav -->
+  <header class="header">
+    <div class="wrap header__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__name">Phoenix Mill Events</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="#venue">Our Venue</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#setups">Setups</a>
+        <a href="#vendors">Vendors</a>
+        <a href="#articles">Articles</a>
+        <a class="btn btn--sm" href="#get-started">Get Started</a>
+      </nav>
+
+      <button class="navToggle" aria-label="Open menu" aria-expanded="false">Menu</button>
+    </div>
+  </header>
+
+  <!-- Hero (static for now) -->
+  <section class="hero" aria-label="Hero">
+    <div class="hero__static">
+      <div class="wrap hero__content">
+        <p class="kicker">Historic venue • Modern events</p>
+        <h1>Phoenix Mill Events</h1>
+        <p class="lead">A timeless space for weddings, corporate gatherings, celebrations, and community events.</p>
+        <div class="actions">
+          <a class="btn" href="#get-started">Get Started</a>
+          <a class="btn btn--ghost" href="#venue">Explore the venue</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="venue">
+    <div class="wrap">
+      <h2>Venue section placeholder</h2>
+      <p class="muted">We’ll fill this in next.</p>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="get-started">
+    <div class="wrap">
+      <h2>Get Started placeholder</h2>
+      <p class="muted">This will become your intake page later.</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <div>
+        <h3>Phoenix Mill Events</h3>
+        <p class="muted">Address line • City, MI • ZIP</p>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p><a href="tel:+1XXXXXXXXXX">(XXX) XXX-XXXX</a></p>
+        <p><a href="mailto:hello@phoenixmillevents.com">hello@phoenixmillevents.com</a></p>
+      </div>
+    </div>
+    <div class="wrap footer__bottom">
+      <span>© <span id="year"></span> Phoenix Mill Events</span>
+    </div>
+  </footer>
+
+  <script defer src="js/main.js"></script>
 </body>
 </html>
