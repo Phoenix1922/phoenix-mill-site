@@ -135,3 +135,11 @@ h2{font-size:38px}
   }
   .hero__content{padding: 64px 0}
 }
+.hero__placeholder{
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(120deg, rgba(15,42,32,.95), rgba(15,42,32,.55));
+  color: #fff;
+  padding: 64px 0;
+}
