@@ -1,0 +1,9 @@
+body {
+  background: #f2e6cf;
+}
+
+.test-box {
+  border: 6px solid lime;
+  padding: 20px;
+  font-size: 20px;
+}
