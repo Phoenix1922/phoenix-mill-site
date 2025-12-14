@@ -246,3 +246,23 @@ if (y) y.textContent = new Date().getFullYear();
   window.addEventListener("resize", onScroll);
   onScroll(); // initial
 })();
+
+// ===== Step 4: Feature selector (click to swap content) =====
+(function featureSelectorInit(){
+  const buttons = Array.from(document.querySelectorAll(".featureBtn"));
+  const panes = Array.from(document.querySelectorAll(".featurePane"));
+  if (!buttons.length || !panes.length) return;
+
+  function activate(key){
+    buttons.forEach(btn => {
+      const isOn = btn.dataset.feature === key;
+      btn.classList.toggle("is-active", isOn);
+      btn.setAttribute("aria-selected", isOn ? "true" : "false");
+    });
+    panes.forEach(pane => pane.classList.toggle("is-active", pane.dataset.pane === key));
+  }
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => activate(btn.dataset.feature));
+  });
+})();
