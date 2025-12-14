@@ -22,12 +22,11 @@ if (navToggle && nav) {
   });
 }
 
-/* Hero Slider (true horizontal slide, Safari-safe) */
+/* Hero Slider (horizontal, forced widths for Safari) */
 (function initSlider(){
   const slider = document.querySelector("[data-slider]");
   if (!slider) return;
 
-  // Grab slides BEFORE we move them
   const slides = Array.from(slider.querySelectorAll(".slide"));
   if (slides.length <= 1) return;
 
@@ -35,15 +34,22 @@ if (navToggle && nav) {
   const nextBtn = slider.querySelector("[data-next]");
   const dotsWrap = slider.querySelector("[data-dots]");
 
-  // Build track that matches CSS: .slidesTrack
+  // Create track that matches CSS: .slidesTrack
   const track = document.createElement("div");
   track.className = "slidesTrack";
 
-  // Move slides into the track
+  // Move slides into track
   slides.forEach(s => track.appendChild(s));
 
-  // Insert track as FIRST child so arrows/dots stay above it
+  // Put track at top (buttons/dots remain after it)
   slider.insertBefore(track, slider.firstChild);
+
+  // FORCE track width so Safari can't reflow slides into the same frame
+  track.style.width = `${slides.length * 100}%`;
+  slides.forEach(s => {
+    s.style.width = `${100 / slides.length}%`;
+    s.style.flex = `0 0 ${100 / slides.length}%`;
+  });
 
   let idx = 0;
   let timer = null;
@@ -58,11 +64,12 @@ if (navToggle && nav) {
 
   const go = (i) => {
     idx = (i + slides.length) % slides.length;
-    track.style.transform = `translateX(-${idx * 100}%)`;
+    const pct = (100 / slides.length) * idx;
+    track.style.transform = `translate3d(-${pct}%, 0, 0)`;
     setActiveDot();
   };
 
-  // Build dots
+  // Dots
   if (dotsWrap) {
     dotsWrap.innerHTML = "";
     slides.forEach((_, i) => {
@@ -79,12 +86,12 @@ if (navToggle && nav) {
   nextBtn && nextBtn.addEventListener("click", next);
   prevBtn && prevBtn.addEventListener("click", prev);
 
-  // Auto-advance (reasonable timing)
+  // Auto-advance
   const start = () => {
     stop();
     timer = setInterval(() => {
       if (!isPaused) next();
-    }, 5500);
+    }, 5200);
   };
   const stop = () => {
     if (timer) clearInterval(timer);
@@ -120,15 +127,31 @@ if (navToggle && nav) {
     }
   }, { passive: true });
 
-  // Init
   go(0);
   start();
 })();
 
-/* Parallax (JS-driven so it works in Safari) */
+/* Parallax (layer approach: no weird “background seams”) */
 (function initParallax(){
   const sections = Array.from(document.querySelectorAll(".parallax"));
   if (!sections.length) return;
+
+  // Build background layers once
+  for (const el of sections) {
+    // Pull existing background-image (from inline style)
+    const bg = getComputedStyle(el).backgroundImage;
+
+    // Create layer if not already present
+    if (!el.querySelector(".parallax__bg")) {
+      const layer = document.createElement("div");
+      layer.className = "parallax__bg";
+      layer.style.backgroundImage = bg;
+      el.prepend(layer);
+    }
+
+    // Clear background on the section so only the layer renders
+    el.style.backgroundImage = "none";
+  }
 
   let ticking = false;
 
@@ -138,15 +161,16 @@ if (navToggle && nav) {
 
     for (const el of sections) {
       const rect = el.getBoundingClientRect();
-
-      // Only compute when near viewport (cheap + stable)
       if (rect.bottom < 0 || rect.top > vh) continue;
 
-      // progress: -1 (above) -> 1 (below)
-      const progress = (rect.top - vh) / (vh + rect.height);
-      const offset = Math.round(progress * -80); // tweak strength here
+      const layer = el.querySelector(".parallax__bg");
+      if (!layer) continue;
 
-      el.style.backgroundPosition = `center ${offset}px`;
+      // 0 at top of viewport, 1 at bottom
+      const progress = (rect.top + rect.height) / (vh + rect.height);
+      const offset = (progress - 0.5) * 80; // strength
+
+      layer.style.transform = `translate3d(0, ${offset}px, 0)`;
     }
   };
 
