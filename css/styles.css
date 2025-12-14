@@ -227,3 +227,49 @@ h2{font-size:40px}
   .hero__slider{ min-height: 520px; height: 72vh; }
   .hero__track .slide__content{ padding: 64px 0; }
 }
+/* ===== Carousel fixes: remove drift + show arrows + center slides ===== */
+
+.hero__slider { overflow: hidden; }
+
+.hero__track{
+  display:flex !important;
+  gap:0 !important;
+  padding:0 !important;
+  margin:0 !important;
+  align-items:stretch !important;
+  transform: translate3d(0,0,0);
+}
+.hero__track.is-instant{ transition: none !important; }
+
+.hero__track .slide{
+  margin:0 !important;
+  padding:0 !important;
+  height: 100% !important;
+  background-position: center center !important;
+  background-size: cover !important;
+}
+
+/* Force arrow buttons to actually appear */
+.sliderBtn{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  position:absolute !important;
+  top:50% !important;
+  transform: translateY(-50%) !important;
+  width:44px !important;
+  height:44px !important;
+  border-radius:999px !important;
+  border:1px solid rgba(255,255,255,.65) !important;
+  background: rgba(15,42,32,.35) !important;
+  color:#fff !important;
+  font-size:28px !important;
+  line-height:1 !important;
+  cursor:pointer !important;
+  z-index: 50 !important;
+}
+
+.sliderBtn.prev{ left:16px !important; }
+.sliderBtn.next{ right:16px !important; }
+
+.dots{ z-index: 55 !important; }
