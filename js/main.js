@@ -22,23 +22,28 @@ if (navToggle && nav) {
   });
 }
 
-/* Hero Slider (true horizontal slide) */
+/* Hero Slider (true horizontal slide, Safari-safe) */
 (function initSlider(){
   const slider = document.querySelector("[data-slider]");
   if (!slider) return;
 
-  const track = slider.querySelector("[data-track]");
-  if (!track) {
-    console.warn("Hero slider: missing [data-track] element in HTML.");
-    return;
-  }
-
-  const slides = Array.from(track.querySelectorAll(".slide"));
+  // Grab slides BEFORE we move them
+  const slides = Array.from(slider.querySelectorAll(".slide"));
   if (slides.length <= 1) return;
 
   const prevBtn = slider.querySelector("[data-prev]");
   const nextBtn = slider.querySelector("[data-next]");
   const dotsWrap = slider.querySelector("[data-dots]");
+
+  // Build track that matches CSS: .slidesTrack
+  const track = document.createElement("div");
+  track.className = "slidesTrack";
+
+  // Move slides into the track
+  slides.forEach(s => track.appendChild(s));
+
+  // Insert track as FIRST child so arrows/dots stay above it
+  slider.insertBefore(track, slider.firstChild);
 
   let idx = 0;
   let timer = null;
@@ -57,7 +62,7 @@ if (navToggle && nav) {
     setActiveDot();
   };
 
-  // Dots
+  // Build dots
   if (dotsWrap) {
     dotsWrap.innerHTML = "";
     slides.forEach((_, i) => {
@@ -71,15 +76,15 @@ if (navToggle && nav) {
   const next = () => go(idx + 1);
   const prev = () => go(idx - 1);
 
-  if (nextBtn) nextBtn.addEventListener("click", next);
-  if (prevBtn) prevBtn.addEventListener("click", prev);
+  nextBtn && nextBtn.addEventListener("click", next);
+  prevBtn && prevBtn.addEventListener("click", prev);
 
-  // Auto-advance
+  // Auto-advance (reasonable timing)
   const start = () => {
     stop();
     timer = setInterval(() => {
       if (!isPaused) next();
-    }, 6500);
+    }, 5500);
   };
   const stop = () => {
     if (timer) clearInterval(timer);
@@ -115,8 +120,45 @@ if (navToggle && nav) {
     }
   }, { passive: true });
 
+  // Init
   go(0);
   start();
+})();
+
+/* Parallax (JS-driven so it works in Safari) */
+(function initParallax(){
+  const sections = Array.from(document.querySelectorAll(".parallax"));
+  if (!sections.length) return;
+
+  let ticking = false;
+
+  const update = () => {
+    ticking = false;
+    const vh = window.innerHeight;
+
+    for (const el of sections) {
+      const rect = el.getBoundingClientRect();
+
+      // Only compute when near viewport (cheap + stable)
+      if (rect.bottom < 0 || rect.top > vh) continue;
+
+      // progress: -1 (above) -> 1 (below)
+      const progress = (rect.top - vh) / (vh + rect.height);
+      const offset = Math.round(progress * -80); // tweak strength here
+
+      el.style.backgroundPosition = `center ${offset}px`;
+    }
+  };
+
+  const requestUpdate = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(update);
+  };
+
+  window.addEventListener("scroll", requestUpdate, { passive: true });
+  window.addEventListener("resize", requestUpdate);
+  requestUpdate();
 })();
 
 /* Testimonials */
@@ -127,7 +169,6 @@ if (navToggle && nav) {
   const quotes = Array.from(root.querySelectorAll(".quote"));
   const prev = root.querySelector("[data-qprev]");
   const next = root.querySelector("[data-qnext]");
-
   if (quotes.length <= 1) return;
 
   let i = 0;
@@ -136,9 +177,8 @@ if (navToggle && nav) {
     quotes.forEach((q, k) => q.classList.toggle("is-active", k === i));
   };
 
-  if (prev) prev.addEventListener("click", () => show(i - 1));
-  if (next) next.addEventListener("click", () => show(i + 1));
-
+  prev && prev.addEventListener("click", () => show(i - 1));
+  next && next.addEventListener("click", () => show(i + 1));
   show(0);
 })();
 
