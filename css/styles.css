@@ -1,7 +1,42 @@
-/* HARD PROOF CSS IS LOADING */
+:root{
+  --bg:#f2e6cf;
+  --ink:#173a2c;
+  --ink2:#0f2a20;
+  --accent:#1f4a38;
+  --white:#ffffff;
+  --wrap:1120px;
+}
 
-body {
-  background: red !important;
-  color: white !important;
-  font-size: 32px !important;
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: var(--ink2);
+  background: var(--bg);
+}
+
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+
+/* TOP RIBBON — if this doesn't show, the HTML isn't matching */
+.topbar{
+  background: #0f2a20;
+  color: #e7f0ea;
+  padding: 10px 0;
+}
+.topbar__inner{
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+}
+.topbar a{color:#e7f0ea}
+
+/* HERO PLACEHOLDER — if this doesn't show, the HTML isn't matching */
+.hero__placeholder{
+  min-height: 50vh;
+  display:flex;
+  align-items:center;
+  background: #0f2a20;
+  color: #fff;
+  padding: 64px 0;
 }
