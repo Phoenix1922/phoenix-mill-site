@@ -326,3 +326,53 @@ h2{font-size:40px}
 @media (prefers-reduced-motion: reduce){
   .parallax__media{ transform: none !important; }
 }
+
+/* ===== Step 4 add-on: Feature selector (benchmark-style) ===== */
+
+.feature{
+  display:grid;
+  grid-template-columns: 320px 1fr;
+  gap: 18px;
+}
+
+.feature__nav{
+  display:flex;
+  flex-direction:column;
+  gap: 10px;
+}
+
+.featureBtn{
+  text-align:left;
+  padding: 14px 14px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.55);
+  border: 1px solid rgba(23,58,44,.12);
+  box-shadow: 0 10px 28px var(--shadow);
+  font-weight: 800;
+  color: var(--ink2);
+  cursor:pointer;
+}
+
+.featureBtn:hover{ transform: translateY(-1px); transition: transform .12s ease; }
+.featureBtn.is-active{
+  background: rgba(31,74,56,.14);
+  border-color: rgba(31,74,56,.38);
+}
+
+.feature__panel{
+  background: rgba(255,255,255,.55);
+  border: 1px solid rgba(23,58,44,.12);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: 0 10px 28px var(--shadow);
+}
+
+.featurePane{ display:none; }
+.featurePane.is-active{ display:block; }
+
+/* Mobile: stack selector above content */
+@media (max-width: 900px){
+  .feature{ grid-template-columns: 1fr; }
+  .feature__nav{ flex-direction:row; flex-wrap:wrap; }
+  .featureBtn{ flex: 1 1 auto; min-width: 160px; }
+}
