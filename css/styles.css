@@ -289,3 +289,40 @@ h2{font-size:40px}
 .sliderBtn.next{ right:16px !important; }
 
 .dots{ z-index: 55 !important; }
+
+/* ===== Step 3: Parallax that works on iPhone + desktop ===== */
+.parallax{
+  position: relative;
+  min-height: 420px;
+  overflow: hidden;
+  border-radius: 0;
+}
+
+/* This is the “image layer” that we move for faux-parallax */
+.parallax__media{
+  position: absolute;
+  inset: -18vh 0;            /* extra height so movement never shows edges */
+  background-size: cover;
+  background-position: center;
+  transform: translate3d(0,0,0);
+  will-change: transform;
+}
+
+/* Dark overlay for readability */
+.parallax__overlay{
+  position: relative;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  background: rgba(15,42,32,.55);
+}
+
+.parallax__content{
+  color: #fff;
+  padding: 72px 0;
+}
+
+/* Respect reduced-motion users */
+@media (prefers-reduced-motion: reduce){
+  .parallax__media{ transform: none !important; }
+}
