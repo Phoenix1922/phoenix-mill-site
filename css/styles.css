@@ -19,7 +19,7 @@ body{
 }
 
 /* DEBUG: if CSS is loading, you WILL see this hot pink border */
-body{ outline: 8px solid magenta; }
+html, body { outline: 12px solid magenta !important; }
 
 a{color:inherit;text-decoration:none}
 a:hover{opacity:.92}
@@ -122,3 +122,4 @@ h2{font-size:40px}
     padding:10px 14px;
   }
 }
+html, body { outline: 12px solid magenta !important; }
