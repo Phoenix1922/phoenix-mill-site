@@ -77,7 +77,7 @@ a:hover{opacity:.9}
 }
 .btn--sm{padding:9px 14px;font-size:14px}
 
-/* HERO (horizontal sliding carousel) */
+/* HERO */
 .hero{position:relative}
 .hero__slider{
   position:relative;
@@ -87,33 +87,36 @@ a:hover{opacity:.9}
   background:#000;
 }
 
-/* IMPORTANT: JS creates THIS element */
+/* Track that JS injects */
 .slidesTrack{
   height:100%;
   display:flex;
+  flex-wrap: nowrap;              /* CRITICAL */
+  align-items: stretch;
   will-change: transform;
   transition: transform .65s cubic-bezier(.22,.61,.36,1);
+  transform: translate3d(0,0,0);  /* Safari stability */
 }
 
-/* Each slide is full viewport width of the slider */
-.slide{
+/* Slides MUST be full width and MUST NOT shrink */
+.slidesTrack > .slide{
   position:relative;
   flex: 0 0 100%;
-  min-width:100%;
+  min-width: 100%;
   height:100%;
+  display:block;
   background-size:cover;
   background-position:center center;
-  display:block;
 }
 
-/* Overlay gradient for readability */
+/* Dark gradient overlay */
 .slide::before{
   content:"";
   position:absolute;inset:0;
   background: linear-gradient(90deg, rgba(15,42,32,.78) 0%, rgba(15,42,32,.25) 55%, rgba(15,42,32,.05) 100%);
 }
 
-/* Make the inner content vertically centered and prevent “top-half only” feeling */
+/* Center content vertically so it doesn't feel like “top half only” */
 .slide .wrap{
   height:100%;
   display:flex;
@@ -198,13 +201,21 @@ h2{font-size:44px}
 .articleCard{display:block}
 .articleCard:hover{transform: translateY(-2px);transition: transform .15s ease}
 
-/* Parallax (JS-driven for Safari reliability) */
+/* Parallax (real layer, moved via transform) */
 .parallax{
   position: relative;
   min-height: 420px;
+  overflow:hidden;
+  background: transparent !important; /* JS will move the background into a child layer */
+}
+.parallax__bg{
+  position:absolute;
+  inset:-12% 0;                 /* extra height so movement never reveals empty space */
   background-size: cover;
-  background-position: center 0px; /* JS will adjust Y */
-  background-attachment: scroll;   /* avoid Safari “fixed” issues */
+  background-position: center center;
+  background-repeat: no-repeat; /* prevents “seams” that look like flips */
+  transform: translate3d(0,0,0);
+  will-change: transform;
 }
 .parallax__overlay{
   position: absolute;
@@ -212,10 +223,11 @@ h2{font-size:44px}
   background: rgba(15,42,32,.55);
   display: flex;
   align-items: center;
+  z-index: 2;
 }
 .parallax__content{
   position: relative;
-  z-index: 2;
+  z-index: 3;
   color: #fff;
   padding: 72px 0;
 }
@@ -292,7 +304,6 @@ h2{font-size:44px}
     border:1px solid rgba(23,58,44,.25);
     background:transparent;border-radius:999px;padding:10px 14px
   }
-
   .hero__slider{
     height: 72vh;
     min-height: 560px;
