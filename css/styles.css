@@ -55,16 +55,30 @@ a:hover{opacity:.92}
   padding:14px 0;
 }
 
+/* ✅ ADDED: improves brand alignment (safe even if not used yet) */
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
 .brand__name{
   font-family: Georgia, "Times New Roman", serif;
   letter-spacing:.5px;
   font-weight:700;
   font-size: 18px;
   color: var(--ink);
+  /* ✅ ADDED: keeps the two-line brand tighter and centered */
+  line-height: 1.05;
 }
 
 .nav{display:flex;align-items:center;gap:18px}
 .nav a{font-weight:600;color:var(--ink)}
+
+/* ✅ ADDED: stop nav link rule from turning button text black */
+.nav a.btn{ color: var(--white); }
+.nav a.btn.btn--ghost{ color: var(--ink); }
+
 .navToggle{display:none}
 
 /* Buttons */
@@ -173,6 +187,7 @@ h2{font-size:40px}
     padding:10px 14px;
   }
 }
+
 /* ===== Step 3 add-on: REAL horizontal carousel (do not delete other CSS) ===== */
 
 /* HERO (pixel-perfect sliding carousel) */
@@ -227,6 +242,7 @@ h2{font-size:40px}
   .hero__slider{ min-height: 520px; height: 72vh; }
   .hero__track .slide__content{ padding: 64px 0; }
 }
+
 /* ===== Carousel fixes: remove drift + show arrows + center slides ===== */
 
 .hero__slider { overflow: hidden; }
