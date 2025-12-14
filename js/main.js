@@ -22,7 +22,7 @@ if (navToggle && nav) {
   });
 }
 
-/* Step 3: HERO CAROUSEL (true horizontal sliding) */
+/* HERO CAROUSEL (true horizontal sliding, no drift) */
 (function initHeroCarousel() {
   const slider = document.querySelector("[data-slider]");
   if (!slider) return;
@@ -41,16 +41,31 @@ if (navToggle && nav) {
   let timer = null;
   let paused = false;
 
+  // Force exact geometry so translate math is correct (prevents drift/peeking)
+  const count = slides.length;
+  track.style.width = `${count * 100}%`;
+  slides.forEach((s) => {
+    s.style.flex = `0 0 ${100 / count}%`;
+    s.style.width = `${100 / count}%`;
+  });
+
+  function setDots() {
+    if (!dotsWrap) return;
+    Array.from(dotsWrap.children).forEach((d, k) => d.classList.toggle("is-active", k === idx));
+  }
+
   function go(i, { instant = false } = {}) {
-    idx = (i + slides.length) % slides.length;
+    idx = (i + count) % count;
 
     if (instant) track.classList.add("is-instant");
-    track.style.transform = `translateX(-${idx * 100}%)`;
+
+    // Because track width is count*100%, we move by 100/count each step
+    const step = 100 / count;
+    track.style.transform = `translate3d(-${idx * step}%, 0, 0)`;
+
     if (instant) requestAnimationFrame(() => track.classList.remove("is-instant"));
 
-    if (dotsWrap) {
-      Array.from(dotsWrap.children).forEach((d, k) => d.classList.toggle("is-active", k === idx));
-    }
+    setDots();
   }
 
   // Build dots
@@ -74,7 +89,7 @@ if (navToggle && nav) {
     stop();
     timer = setInterval(() => {
       if (!paused) next();
-    }, 4500); // faster + more “real carousel”
+    }, 4500);
   }
 
   function stop() {
@@ -82,7 +97,7 @@ if (navToggle && nav) {
     timer = null;
   }
 
-  // Pause interactions
+  // Pause on hover/focus
   slider.addEventListener("mouseenter", () => (paused = true));
   slider.addEventListener("mouseleave", () => (paused = false));
   slider.addEventListener("focusin", () => (paused = true));
