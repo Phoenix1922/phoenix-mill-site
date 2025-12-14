@@ -77,52 +77,51 @@ a:hover{opacity:.9}
 }
 .btn--sm{padding:9px 14px;font-size:14px}
 
-/* HERO (Prestige-style sliding carousel) */
+/* HERO (horizontal sliding carousel) */
 .hero{position:relative}
 .hero__slider{
   position:relative;
-  width: 100%;
   height: 72vh;
-  min-height: 520px;
+  min-height: 620px;
   overflow:hidden;
-  background: #000;
-  touch-action: pan-y; /* helps mobile swipes not fight scrolling */
+  background:#000;
 }
 
-/* IMPORTANT:
-   JS creates class="slidesTrack"
-   Your old CSS was using .hero__track
-   We support BOTH so you can't get mismatched again.
-*/
-.slidesTrack,
-.hero__track{
-  height: 100%;
-  width: 100%;
+/* IMPORTANT: JS creates THIS element */
+.slidesTrack{
+  height:100%;
   display:flex;
   will-change: transform;
   transition: transform .65s cubic-bezier(.22,.61,.36,1);
 }
 
-/* Slides are full viewport width inside the track */
+/* Each slide is full viewport width of the slider */
 .slide{
-  position: relative;
+  position:relative;
   flex: 0 0 100%;
-  min-width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center center;
+  min-width:100%;
+  height:100%;
+  background-size:cover;
+  background-position:center center;
+  display:block;
 }
 
-/* Dark gradient overlay for readability */
+/* Overlay gradient for readability */
 .slide::before{
   content:"";
   position:absolute;inset:0;
   background: linear-gradient(90deg, rgba(15,42,32,.78) 0%, rgba(15,42,32,.25) 55%, rgba(15,42,32,.05) 100%);
 }
 
+/* Make the inner content vertically centered and prevent “top-half only” feeling */
+.slide .wrap{
+  height:100%;
+  display:flex;
+  align-items:center;
+}
 .slide__content{
   position:relative;
-  padding: 80px 0;
+  padding: 0;
   color:#f3f3f3;
   max-width: 720px;
 }
@@ -199,13 +198,13 @@ h2{font-size:44px}
 .articleCard{display:block}
 .articleCard:hover{transform: translateY(-2px);transition: transform .15s ease}
 
-/* Parallax */
+/* Parallax (JS-driven for Safari reliability) */
 .parallax{
   position: relative;
   min-height: 420px;
   background-size: cover;
-  background-position: center;
-  background-attachment: fixed; 
+  background-position: center 0px; /* JS will adjust Y */
+  background-attachment: scroll;   /* avoid Safari “fixed” issues */
 }
 .parallax__overlay{
   position: absolute;
@@ -219,13 +218,6 @@ h2{font-size:44px}
   z-index: 2;
   color: #fff;
   padding: 72px 0;
-}
-
-/* iOS Safari fallback (no true fixed attachment) */
-@supports (-webkit-touch-callout: none) {
-  .parallax{
-    background-attachment: scroll;
-  }
 }
 
 .logoRow{display:flex;flex-wrap:wrap;gap:12px}
@@ -300,6 +292,9 @@ h2{font-size:44px}
     border:1px solid rgba(23,58,44,.25);
     background:transparent;border-radius:999px;padding:10px 14px
   }
-  .hero__slider{min-height: 520px}
-  .slide__content{padding: 64px 0}
+
+  .hero__slider{
+    height: 72vh;
+    min-height: 560px;
+  }
 }
