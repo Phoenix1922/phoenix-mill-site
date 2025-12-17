@@ -475,11 +475,14 @@ h2{font-size:40px}
 .mediaSet.is-active{ display:block; }
 
 .mediaImg{
-  position: absolute;
-  border-radius: var(--radius);
-  box-shadow: 0 16px 40px rgba(0,0,0,.18);
-  border: 1px solid rgba(23,58,44,.12);
-  object-fit: cover;
+  position: absolute;
+  width: 70%;
+  max-width: 460px;   /* ⬅ CRITICAL: prevents massive images */
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: 0 16px 40px rgba(0,0,0,.18);
+  border: 1px solid rgba(23,58,44,.12);
+  object-fit: cover;
 }
 
 /* Big base image */
