@@ -279,4 +279,7 @@ if (y) y.textContent = new Date().getFullYear();
   buttons.forEach(btn => {
     btn.addEventListener("click", () => activate(btn.dataset.feature));
   });
+
+  // ✅ NEW: sync initial state
+  activate(buttons.find(b => b.classList.contains("is-active"))?.dataset.feature || buttons[0].dataset.feature);
 })();
