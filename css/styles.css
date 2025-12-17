@@ -59,7 +59,21 @@ a:hover{opacity:.92}
 .brand{
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:10px;
+}
+
+/* ✅ Logo sizing + alignment (add) */
+.brand__logo{
+  height: 44px;     /* professional size vs 18px wordmark */
+  width: auto;
+  display:block;
+  flex: 0 0 auto;
+}
+
+.brand__name{
+  font-size: 19px;  /* slightly stronger to match logo weight */
+  line-height: 1.05;
+  white-space: nowrap; /* prevents awkward wrap next to logo */
 }
 
 .brand__name{
@@ -186,6 +200,8 @@ h2{font-size:40px}
     border-radius:999px;
     padding:10px 14px;
   }
+  .brand__logo{ height: 38px; }
+  .brand__name{ font-size: 18px; }
 }
 
 /* ===== Step 3 add-on: REAL horizontal carousel (do not delete other CSS) ===== */
