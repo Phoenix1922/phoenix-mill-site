@@ -249,39 +249,41 @@ if (y) y.textContent = new Date().getFullYear();
 
 // ===== Step 4: Feature selector (click to swap content + images) =====
 (function featureSelectorInit() {
-  const buttons = Array.from(document.querySelectorAll(".featureBtn"));
-  const panes = Array.from(document.querySelectorAll(".featurePane"));
-  const mediaSets = Array.from(document.querySelectorAll(".mediaSet"));
+  // Scope to the Event Types section only (prevents conflicts later)
+  const root = document.querySelector("#event-types");
+  if (!root) return;
 
-  if (!buttons.length || !panes.length) return;
+  const buttons = Array.from(root.querySelectorAll(".featureBtn"));
+  const panes = Array.from(root.querySelectorAll(".featurePane"));
+  const mediaSets = Array.from(root.querySelectorAll(".mediaSet"));
+
+  if (!buttons.length) return;
 
   function activate(key) {
-    // Toggle left buttons
+    // Toggle buttons
     buttons.forEach((btn) => {
       const isOn = btn.dataset.feature === key;
       btn.classList.toggle("is-active", isOn);
       btn.setAttribute("aria-selected", isOn ? "true" : "false");
     });
 
-    // Toggle right text panes
+    // Toggle right-side text panes
     panes.forEach((pane) => {
       pane.classList.toggle("is-active", pane.dataset.pane === key);
     });
 
-    // Toggle left image sets (only if they exist)
-    if (mediaSets.length) {
-      mediaSets.forEach((set) => {
-        set.classList.toggle("is-active", set.dataset.media === key);
-      });
-    }
+    // Toggle left-side image sets
+    mediaSets.forEach((set) => {
+      set.classList.toggle("is-active", set.dataset.media === key);
+    });
   }
 
-  // Click handlers
+  // Wire clicks
   buttons.forEach((btn) => {
     btn.addEventListener("click", () => activate(btn.dataset.feature));
   });
 
-  // Initial sync on page load
+  // Initial state
   const initial =
     buttons.find((b) => b.classList.contains("is-active"))?.dataset.feature ||
     buttons[0].dataset.feature;
