@@ -64,7 +64,7 @@ a:hover{opacity:.92}
 
 /* ✅ Logo sizing + alignment (add) */
 .brand__logo{
-  height: 144px;     /* professional size vs 18px wordmark */
+  height: 72px;     /* professional size vs 18px wordmark */
   width: auto;
   display:block;
 }
@@ -77,9 +77,9 @@ a:hover{opacity:.92}
 
 .brand__name{
   font-family: Georgia, "Times New Roman", serif;
-  letter-spacing:.5px;
+  letter-spacing:.4px;
   font-weight:700;
-  font-size: 20px;
+  font-size: 21px;
   /* ✅ ADDED: keeps the two-line brand tighter and centered */
   line-height: 1.05;
   color: var(--ink);
