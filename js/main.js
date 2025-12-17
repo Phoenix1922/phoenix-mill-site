@@ -254,13 +254,27 @@ if (y) y.textContent = new Date().getFullYear();
   if (!buttons.length || !panes.length) return;
 
   function activate(key){
-    buttons.forEach(btn => {
-      const isOn = btn.dataset.feature === key;
-      btn.classList.toggle("is-active", isOn);
-      btn.setAttribute("aria-selected", isOn ? "true" : "false");
+  // Buttons
+  buttons.forEach(btn => {
+    const isOn = btn.dataset.feature === key;
+    btn.classList.toggle("is-active", isOn);
+    btn.setAttribute("aria-selected", isOn ? "true" : "false");
+  });
+
+  // Text panes
+  panes.forEach(pane => {
+    pane.classList.toggle("is-active", pane.dataset.pane === key);
+  });
+
+  // ✅ NEW: Image sets (left-side collage)
+  const mediaWrap = document.querySelector("[data-event-media]");
+  if (mediaWrap) {
+    const sets = Array.from(mediaWrap.querySelectorAll(".mediaSet"));
+    sets.forEach(set => {
+      set.classList.toggle("is-active", set.dataset.media === key);
     });
-    panes.forEach(pane => pane.classList.toggle("is-active", pane.dataset.pane === key));
   }
+}
 
   buttons.forEach(btn => {
     btn.addEventListener("click", () => activate(btn.dataset.feature));
