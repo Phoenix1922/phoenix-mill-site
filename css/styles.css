@@ -524,7 +524,7 @@ h2{font-size:40px}
   z-index: 4;
 }
 
-@media (max-width: 900px){
+@media (max-width: 720px){
   .eventTypes__body{ grid-template-columns: 1fr; }
   .eventTypes__media{ min-height: auto; }
 
@@ -542,7 +542,7 @@ h2{font-size:40px}
 }
 
 /* Mobile: stack selector above content */
-@media (max-width: 900px){
+@media (max-width: 720px){
   .feature{ grid-template-columns: 1fr; }
   .feature__nav{ flex-direction:row; flex-wrap:wrap; }
   .featureBtn{ flex: 1 1 auto; min-width: 160px; }
