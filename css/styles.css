@@ -64,7 +64,7 @@ a:hover{opacity:.92}
 
 /* ✅ Logo sizing + alignment (add) */
 .brand__logo{
-  height: 44px;     /* professional size vs 18px wordmark */
+  height: 84px;     /* professional size vs 18px wordmark */
   width: auto;
   display:block;
   flex: 0 0 auto;
