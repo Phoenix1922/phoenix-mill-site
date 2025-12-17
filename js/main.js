@@ -247,33 +247,44 @@ if (y) y.textContent = new Date().getFullYear();
   onScroll(); // initial
 })();
 
-// ===== Step 4: Feature selector (click to swap content) =====
-(function featureSelectorInit(){
-  const mediaSets = Array.from(document.querySelectorAll(".mediaSet"));  const buttons = Array.from(document.querySelectorAll(".featureBtn"));
+// ===== Step 4: Feature selector (click to swap content + images) =====
+(function featureSelectorInit() {
+  const buttons = Array.from(document.querySelectorAll(".featureBtn"));
   const panes = Array.from(document.querySelectorAll(".featurePane"));
+  const mediaSets = Array.from(document.querySelectorAll(".mediaSet"));
+
   if (!buttons.length || !panes.length) return;
 
-  function activate(key){
-  buttons.forEach(btn => {
-    const isOn = btn.dataset.feature === key;
-    btn.classList.toggle("is-active", isOn);
-    btn.setAttribute("aria-selected", isOn ? "true" : "false");
-  });
+  function activate(key) {
+    // Toggle left buttons
+    buttons.forEach((btn) => {
+      const isOn = btn.dataset.feature === key;
+      btn.classList.toggle("is-active", isOn);
+      btn.setAttribute("aria-selected", isOn ? "true" : "false");
+    });
 
-  panes.forEach(pane =>
-    pane.classList.toggle("is-active", pane.dataset.pane === key)
-  );
+    // Toggle right text panes
+    panes.forEach((pane) => {
+      pane.classList.toggle("is-active", pane.dataset.pane === key);
+    });
 
-  mediaSets.forEach(set =>
-    set.classList.toggle("is-active", set.dataset.media === key)
-  );
-}
-}
+    // Toggle left image sets (only if they exist)
+    if (mediaSets.length) {
+      mediaSets.forEach((set) => {
+        set.classList.toggle("is-active", set.dataset.media === key);
+      });
+    }
+  }
 
-  buttons.forEach(btn => {
+  // Click handlers
+  buttons.forEach((btn) => {
     btn.addEventListener("click", () => activate(btn.dataset.feature));
   });
 
-  // ✅ NEW: sync initial state
-  activate(buttons.find(b => b.classList.contains("is-active"))?.dataset.feature || buttons[0].dataset.feature);
+  // Initial sync on page load
+  const initial =
+    buttons.find((b) => b.classList.contains("is-active"))?.dataset.feature ||
+    buttons[0].dataset.feature;
+
+  activate(initial);
 })();
