@@ -466,10 +466,22 @@ h2{font-size:40px}
   min-height: 520px;
 }
 
-.mediaSet{
+/* Event Types media sets: only show the active one */
+.eventTypes__media{
   position: relative;
   min-height: 520px;
-  display: none;
+}
+
+/* Stack all sets in the same exact space */
+.eventTypes__media .mediaSet{
+  position: absolute;
+  inset: 0;
+  display: none !important;
+}
+
+/* Only the active set shows */
+.eventTypes__media .mediaSet.is-active{
+  display: block !important;
 }
 
 .mediaSet.is-active{ display:block; }
