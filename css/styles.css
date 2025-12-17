@@ -466,38 +466,43 @@ h2{font-size:40px}
   min-height: 520px;
 }
 
-/* Event Types media sets: only show the active one */
+/* ===== Event Types: left image collage + right panel ===== */
+
+.eventTypes__body{
+  display: grid;
+  grid-template-columns: .95fr 1.05fr;
+  gap: 18px;
+  align-items: start;
+}
+
 .eventTypes__media{
   position: relative;
   min-height: 520px;
+  isolation: isolate; /* ⬅ prevents stacking bleed */
 }
 
-/* Stack all sets in the same exact space */
+/* All media sets occupy the same space */
 .eventTypes__media .mediaSet{
   position: absolute;
   inset: 0;
-  display: none !important;
+  display: none;
 }
 
-/* Only the active set shows */
+/* Only the active set is visible */
 .eventTypes__media .mediaSet.is-active{
-  display: block !important;
+  display: block;
 }
 
-.mediaSet.is-active{ display:block; }
-
+/* Images */
 .mediaImg{
-  position: absolute;
-  width: 70%;
-  max-width: 460px;   /* ⬅ CRITICAL: prevents massive images */
-  height: auto;
-  border-radius: var(--radius);
-  box-shadow: 0 16px 40px rgba(0,0,0,.18);
-  border: 1px solid rgba(23,58,44,.12);
-  object-fit: cover;
+  position: absolute;
+  border-radius: var(--radius);
+  box-shadow: 0 16px 40px rgba(0,0,0,.18);
+  border: 1px solid rgba(23,58,44,.12);
+  object-fit: cover;
 }
 
-/* Big base image */
+/* Base image */
 .mediaImg--a{
   top: 0;
   left: 0;
@@ -524,12 +529,20 @@ h2{font-size:40px}
   z-index: 4;
 }
 
+/* Mobile */
 @media (max-width: 720px){
   .eventTypes__body{ grid-template-columns: 1fr; }
-  .eventTypes__media{ min-height: auto; }
 
-  .mediaSet{ min-height: auto; display:none; }
-  .mediaSet.is-active{
+  .eventTypes__media{
+    min-height: auto;
+  }
+
+  .eventTypes__media .mediaSet{
+    position: static;
+    display: none;
+  }
+
+  .eventTypes__media .mediaSet.is-active{
     display: grid;
     gap: 12px;
   }
@@ -539,11 +552,4 @@ h2{font-size:40px}
     width: 100%;
     height: 220px;
   }
-}
-
-/* Mobile: stack selector above content */
-@media (max-width: 720px){
-  .feature{ grid-template-columns: 1fr; }
-  .feature__nav{ flex-direction:row; flex-wrap:wrap; }
-  .featureBtn{ flex: 1 1 auto; min-width: 160px; }
 }
