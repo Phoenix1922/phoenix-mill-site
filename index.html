@@ -168,24 +168,66 @@
       </div>
 
       <!-- Re-using your existing interactive structure/classes -->
-      <div class="feature">
-        <div class="feature__nav" role="tablist" aria-label="Event type selector">
-          <button class="featureBtn is-active" type="button" role="tab" aria-selected="true" data-feature="weddings">
-            Weddings
-          </button>
-          <button class="featureBtn" type="button" role="tab" aria-selected="false" data-feature="corporate">
-            Corporate
-          </button>
-          <button class="featureBtn" type="button" role="tab" aria-selected="false" data-feature="celebrations">
-            Celebrations
-          </button>
-          <button class="featureBtn" type="button" role="tab" aria-selected="false" data-feature="community">
-            Community
-          </button>
-          <button class="featureBtn" type="button" role="tab" aria-selected="false" data-feature="tours">
-            Tours & Booking
-          </button>
-        </div>
+      <div class="feature eventTypes">
+  <div class="feature__nav" role="tablist" aria-label="Event type selector">
+    <!-- your existing buttons unchanged -->
+    <button class="featureBtn is-active" type="button" role="tab" aria-selected="true" data-feature="weddings">
+      Weddings
+    </button>
+    <button class="featureBtn" type="button" role="tab" aria-selected="false" data-feature="corporate">
+      Corporate
+    </button>
+    <button class="featureBtn" type="button" role="tab" aria-selected="false" data-feature="celebrations">
+      Celebrations
+    </button>
+    <button class="featureBtn" type="button" role="tab" aria-selected="false" data-feature="community">
+      Community
+    </button>
+    <button class="featureBtn" type="button" role="tab" aria-selected="false" data-feature="tours">
+      Tours & Booking
+    </button>
+  </div>
+
+  <!-- ✅ NEW WRAPPER: left images + right panel -->
+  <div class="eventTypes__body">
+
+    <!-- ✅ NEW LEFT COLUMN: images that switch -->
+    <div class="eventTypes__media" aria-label="Event type photos" data-event-media>
+
+      <!-- Weddings (default active) -->
+      <div class="mediaSet is-active" data-media="weddings">
+        <img class="mediaImg mediaImg--a" src="assets/img/event-weddings-1.jpg" alt="Weddings photo 1" loading="lazy" decoding="async">
+        <img class="mediaImg mediaImg--b" src="assets/img/event-weddings-2.jpg" alt="Weddings photo 2" loading="lazy" decoding="async">
+        <img class="mediaImg mediaImg--c" src="assets/img/event-weddings-3.jpg" alt="Weddings photo 3" loading="lazy" decoding="async">
+      </div>
+
+      <div class="mediaSet" data-media="corporate">
+        <img class="mediaImg mediaImg--a" src="assets/img/event-corporate-1.jpg" alt="Corporate photo 1" loading="lazy" decoding="async">
+        <img class="mediaImg mediaImg--b" src="assets/img/event-corporate-2.jpg" alt="Corporate photo 2" loading="lazy" decoding="async">
+        <img class="mediaImg mediaImg--c" src="assets/img/event-corporate-3.jpg" alt="Corporate photo 3" loading="lazy" decoding="async">
+      </div>
+
+      <div class="mediaSet" data-media="celebrations">
+        <img class="mediaImg mediaImg--a" src="assets/img/event-celebrations-1.jpg" alt="Celebrations photo 1" loading="lazy" decoding="async">
+        <img class="mediaImg mediaImg--b" src="assets/img/event-celebrations-2.jpg" alt="Celebrations photo 2" loading="lazy" decoding="async">
+        <img class="mediaImg mediaImg--c" src="assets/img/event-celebrations-3.jpg" alt="Celebrations photo 3" loading="lazy" decoding="async">
+      </div>
+
+      <div class="mediaSet" data-media="community">
+        <img class="mediaImg mediaImg--a" src="assets/img/event-community-1.jpg" alt="Community photo 1" loading="lazy" decoding="async">
+        <img class="mediaImg mediaImg--b" src="assets/img/event-community-2.jpg" alt="Community photo 2" loading="lazy" decoding="async">
+        <img class="mediaImg mediaImg--c" src="assets/img/event-community-3.jpg" alt="Community photo 3" loading="lazy" decoding="async">
+      </div>
+
+      <div class="mediaSet" data-media="tours">
+        <img class="mediaImg mediaImg--a" src="assets/img/event-tours-1.jpg" alt="Tours photo 1" loading="lazy" decoding="async">
+        <img class="mediaImg mediaImg--b" src="assets/img/event-tours-2.jpg" alt="Tours photo 2" loading="lazy" decoding="async">
+        <img class="mediaImg mediaImg--c" src="assets/img/event-tours-3.jpg" alt="Tours photo 3" loading="lazy" decoding="async">
+      </div>
+
+    </div>
+
+    <!-- ✅ RIGHT COLUMN: your existing panel (UNCHANGED) -->
 
         <div class="feature__panel">
           <!-- weddings -->
