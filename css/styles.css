@@ -453,18 +453,39 @@ h2{font-size:40px}
 .featurePane{ display:none; }
 .featurePane.is-active{ display:block; }
 
-/* ===== Event Types: left image collage + right panel ===== */
+/* ===== Event Types: left image collage + right panel (Venue-style layout) ===== */
 
-/* IMPORTANT:
-   Venue collage works because it has explicit sizing rules (.venueImg--a/b/c).
-   Event Types MUST also have explicit sizing rules (.mediaImg--a/b/c).
+/*
+  GOAL:
+  - Buttons remain above.
+  - Below buttons: 2 columns (images left, text right) JUST like Venue.
+  - Only one image set visible at a time via .is-active.
 */
 
+/* Make the Event Types area a vertical stack:
+   [buttons]
+   [two-column layout: images | panel]
+*/
+#event-types .feature.eventTypes{
+  display: grid;
+  grid-template-columns: 1fr;   /* stack rows, not columns */
+  gap: 18px;
+}
+
+/* Buttons column stays as-is */
+#event-types .feature__nav{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Two-column layout: images left, text right */
 #event-types .eventTypes__body{
   display: grid;
-  grid-template-columns: .95fr 1.05fr;
+  grid-template-columns: .95fr 1.05fr;  /* images left, text right */
   gap: 18px;
   align-items: start;
+  min-width: 0;                          /* critical inside grids */
 }
 
 /* Left media column container (fixed height so % heights resolve) */
@@ -474,6 +495,8 @@ h2{font-size:40px}
   overflow: hidden;
   isolation: isolate;
   border-radius: var(--radius);
+  width: 100%;
+  max-width: 100%;
 }
 
 /* Each set occupies the same exact space, but only one is visible */
@@ -497,9 +520,13 @@ h2{font-size:40px}
   border: 1px solid rgba(23,58,44,.12);
   object-fit: cover;
   background: rgba(255,255,255,.35);
+
+  /* ✅ prevents any “blow out” */
+  max-width: 100%;
+  max-height: 100%;
 }
 
-/* Explicit collage sizing + placement (Venue-style, but Event Types-specific) */
+/* Explicit collage sizing + placement */
 #event-types .eventImg--a{
   top: 0;
   left: 0;
@@ -522,6 +549,11 @@ h2{font-size:40px}
   width: 34%;
   height: 34%;
   z-index: 4;
+}
+
+/* Right column panel should not overflow */
+#event-types .feature__panel{
+  min-width: 0;
 }
 
 /* Mobile: stack and stop overlapping */
@@ -553,9 +585,6 @@ h2{font-size:40px}
   }
 }
 
-/* ===== Event Types: SAFETY LOCK (put at very bottom) ===== */
+/* ===== Event Types: SAFETY LOCK (display-only; do NOT force positioning) ===== */
 #event-types .eventTypes__media .mediaSet { display: none !important; }
 #event-types .eventTypes__media .mediaSet.is-active { display: block !important; }
-
-#event-types .eventTypes__media { position: relative !important; }
-#event-types .eventTypes__media .mediaSet { position: absolute !important; inset: 0 !important; }
