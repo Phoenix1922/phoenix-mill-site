@@ -463,15 +463,20 @@ h2{font-size:40px}
 }
 
 .eventTypesGrid{
-  grid-template-columns: minmax(320px, 520px) 1fr; /* left column capped */
+  grid-template-columns: .95fr 1.05fr;
   align-items: start;
 }
 
 .eventTypesMedia{
-  position: relative;
-  min-height: 420px;           
-  border-radius: var(--radius);
-  
+  position: relative;
+  height: 420px;
+  border-radius: var(--radius);
+  overflow: hidden;
+
+  /* ✅ THIS is the “make it smaller” part */
+  max-width: 520px;
+  width: 100%;
+  justify-self: start;
 }
 
 /* Only one mediaSet visible at a time */
