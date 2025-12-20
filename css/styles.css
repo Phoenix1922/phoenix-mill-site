@@ -552,10 +552,3 @@ h2{font-size:40px}
     height: 220px;
   }
 }
-
-/* ===== Event Types: SAFETY LOCK (put at very bottom) ===== */
-#event-types .eventTypes__media .mediaSet { display: none !important; }
-#event-types .eventTypes__media .mediaSet.is-active { display: block !important; }
-
-#event-types .eventTypes__media { position: relative !important; }
-#event-types .eventTypes__media .mediaSet { position: absolute !important; inset: 0 !important; }
