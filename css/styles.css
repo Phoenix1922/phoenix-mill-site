@@ -585,46 +585,6 @@ h2{font-size:40px}
   }
 }
 
-/* ===== Event Types: HARD SAFETY LOCK (put at very bottom) ===== */
-/* This forces Venue-style containment no matter what earlier rules do. */
-
-#event-types .eventTypes__body{
-  display: grid !important;
-  grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr) !important;
-  gap: 18px !important;
-  align-items: start !important;
-  min-width: 0 !important;
-}
-
-#event-types .eventTypes__media{
-  position: relative !important;
-  height: 520px !important;
-  width: 100% !important;
-  max-width: 100% !important;
-  overflow: hidden !important;
-  border-radius: var(--radius) !important;
-  isolation: isolate !important;
-}
-
-/* Every mediaSet must occupy the same exact box */
-#event-types .eventTypes__media .mediaSet{
-  position: absolute !important;
-  inset: 0 !important;
-  height: 100% !important;
-  width: 100% !important;
-  display: none !important;
-}
-
-#event-types .eventTypes__media .mediaSet.is-active{
-  display: block !important;
-}
-
-/* Collage images must be absolutely positioned (Venue-style) */
-#event-types .eventTypes__media .eventImg{
-  position: absolute !important;
-  display: block !important;
-  border-radius: var(--radius) !important;
-  object-fit: cover !important;
-  max-width: none !important;  /* important: we're controlling size via % */
-  max-height: none !important;
-}
+/* ===== Event Types: SAFETY LOCK (display-only; do NOT force positioning) ===== */
+#event-types .eventTypes__media .mediaSet { display: none !important; }
+#event-types .eventTypes__media .mediaSet.is-active { display: block !important; }
