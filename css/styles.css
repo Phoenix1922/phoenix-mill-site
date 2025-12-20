@@ -548,10 +548,5 @@ h2{font-size:40px}
   }
 }
 
-/* === Event Types: HARD visibility lock (must be last in file) === */
-#event-types .eventTypesMedia .mediaSet{
-  display: none !important;
-}
-#event-types .eventTypesMedia .mediaSet.is-active{
-  display: block !important;
-}
+#event-types .eventTypesMedia .mediaSet{ display: none !important; }
+#event-types .eventTypesMedia .mediaSet.is-active{ display: block !important; }
