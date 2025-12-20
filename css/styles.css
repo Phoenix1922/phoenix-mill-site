@@ -469,7 +469,7 @@ h2{font-size:40px}
 
 .eventTypesMedia{
   position: relative;
-  min-height: 420px;           /* match Venue sizing */
+  height: 420px;           
   border-radius: var(--radius);
   overflow: hidden;            /* keeps collage inside column */
 }
