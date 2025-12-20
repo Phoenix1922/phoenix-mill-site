@@ -463,8 +463,8 @@ h2{font-size:40px}
 }
 
 .eventTypesGrid{
-  grid-template-columns: .95fr 1.05fr; /* match Venue: images left, text right */
-  align-items:start;
+  grid-template-columns: minmax(320px, 520px) 1fr; /* left column capped */
+  align-items: start;
 }
 
 .eventTypesMedia{
@@ -543,4 +543,10 @@ h2{font-size:40px}
   }
 }
 
-
+/* === Event Types: HARD visibility lock (must be last in file) === */
+#event-types .eventTypesMedia .mediaSet{
+  display: none !important;
+}
+#event-types .eventTypesMedia .mediaSet.is-active{
+  display: block !important;
+}
