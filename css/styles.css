@@ -454,19 +454,6 @@ h2{font-size:40px}
 .featurePane.is-active{ display:block; }
 
 /* ===== Event Types: left image collage + right panel ===== */
-.eventTypes__body{
-  display: grid;
-  grid-template-columns: .95fr 1.05fr;
-  gap: 18px;
-  align-items: start;
-}
-
-.eventTypes__media{
-  position: relative;
-  min-height: 520px;
-}
-
-/* ===== Event Types: left image collage + right panel ===== */
 
 .eventTypes__body{
   display: grid;
