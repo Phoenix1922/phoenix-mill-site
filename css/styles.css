@@ -493,32 +493,10 @@ h2{font-size:40px}
   object-fit: cover;
 }
 
-/* Big base image */
-.mediaImg--a{
-  top: 0;
-  left: 0;
-  width: 82%;
-  height: 72%;
-  z-index: 2;
-}
-
-/* Bottom-right */
-.mediaImg--b{
-  bottom: 0;
-  right: 0;
-  width: 60%;
-  height: 52%;
-  z-index: 3;
-}
-
-/* Accent */
-.mediaImg--c{
-  top: 18%;
-  right: 10%;
-  width: 34%;
-  height: 34%;
-  z-index: 4;
-}
+/* Event Types: hide all sets, show only active set (reuses Venue collage CSS) */
+#event-types .eventTypes__media { position: relative; min-height: 420px; }
+#event-types .eventTypes__media .mediaSet { display: none; }
+#event-types .eventTypes__media .mediaSet.is-active { display: block; }
 
 @media (max-width: 720px){
   .eventTypes__body{ grid-template-columns: 1fr; }
