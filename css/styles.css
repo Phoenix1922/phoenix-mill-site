@@ -455,36 +455,41 @@ h2{font-size:40px}
 
 /* ===== Event Types: left image collage + right panel ===== */
 
-.eventTypes__body{
+/* IMPORTANT:
+   Venue collage works because it has explicit sizing rules (.venueImg--a/b/c).
+   Event Types MUST also have explicit sizing rules (.mediaImg--a/b/c).
+*/
+
+#event-types .eventTypes__body{
   display: grid;
   grid-template-columns: .95fr 1.05fr;
   gap: 18px;
   align-items: start;
 }
 
-.eventTypes__media{
+/* Left media column container (fixed height so % heights resolve) */
+#event-types .eventTypes__media{
   position: relative;
-  height: 520px;          /* ✅ KEY: real height so % heights work */
+  height: 520px;
   overflow: hidden;
   isolation: isolate;
   border-radius: var(--radius);
 }
 
-/* All media sets occupy the same space */
-.eventTypes__media .mediaSet{
+/* Each set occupies the same exact space, but only one is visible */
+#event-types .eventTypes__media .mediaSet{
   position: absolute;
   inset: 0;
-  height: 100%;           /* ✅ ensures children % heights resolve */
+  height: 100%;
   display: none;
 }
 
-/* Only the active set is visible */
-.eventTypes__media .mediaSet.is-active{
+#event-types .eventTypes__media .mediaSet.is-active{
   display: block;
 }
 
-/* Images (collage) */
-.mediaImg{
+/* Base image styling (absolute collage images) */
+#event-types .mediaImg{
   position: absolute;
   display: block;
   border-radius: var(--radius);
@@ -493,31 +498,54 @@ h2{font-size:40px}
   object-fit: cover;
 }
 
-/* Event Types: hide all sets, show only active set (reuses Venue collage CSS) */
-#event-types .eventTypes__media { position: relative; min-height: 420px; }
-#event-types .eventTypes__media .mediaSet { display: none; }
-#event-types .eventTypes__media .mediaSet.is-active { display: block; }
+/* ✅ THESE WERE MISSING: explicit collage sizing + placement (Venue-style) */
+#event-types .mediaImg--a{
+  top: 0;
+  left: 0;
+  width: 78%;
+  height: 72%;
+  z-index: 2;
+}
 
+#event-types .mediaImg--b{
+  bottom: 0;
+  right: 0;
+  width: 58%;
+  height: 52%;
+  z-index: 3;
+}
+
+#event-types .mediaImg--c{
+  top: 14%;
+  right: 8%;
+  width: 34%;
+  height: 34%;
+  z-index: 4;
+}
+
+/* Mobile: stack and stop overlapping */
 @media (max-width: 720px){
-  .eventTypes__body{ grid-template-columns: 1fr; }
+  #event-types .eventTypes__body{
+    grid-template-columns: 1fr;
+  }
 
-  .eventTypes__media{
+  #event-types .eventTypes__media{
     height: auto;
     overflow: visible;
   }
 
-  .eventTypes__media .mediaSet{
+  #event-types .eventTypes__media .mediaSet{
     position: static;
     height: auto;
     display: none;
   }
 
-  .eventTypes__media .mediaSet.is-active{
+  #event-types .eventTypes__media .mediaSet.is-active{
     display: grid;
     gap: 12px;
   }
 
-  .mediaImg{
+  #event-types .mediaImg{
     position: static;
     width: 100%;
     height: 220px;
