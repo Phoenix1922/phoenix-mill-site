@@ -469,9 +469,9 @@ h2{font-size:40px}
 
 .eventTypesMedia{
   position: relative;
-  height: 420px;           
+  min-height: 420px;           
   border-radius: var(--radius);
-  overflow: hidden;            /* keeps collage inside column */
+  
 }
 
 /* Only one mediaSet visible at a time */
@@ -543,5 +543,4 @@ h2{font-size:40px}
   }
 }
 
-#event-types .eventTypesMedia .mediaSet{ display: none !important; }
-#event-types .eventTypesMedia .mediaSet.is-active{ display: block !important; }
+
