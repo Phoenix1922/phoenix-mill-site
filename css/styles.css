@@ -173,13 +173,6 @@ h2{font-size:40px}
 .articleCard{display:block}
 .articleCard:hover{transform: translateY(-2px);transition: transform .15s ease}
 
-/* Footer (basic) */
-.footer{
-  background: #0f2a20;
-  color:#e7f0ea;
-  padding: 40px 0 16px;
-}
-.footer a{color:#e7f0ea}
 
 /* ===== Venue: overlapped photo collage ===== */
 .venueGrid{
@@ -806,8 +799,17 @@ h2{font-size:40px}
 }
 
 .nav a.is-active{
-  opacity: 1;
-  font-weight: 800;
-  border-bottom: 2px solid var(--accent);
-  pointer-events: none; /* optional */
+  color: var(--accent);
+  position: relative;
+}
+
+.nav a.is-active::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
 }
