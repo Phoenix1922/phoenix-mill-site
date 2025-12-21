@@ -627,3 +627,47 @@ h2{font-size:40px}
   outline: 2px solid rgba(31,74,56,.55);
   outline-offset: 3px;
 }
+
+/* ===== HARD OVERRIDE (must be last): Event Types button styling ===== */
+#event-types .eventTypesNav .featureBtn{
+  -webkit-appearance: none !important;
+  appearance: none !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  padding: 10px 16px !important;
+  border-radius: 999px !important;
+
+  font: 700 14px/1 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif !important;
+  color: var(--ink2) !important;
+
+  background: rgba(255,255,255,.70) !important;
+  border: 1px solid rgba(23,58,44,.22) !important;
+  box-shadow: 0 6px 18px rgba(0,0,0,.10) !important;
+
+  cursor: pointer !important;
+
+  transition: background .2s ease, border-color .2s ease, box-shadow .2s ease, transform .15s ease, color .2s ease !important;
+}
+
+#event-types .eventTypesNav .featureBtn:hover{
+  background: rgba(255,255,255,.90) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 10px 24px rgba(0,0,0,.14) !important;
+}
+
+/* Active: supports BOTH your class and aria-selected */
+#event-types .eventTypesNav .featureBtn.is-active,
+#event-types .eventTypesNav .featureBtn[aria-selected="true"]{
+  background: linear-gradient(135deg, rgba(31,74,56,.95), rgba(15,42,32,.95)) !important;
+  color: #fff !important;
+  border-color: rgba(15,42,32,.85) !important;
+  box-shadow: 0 14px 32px rgba(0,0,0,.25) !important;
+}
+
+#event-types .eventTypesNav .featureBtn:focus-visible{
+  outline: 2px solid rgba(31,74,56,.55) !important;
+  outline-offset: 3px !important;
+}
