@@ -737,7 +737,7 @@ h2{font-size:40px}
 .footer{
   background: #0f2a20;
   color: #e7f0ea;
-  padding: 22px 0 14px;
+  padding: 16px 0 10px;
 }
 
 .footer a{ color:#e7f0ea; }
@@ -746,11 +746,11 @@ h2{font-size:40px}
 .footer__grid{
   max-width: var(--wrap);
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 10px;
 
   display: grid;
   grid-template-columns: 1.2fr 0.9fr 1fr;
-  gap: 24px;
+  gap: 16px;
   align-items: start;
 }
 
