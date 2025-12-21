@@ -4,12 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>History | Phoenix Mill Events</title>
-  <meta name="description" content="Phoenix Mill Events history — from early Ford-era manufacturing to WWII contributions and modern restoration." />
+  <meta name="description" content="Phoenix Mill Events history — Ford-era manufacturing, WWII contributions, and restoration." />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
 <body>
-  <!-- Top contact ribbon (same as index) -->
+  <!-- Top contact ribbon -->
   <div class="topbar">
     <div class="wrap topbar__inner">
       <div class="topbar__left">
@@ -35,7 +35,7 @@
     </div>
   </div>
 
-  <!-- Header / Nav (same as index) -->
+  <!-- Header / Nav -->
   <header class="header">
     <div class="wrap header__inner">
       <a class="brand" href="index.html" aria-label="Phoenix Mill Events home">
@@ -65,41 +65,43 @@
     </div>
   </header>
 
-  <!-- Small hero (simple + consistent) -->
-  <section class="section section--alt">
-    <div class="wrap">
-      <div class="sectionHead">
-        <h1 style="margin:0">History</h1>
-        <p class="muted" style="max-width: 760px">
-          A historic building with deep industrial roots — from Ford-era manufacturing to WWII contributions,
-          and now a careful restoration into a modern event venue.
+  <!-- HISTORY HERO (dark, same vibe as hero slides) -->
+  <section class="parallax" style="min-height: 260px;">
+    <div class="parallax__media"
+         style="inset:0; background-image: linear-gradient(120deg, rgba(15,42,32,.95), rgba(15,42,32,.55));"></div>
+    <div class="parallax__overlay" style="min-height: 260px;">
+      <div class="wrap parallax__content" style="padding: 44px 0;">
+        <p class="kicker">THE STORY OF THE BUILDING</p>
+        <h1 style="margin: 8px 0 8px;">History</h1>
+        <p class="lead" style="max-width: 820px;">
+          From Ford-era production to WWII contributions — and now a careful restoration into a modern event venue.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 1: Ford-era (3 photos) -->
-  <section class="section">
+  <!-- SECTION 1 -->
+  <section class="section" id="history-ford">
     <div class="wrap">
       <div class="sectionHead">
         <h2>Ford-era manufacturing</h2>
         <p class="muted">Early industrial use supporting Ford Motor Company.</p>
       </div>
 
-      <div class="grid2">
-        <!-- Text -->
+      <!-- IMPORTANT: NOT grid2. This is a dedicated layout -->
+      <div class="historySplit">
+        <!-- Left: text -->
         <div class="card">
           <h3>Manufacturing roots</h3>
           <p class="muted">
-            Write your history here. This is where you describe what was produced, what years it operated,
-            and what made the site strategically important. You can keep this as a few short paragraphs.
+            Write your history here. Describe what was produced, when it operated, and the building’s role in the region.
           </p>
           <p class="muted">
-            (Tip: add dates, companies, and any notable milestones you want to highlight.)
+            Add key dates, names, and milestones as you learn them.
           </p>
         </div>
 
-        <!-- Photos (3) -->
+        <!-- Right: 3-photo grid -->
         <div class="historyPhotos historyPhotos--three" aria-label="Ford-era photos">
           <img src="assets/img/history-ford-1.jpg" alt="Ford-era photo 1" loading="lazy" decoding="async" />
           <img src="assets/img/history-ford-2.jpg" alt="Ford-era photo 2" loading="lazy" decoding="async" />
@@ -109,28 +111,27 @@
     </div>
   </section>
 
-  <!-- SECTION 2: WWII (3 photos) -->
-  <section class="section section--alt">
+  <!-- SECTION 2 -->
+  <section class="section section--alt" id="history-ww2">
     <div class="wrap">
       <div class="sectionHead">
         <h2>Arsenal of Democracy (WWII)</h2>
         <p class="muted">The building’s contribution during World War II.</p>
       </div>
 
-      <div class="grid2">
-        <!-- Text -->
+      <div class="historySplit">
+        <!-- Left: text -->
         <div class="card">
           <h3>Supporting the war effort</h3>
           <p class="muted">
-            Write your WWII story here — what was made, how it tied into the wider regional production effort,
-            and any known facts, numbers, or partnerships. Keep it confident, factual, and easy to skim.
+            Write your WWII story here — what was made, who it supported, and how it tied into the Arsenal of Democracy.
           </p>
           <p class="muted">
-            (Tip: this section is a great place for one strong quote or a short “Did you know?” callout.)
+            If you have a specific fact or quote, add it here as a callout.
           </p>
         </div>
 
-        <!-- Photos (3) -->
+        <!-- Right: 3-photo grid -->
         <div class="historyPhotos historyPhotos--three" aria-label="WWII photos">
           <img src="assets/img/history-ww2-1.jpg" alt="WWII photo 1" loading="lazy" decoding="async" />
           <img src="assets/img/history-ww2-2.jpg" alt="WWII photo 2" loading="lazy" decoding="async" />
@@ -140,18 +141,18 @@
     </div>
   </section>
 
-  <!-- SECTION 3: Restoration (9 photos) -->
-  <section class="section">
+  <!-- SECTION 3 -->
+  <section class="section" id="history-restoration">
     <div class="wrap">
       <div class="sectionHead">
         <h2>Restoration & Repurposing</h2>
-        <p class="muted">Bringing Phoenix Mill back to life while preserving its character.</p>
+        <p class="muted">Bringing the building back to life while preserving its character.</p>
       </div>
 
-      <div class="card" style="margin-bottom:24px">
+      <div class="card" style="margin-bottom: 18px;">
         <p class="muted">
-          Write the restoration story here — your vision, what was preserved, what was modernized, and how the
-          space was designed to serve weddings, corporate events, celebrations, and community gatherings.
+          Write the restoration story here — your vision, what was preserved, what was modernized, and how the building
+          was reimagined for events.
         </p>
       </div>
 
@@ -167,7 +168,7 @@
         <img src="assets/img/history-restoration-9.jpg" alt="Restoration photo 9" loading="lazy" decoding="async" />
       </div>
 
-      <div class="actions" style="margin-top:22px">
+      <div class="actions" style="margin-top: 20px;">
         <a class="btn" href="get-started.html">Get Started</a>
         <a class="btn btn--ghost" href="gallery.html">View Gallery</a>
       </div>
