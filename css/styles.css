@@ -577,14 +577,12 @@ h2{font-size:40px}
   z-index: 4;
 }
 
-/* ===== FINAL OVERRIDE: Event Types buttons (single source of truth) ===== */
-#event-types .eventTypesNav button.featureBtn{
-  all: unset;
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
-  user-select: none;
-  white-space: nowrap;
-  display: inline-flex;
+/* ===== FINAL OVERRIDE: Event Types buttons (clean + reliable) ===== */
+#event-types .eventTypesNav .featureBtn{
+  appearance: none;
+  -webkit-appearance: none;
+
+  display: inline-flex;
   align-items: center;
   justify-content: center;
 
@@ -599,118 +597,27 @@ h2{font-size:40px}
   box-shadow: 0 6px 18px rgba(0,0,0,.10);
 
   cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
 
-  transition:
-    background .2s ease,
-    border-color .2s ease,
-    box-shadow .2s ease,
-    transform .15s ease,
-    color .2s ease;
+  transition: background .2s ease, border-color .2s ease, box-shadow .2s ease, transform .15s ease, color .2s ease;
 }
 
-#event-types .eventTypesNav button.featureBtn:hover{
+#event-types .eventTypesNav .featureBtn:hover{
   background: rgba(255,255,255,.90);
   transform: translateY(-1px);
   box-shadow: 0 10px 24px rgba(0,0,0,.14);
 }
 
-/* Active state: supports BOTH your class and aria-selected */
-#event-types .eventTypesNav button.featureBtn.is-active,
-#event-types .eventTypesNav button.featureBtn[aria-selected="true"]{
+#event-types .eventTypesNav .featureBtn.is-active,
+#event-types .eventTypesNav .featureBtn[aria-selected="true"]{
   background: linear-gradient(135deg, rgba(31,74,56,.95), rgba(15,42,32,.95));
   color: #fff;
   border-color: rgba(15,42,32,.85);
   box-shadow: 0 14px 32px rgba(0,0,0,.25);
-}
-
-#event-types .eventTypesNav button.featureBtn:focus-visible{
-  outline: 2px solid rgba(31,74,56,.55);
-  outline-offset: 3px;
-}
-
-/* ===== HARD OVERRIDE (must be last): Event Types button styling ===== */
-#event-types .eventTypesNav .featureBtn{
-  -webkit-appearance: none !important;
-  appearance: none !important;
-
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-
-  padding: 10px 16px !important;
-  border-radius: 999px !important;
-
-  font: 700 14px/1 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif !important;
-  color: var(--ink2) !important;
-
-  background: rgba(255,255,255,.70) !important;
-  border: 1px solid rgba(23,58,44,.22) !important;
-  box-shadow: 0 6px 18px rgba(0,0,0,.10) !important;
-
-  cursor: pointer !important;
-
-  transition: background .2s ease, border-color .2s ease, box-shadow .2s ease, transform .15s ease, color .2s ease !important;
-}
-
-#event-types .eventTypesNav .featureBtn:hover{
-  background: rgba(255,255,255,.90) !important;
-  transform: translateY(-1px) !important;
-  box-shadow: 0 10px 24px rgba(0,0,0,.14) !important;
-}
-
-/* Active: supports BOTH your class and aria-selected */
-#event-types .eventTypesNav .featureBtn.is-active,
-#event-types .eventTypesNav .featureBtn[aria-selected="true"]{
-  background: linear-gradient(135deg, rgba(31,74,56,.95), rgba(15,42,32,.95)) !important;
-  color: #fff !important;
-  border-color: rgba(15,42,32,.85) !important;
-  box-shadow: 0 14px 32px rgba(0,0,0,.25) !important;
 }
 
 #event-types .eventTypesNav .featureBtn:focus-visible{
-  outline: 2px solid rgba(31,74,56,.55) !important;
-  outline-offset: 3px !important;
-}
-
-/* ===== Event Types: bulletproof button styling (single source of truth) ===== */
-#event-types .eventTypesNav .eventTab{
-  -webkit-appearance: none;
-  appearance: none;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 10px 16px;
-  border-radius: 999px;
-
-  font: 700 14px/1 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-  color: var(--ink2);
-
-  background-color: rgba(255,255,255,.70);
-  border: 1px solid rgba(23,58,44,.22);
-  box-shadow: 0 6px 18px rgba(0,0,0,.10);
-
-  cursor: pointer;
-
-  transition: background-color .2s ease, border-color .2s ease, box-shadow .2s ease, transform .15s ease, color .2s ease;
-}
-
-#event-types .eventTypesNav .eventTab:hover{
-  background-color: rgba(255,255,255,.90);
-  transform: translateY(-1px);
-  box-shadow: 0 10px 24px rgba(0,0,0,.14);
-}
-
-#event-types .eventTypesNav .eventTab.is-active,
-#event-types .eventTypesNav .eventTab[aria-selected="true"]{
-  background: linear-gradient(135deg, rgba(31,74,56,.95), rgba(15,42,32,.95));
-  color: #fff;
-  border-color: rgba(15,42,32,.85);
-  box-shadow: 0 14px 32px rgba(0,0,0,.25);
-}
-
-#event-types .eventTypesNav .eventTab:focus-visible{
   outline: 2px solid rgba(31,74,56,.55);
   outline-offset: 3px;
 }
