@@ -9,10 +9,10 @@
 
   <!-- Page-only layout fixes (does NOT touch your main site styling) -->
   <style>
-    /* Force: photos LEFT, text RIGHT */
+    /* Force: photos LEFT, text RIGHT (photo column constrained, text flexible) */
     .historyRow{
       display:grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(320px, 520px) 1fr;
       gap: 24px;
       align-items:start;
     }
@@ -20,36 +20,14 @@
       .historyRow{ grid-template-columns: 1fr; }
     }
 
-    /* Photo tiles (constrained, consistent crop) */
-    .historyTiles3{
-      display:grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-    }
-    .historyTiles3 .tile.span2{ grid-column: 1 / -1; }
-
-    .historyGrid9{
-      display:grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-    }
-    @media (max-width: 1100px){
-      .historyGrid9{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    }
-    @media (max-width: 800px){
-      .historyGrid9{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    }
-    @media (max-width: 480px){
-      .historyGrid9{ grid-template-columns: 1fr; }
-    }
-
+    /* Photo tiles (boxed placeholders that still look good even before images exist) */
     .tile{
       border-radius: var(--radius);
       overflow:hidden;
       border: 1px solid rgba(23,58,44,.12);
       box-shadow: 0 10px 28px var(--shadow);
       background: rgba(255,255,255,.55);
-      height: 210px;              /* bigger = looks less “trash” */
+      height: 210px;
     }
     .tile img{
       display:block;
@@ -57,6 +35,34 @@
       height:100%;
       object-fit:cover;
       object-position:center;
+    }
+
+    /* 3-photo grid (true 3 columns on desktop) */
+    .historyTiles3{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+    @media (max-width: 900px){
+      .historyTiles3{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 520px){
+      .historyTiles3{ grid-template-columns: 1fr; }
+      .tile{ height: 220px; }
+    }
+
+    /* 9-photo grid */
+    .historyGrid9{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+    @media (max-width: 800px){
+      .historyGrid9{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 520px){
+      .historyGrid9{ grid-template-columns: 1fr; }
+      .tile{ height: 220px; }
     }
   </style>
 </head>
@@ -127,7 +133,7 @@
         <div class="historyTiles3" aria-label="Early manufacturing photos">
           <div class="tile"><img src="assets/img/history-ford-1.jpg" alt="Historic photo of early manufacturing at the mill" loading="lazy" decoding="async" /></div>
           <div class="tile"><img src="assets/img/history-ford-2.jpg" alt="Historic photo showing machinery or production" loading="lazy" decoding="async" /></div>
-          <div class="tile span2"><img src="assets/img/history-ford-3.jpg" alt="Exterior or site photo from the early era" loading="lazy" decoding="async" /></div>
+          <div class="tile"><img src="assets/img/history-ford-3.jpg" alt="Exterior or site photo from the early era" loading="lazy" decoding="async" /></div>
         </div>
 
         <!-- TEXT RIGHT -->
@@ -160,7 +166,7 @@
         <div class="historyTiles3" aria-label="World War II era photos">
           <div class="tile"><img src="assets/img/history-ww2-1.jpg" alt="World War II era photo related to the site" loading="lazy" decoding="async" /></div>
           <div class="tile"><img src="assets/img/history-ww2-2.jpg" alt="Historic wartime production or workers photo" loading="lazy" decoding="async" /></div>
-          <div class="tile span2"><img src="assets/img/history-ww2-3.jpg" alt="Arsenal of Democracy related photo" loading="lazy" decoding="async" /></div>
+          <div class="tile"><img src="assets/img/history-ww2-3.jpg" alt="Arsenal of Democracy related photo" loading="lazy" decoding="async" /></div>
         </div>
 
         <!-- TEXT RIGHT -->
