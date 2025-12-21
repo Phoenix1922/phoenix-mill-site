@@ -3,13 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gallery | Phoenix Mill Events</title>
-  <meta name="description" content="Gallery of weddings, corporate events, celebrations, and community gatherings at Phoenix Mill Events." />
+  <title>Phoenix Mill Events</title>
+  <meta name="description" content="Phoenix Mill Events — a historic venue for weddings, corporate events, celebrations, and more." />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
 <body>
-
   <!-- Top contact ribbon -->
   <div class="topbar">
     <div class="wrap topbar__inner">
@@ -19,36 +18,55 @@
         <a href="mailto:info@phoenixmillevents.com">info@phoenixmillevents.com</a>
       </div>
       <div class="topbar__right">
-        <a href="https://www.instagram.com/phoenixmillevents/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.instagram.com/phoenixmillevents/" 
+   aria-label="Instagram"
+   target="_blank"
+   rel="noopener">
+  Instagram
+</a>
         <span class="dot">•</span>
-        <a href="https://www.facebook.com/phoenixmillevents" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.facebook.com/phoenixmillevents"
+   aria-label="Facebook"
+   target="_blank"
+   rel="noopener">
+  Facebook
+</a>
       </div>
     </div>
   </div>
 
-  <!-- Header -->
-  <header class="header">
-    <div class="wrap header__inner">
-      <a class="brand" href="index.html">
-        <img class="brand__logo" src="assets/img/logo.png" alt="Phoenix Mill Events logo" />
-        <span class="brand__name">Phoenix Mill Events</span>
-      </a>
+  <!-- Header / Nav -->
+<header class="header">
+  <div class="wrap header__inner">
+    <a class="brand" href="index.html" aria-label="Phoenix Mill Events home">
+      <img
+        class="brand__logo"
+        src="assets/img/logo.png"
+        alt="Phoenix Mill Events logo"
+        decoding="async"
+      />
+      <span class="brand__name">Phoenix Mill Events</span>
+    </a>
 
-      <nav class="nav">
-        <a href="index.html#venue">Venue</a>
-        <a href="index.html#event-types">Event Types</a>
-        <a href="index.html#amenities">Amenities</a>
-        <a href="index.html#vendors">Partners</a>
-        <a href="index.html#articles">Planning</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="history.html">History</a>
-        <a class="btn btn--sm" href="get-started.html">Get Started</a>
-      </nav>
+    <nav class="nav" aria-label="Primary">
+      <a href="#venue">Venue</a>
+      <a href="#event-types">Event Types</a>
+      <a href="#amenities">Amenities</a>
+      <a href="#vendors">Partners</a>
+      <a href="#articles">Planning</a>
 
-      <button class="navToggle" aria-label="Open menu">Menu</button>
-    </div>
-  </header>
+      <!-- These now match normal ribbon links, but go to separate pages -->
+      <a href="gallery.html">Gallery</a>
+      <a href="history.html">History</a>
 
+      <!-- Keep Get Started as the primary CTA -->
+      <a class="btn btn--sm" href="get-started.html">Get Started</a>
+    </nav>
+
+    <button class="navToggle" aria-label="Open menu" aria-expanded="false">Menu</button>
+  </div>
+</header>
+  
   <!-- Gallery Hero -->
   <section class="section">
     <div class="wrap">
