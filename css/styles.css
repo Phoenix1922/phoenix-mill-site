@@ -739,67 +739,68 @@ h2{font-size:40px}
   .historyGrid9{ grid-template-columns: 1fr; }
 }
 
-/* ===== Footer spacing + alignment fix ===== */
+/* ================= FOOTER ================= */
+
 .footer{
-  padding: 48px 0 22px; /* a bit more top, less bottom */
+  background: #0f2a20;
+  color: #e7f0ea;
+  padding: 56px 0 24px;
+}
+
+.footer a{
+  color: #e7f0ea;
 }
 
 .footer__grid{
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 0 20px;
+
   display: grid;
-  grid-template-columns: 1.15fr 0.9fr 0.95fr; /* balances contact vs hours vs links/cta */
-  gap: 28px; /* tighter than before */
+  grid-template-columns: 1.2fr 0.9fr 1fr;
+  gap: 32px;
   align-items: start;
 }
 
-.footer__col{
-  min-width: 0;
-  text-align: left; /* prevents the weird centered look */
-}
-
-/* Headings inside footer */
 .footer__title{
   margin: 0 0 12px;
   font-size: 16px;
-  letter-spacing: .02em;
-  text-transform: none;
+  font-weight: 700;
 }
 
-/* Paragraph/list spacing inside footer */
-.footer__col p,
-.footer__col li{
+.footer__col p{
   margin: 0 0 10px;
   line-height: 1.55;
 }
 
-/* Links group spacing */
 .footer__links{
   display: grid;
   gap: 10px;
-  margin-top: 6px;
 }
 
 .footer__cta{
-  margin-top: 14px;
+  margin-top: 16px;
 }
 
-/* Bottom strip (if you have it) */
+/* Bottom bar */
 .footer__bottom{
-  margin-top: 26px;
+  margin-top: 32px;
   padding-top: 16px;
   border-top: 1px solid rgba(231,240,234,.18);
+
   display: flex;
   justify-content: space-between;
   gap: 16px;
   flex-wrap: wrap;
+
   font-size: 13px;
   opacity: .9;
 }
 
-/* Tablet/phone */
+/* Mobile */
 @media (max-width: 900px){
   .footer__grid{
     grid-template-columns: 1fr;
-    gap: 18px;
+    gap: 22px;
   }
-  .footer__cta .btn{ width: fit-content; }
 }
