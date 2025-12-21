@@ -458,7 +458,7 @@ h2{font-size:40px}
   /* ✅ THIS is the “make it smaller” part */
   max-width: 520px;
   width: 100%;
-  justify-self: start;
+  justify-self: center;
 }
 
 /* Only one mediaSet visible at a time */
