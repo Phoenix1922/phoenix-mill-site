@@ -737,12 +737,11 @@ h2{font-size:40px}
 .footer{
   background: #0f2a20;
   color: #e7f0ea;
-  padding: 28px 0 18px;
+  padding: 22px 0 14px;
 }
 
-.footer a{
-  color: #e7f0ea;
-}
+.footer a{ color:#e7f0ea; }
+.footer a:hover{ opacity:.92; }
 
 .footer__grid{
   max-width: var(--wrap);
@@ -751,66 +750,83 @@ h2{font-size:40px}
 
   display: grid;
   grid-template-columns: 1.2fr 0.9fr 1fr;
-  gap: 20px;
+  gap: 24px;
   align-items: start;
 }
 
+/* Column 1 */
 .footer__title{
   margin: 0 0 8px;
   font-size: 15px;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.15;
 }
 
-.footer__col p{
-  margin: 0 0 6px;
-  line-height: 1.45;
+.footer__muted{
+  margin: 0;
+  line-height: 1.35;
+  opacity: .9;
 }
 
-.footer__links{
-  display: grid;
-  gap: 6px;
-}
-
-.footer__cta{
+.footer__ctaRow{
   margin-top: 10px;
+}
+
+/* Column headings (Contact / Hours) */
+.footer__heading{
+  margin: 0 0 8px;     /* IMPORTANT: kills the big dead space */
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+/* Lists: remove browser defaults + tighten spacing */
+.footer__list{
+  margin: 0;           /* IMPORTANT */
+  padding: 0;          /* IMPORTANT */
+  list-style: none;
+}
+
+.footer__list li{
+  margin: 0;
+  padding: 4px 0;      /* tight but readable */
+  line-height: 1.25;   /* IMPORTANT: removes tall airy rows */
+}
+
+/* Social row */
+.footer__social{
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 /* Bottom bar */
 .footer__bottom{
   margin-top: 12px;
-  padding-top: 8px;
+  padding-top: 10px;
   border-top: 1px solid rgba(231,240,234,.18);
 
   display: flex;
   justify-content: space-between;
-  gap: 16px;
+  align-items: center;
+  gap: 12px;
   flex-wrap: wrap;
 
   font-size: 13px;
   opacity: .9;
 }
 
+.footer__small{
+  margin: 0;           /* IMPORTANT: avoid extra vertical space */
+  line-height: 1.2;
+}
+
 /* Mobile */
 @media (max-width: 900px){
   .footer__grid{
     grid-template-columns: 1fr;
-    gap: 22px;
+    gap: 18px;
   }
-}
-
-.nav a.is-active{
-  color: var(--accent);
-  position: relative;
-}
-
-.nav a.is-active::after{
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -6px;
-  height: 2px;
-  background: var(--accent);
-  border-radius: 2px;
 }
