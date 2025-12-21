@@ -763,7 +763,7 @@ h2{font-size:40px}
 
 .footer__col p{
   margin: 0 0 10px;
-  line-height: 1.55;
+  line-height: 1;
 }
 
 .footer__links{
@@ -777,8 +777,8 @@ h2{font-size:40px}
 
 /* Bottom bar */
 .footer__bottom{
-  margin-top: 32px;
-  padding-top: 16px;
+  margin-top: 16px;
+  padding-top: 10px;
   border-top: 1px solid rgba(231,240,234,.18);
 
   display: flex;
