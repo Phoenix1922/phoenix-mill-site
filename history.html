@@ -68,7 +68,7 @@
   <!-- Small hero (simple + consistent) -->
   <section class="section section--alt">
     <div class="wrap">
-      <div class="card historyHero">
+      <div class="card">
         <p class="kicker">Phoenix Mill Events</p>
         <h1 style="margin:10px 0 0">History</h1>
         <p class="muted" style="margin:10px 0 0">
@@ -86,12 +86,19 @@
         <p class="muted">Early industrial history and producing parts tied to the Ford ecosystem.</p>
       </div>
 
-      <div class="historySplit">
-        <!-- PHOTOS LEFT -->
-        <div class="historyPhotos historyPhotos--three" aria-label="Early manufacturing photos">
-          <img src="assets/img/history-ford-1.jpg" alt="Historic photo of early manufacturing at the mill" loading="lazy" decoding="async" />
-          <img src="assets/img/history-ford-2.jpg" alt="Historic photo showing machinery or production" loading="lazy" decoding="async" />
-          <img src="assets/img/history-ford-3.jpg" alt="Exterior or site photo from the early era" loading="lazy" decoding="async" />
+      <!-- ✅ GUARANTEED: photos left, text right -->
+      <div class="grid2">
+        <!-- PHOTOS LEFT (constrained thumbnails) -->
+        <div class="galleryGrid" aria-label="Early manufacturing photos" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+          <div class="galleryItem">
+            <img src="assets/img/history-ford-1.jpg" alt="Historic photo of early manufacturing at the mill" loading="lazy" decoding="async" />
+          </div>
+          <div class="galleryItem">
+            <img src="assets/img/history-ford-2.jpg" alt="Historic photo showing machinery or production" loading="lazy" decoding="async" />
+          </div>
+          <div class="galleryItem" style="grid-column: 1 / -1;">
+            <img src="assets/img/history-ford-3.jpg" alt="Exterior or site photo from the early era" loading="lazy" decoding="async" />
+          </div>
         </div>
 
         <!-- TEXT RIGHT -->
@@ -119,12 +126,19 @@
         <p class="muted">How this site contributed during World War II.</p>
       </div>
 
-      <div class="historySplit">
-        <!-- PHOTOS LEFT -->
-        <div class="historyPhotos historyPhotos--three" aria-label="World War II era photos">
-          <img src="assets/img/history-ww2-1.jpg" alt="World War II era photo related to the site" loading="lazy" decoding="async" />
-          <img src="assets/img/history-ww2-2.jpg" alt="Historic wartime production or workers photo" loading="lazy" decoding="async" />
-          <img src="assets/img/history-ww2-3.jpg" alt="Arsenal of Democracy related photo" loading="lazy" decoding="async" />
+      <!-- ✅ GUARANTEED: photos left, text right -->
+      <div class="grid2">
+        <!-- PHOTOS LEFT (constrained thumbnails) -->
+        <div class="galleryGrid" aria-label="World War II era photos" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+          <div class="galleryItem">
+            <img src="assets/img/history-ww2-1.jpg" alt="World War II era photo related to the site" loading="lazy" decoding="async" />
+          </div>
+          <div class="galleryItem">
+            <img src="assets/img/history-ww2-2.jpg" alt="Historic wartime production or workers photo" loading="lazy" decoding="async" />
+          </div>
+          <div class="galleryItem" style="grid-column: 1 / -1;">
+            <img src="assets/img/history-ww2-3.jpg" alt="Arsenal of Democracy related photo" loading="lazy" decoding="async" />
+          </div>
         </div>
 
         <!-- TEXT RIGHT -->
@@ -167,16 +181,17 @@
 
       <div style="height:16px"></div>
 
-      <div class="historyGrid9" aria-label="Restoration photos">
-        <img src="assets/img/history-restoration-1.jpg" alt="Restoration photo 1" loading="lazy" decoding="async" />
-        <img src="assets/img/history-restoration-2.jpg" alt="Restoration photo 2" loading="lazy" decoding="async" />
-        <img src="assets/img/history-restoration-3.jpg" alt="Restoration photo 3" loading="lazy" decoding="async" />
-        <img src="assets/img/history-restoration-4.jpg" alt="Restoration photo 4" loading="lazy" decoding="async" />
-        <img src="assets/img/history-restoration-5.jpg" alt="Restoration photo 5" loading="lazy" decoding="async" />
-        <img src="assets/img/history-restoration-6.jpg" alt="Restoration photo 6" loading="lazy" decoding="async" />
-        <img src="assets/img/history-restoration-7.jpg" alt="Restoration photo 7" loading="lazy" decoding="async" />
-        <img src="assets/img/history-restoration-8.jpg" alt="Restoration photo 8" loading="lazy" decoding="async" />
-        <img src="assets/img/history-restoration-9.jpg" alt="Restoration photo 9" loading="lazy" decoding="async" />
+      <!-- ✅ 9-photo grid using your existing constrained gallery styles -->
+      <div class="galleryGrid" aria-label="Restoration photos">
+        <div class="galleryItem"><img src="assets/img/history-restoration-1.jpg" alt="Restoration photo 1" loading="lazy" decoding="async" /></div>
+        <div class="galleryItem"><img src="assets/img/history-restoration-2.jpg" alt="Restoration photo 2" loading="lazy" decoding="async" /></div>
+        <div class="galleryItem"><img src="assets/img/history-restoration-3.jpg" alt="Restoration photo 3" loading="lazy" decoding="async" /></div>
+        <div class="galleryItem"><img src="assets/img/history-restoration-4.jpg" alt="Restoration photo 4" loading="lazy" decoding="async" /></div>
+        <div class="galleryItem"><img src="assets/img/history-restoration-5.jpg" alt="Restoration photo 5" loading="lazy" decoding="async" /></div>
+        <div class="galleryItem"><img src="assets/img/history-restoration-6.jpg" alt="Restoration photo 6" loading="lazy" decoding="async" /></div>
+        <div class="galleryItem"><img src="assets/img/history-restoration-7.jpg" alt="Restoration photo 7" loading="lazy" decoding="async" /></div>
+        <div class="galleryItem"><img src="assets/img/history-restoration-8.jpg" alt="Restoration photo 8" loading="lazy" decoding="async" /></div>
+        <div class="galleryItem"><img src="assets/img/history-restoration-9.jpg" alt="Restoration photo 9" loading="lazy" decoding="async" /></div>
       </div>
     </div>
   </section>
