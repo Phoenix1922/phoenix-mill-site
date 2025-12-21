@@ -738,3 +738,67 @@ h2{font-size:40px}
 @media (max-width: 520px){
   .historyGrid9{ grid-template-columns: 1fr; }
 }
+
+/* ===== Footer upgrades ===== */
+.footer__grid{
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 24px;
+  padding-top: 8px;
+}
+
+.footer__title{
+  margin: 0 0 8px;
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: .3px;
+}
+
+.footer__heading{
+  margin: 0 0 10px;
+  font-weight: 800;
+}
+
+.footer__muted{
+  opacity: .85;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.footer__list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+  opacity: .92;
+  line-height: 1.55;
+}
+
+.footer__list a{ text-decoration: underline; text-underline-offset: 3px; }
+.footer__list a:hover{ opacity: .9; }
+
+.footer__ctaRow{ margin-top: 14px; }
+
+.footer__social{
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  opacity: .95;
+}
+
+.footer__bottom{
+  border-top: 1px solid rgba(231,240,234,.18);
+  margin-top: 22px;
+  padding-top: 14px;
+}
+
+.footer__small{
+  margin: 0;
+  opacity: .75;
+  font-size: 13px;
+}
+
+@media (max-width: 900px){
+  .footer__grid{ grid-template-columns: 1fr; }
+}
