@@ -673,12 +673,6 @@ h2{font-size:40px}
   outline-offset: 3px;
 }
 
-#event-types .eventTypesNav button.featureBtn{
-  background: hotpink !important;
-  color: white !important;
-  border: 4px solid black !important;
-}
-
 /* ===== Event Types buttons: polished pill tabs (FINAL) ===== */
 #event-types .eventTypesNav{
   display:flex;
