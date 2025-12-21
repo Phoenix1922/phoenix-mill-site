@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>History • Phoenix Mill Events</title>
-  <meta name="description" content="The history of Phoenix Mill — from early industry to WWII and modern restoration." />
+  <title>History | Phoenix Mill Events</title>
+  <meta name="description" content="Phoenix Mill Events history — Ford-era manufacturing, WWII contributions, and restoration." />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
@@ -18,24 +18,24 @@
         <a href="mailto:info@phoenixmillevents.com">info@phoenixmillevents.com</a>
       </div>
       <div class="topbar__right">
-        <a
-          href="https://www.instagram.com/phoenixmillevents/"
-          aria-label="Instagram"
-          target="_blank"
-          rel="noopener"
-        >Instagram</a>
+        <a href="https://www.instagram.com/phoenixmillevents/"
+           aria-label="Instagram"
+           target="_blank"
+           rel="noopener">
+          Instagram
+        </a>
         <span class="dot">•</span>
-        <a
-          href="https://www.facebook.com/phoenixmillevents"
-          aria-label="Facebook"
-          target="_blank"
-          rel="noopener"
-        >Facebook</a>
+        <a href="https://www.facebook.com/phoenixmillevents"
+           aria-label="Facebook"
+           target="_blank"
+           rel="noopener">
+          Facebook
+        </a>
       </div>
     </div>
   </div>
 
-  <!-- Header / Nav (same as index.html) -->
+  <!-- Header / Nav -->
   <header class="header">
     <div class="wrap header__inner">
       <a class="brand" href="index.html" aria-label="Phoenix Mill Events home">
@@ -56,7 +56,7 @@
         <a href="index.html#articles">Planning</a>
 
         <a href="gallery.html">Gallery</a>
-        <a href="history.html">History</a>
+        <a href="history.html" aria-current="page">History</a>
 
         <a class="btn btn--sm" href="get-started.html">Get Started</a>
       </nav>
@@ -65,133 +65,112 @@
     </div>
   </header>
 
-  <!-- Small hero (simple + consistent) -->
-  <section class="section section--alt">
-    <div class="wrap">
-      <div class="card">
-        <p class="kicker">Phoenix Mill Events</p>
-        <h1 style="margin:10px 0 0">History</h1>
-        <p class="muted" style="margin:10px 0 0">
-          A historic Michigan building — shaped by early manufacturing, the Arsenal of Democracy, and a new chapter of restoration.
+  <!-- HISTORY HERO (dark, same vibe as hero slides) -->
+  <section class="parallax" style="min-height: 260px;">
+    <div class="parallax__media"
+         style="inset:0; background-image: linear-gradient(120deg, rgba(15,42,32,.95), rgba(15,42,32,.55));"></div>
+    <div class="parallax__overlay" style="min-height: 260px;">
+      <div class="wrap parallax__content" style="padding: 44px 0;">
+        <p class="kicker">THE STORY OF THE BUILDING</p>
+        <h1 style="margin: 8px 0 8px;">History</h1>
+        <p class="lead" style="max-width: 820px;">
+          From Ford-era production to WWII contributions — and now a careful restoration into a modern event venue.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- 1) Early history / Ford-era -->
+  <!-- SECTION 1 -->
   <section class="section" id="history-ford">
     <div class="wrap">
       <div class="sectionHead">
-        <h2>Manufacturing roots</h2>
-        <p class="muted">Early industrial history and producing parts tied to the Ford ecosystem.</p>
+        <h2>Ford-era manufacturing</h2>
+        <p class="muted">Early industrial use supporting Ford Motor Company.</p>
       </div>
 
-      <!-- ✅ GUARANTEED: photos left, text right -->
-      <div class="grid2">
-        <!-- PHOTOS LEFT (constrained thumbnails) -->
-        <div class="galleryGrid" aria-label="Early manufacturing photos" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
-          <div class="galleryItem">
-            <img src="assets/img/history-ford-1.jpg" alt="Historic photo of early manufacturing at the mill" loading="lazy" decoding="async" />
-          </div>
-          <div class="galleryItem">
-            <img src="assets/img/history-ford-2.jpg" alt="Historic photo showing machinery or production" loading="lazy" decoding="async" />
-          </div>
-          <div class="galleryItem" style="grid-column: 1 / -1;">
-            <img src="assets/img/history-ford-3.jpg" alt="Exterior or site photo from the early era" loading="lazy" decoding="async" />
-          </div>
+      <!-- IMPORTANT: NOT grid2. This is a dedicated layout -->
+      <div class="historySplit">
+        <!-- Left: text -->
+        <div class="card">
+          <h3>Manufacturing roots</h3>
+          <p class="muted">
+            Write your history here. Describe what was produced, when it operated, and the building’s role in the region.
+          </p>
+          <p class="muted">
+            Add key dates, names, and milestones as you learn them.
+          </p>
         </div>
 
-        <!-- TEXT RIGHT -->
-        <div class="card">
-          <h3>Built to produce</h3>
-          <p class="muted">
-            Use this space to tell the story of when the building was constructed, what it originally produced,
-            and how it supported the regional manufacturing network — including work connected to Ford Motor Company.
-          </p>
-          <ul class="list">
-            <li>When the building was built (year)</li>
-            <li>What parts/materials were produced</li>
-            <li>Why the location mattered (rail/river/roads/labor)</li>
-          </ul>
+        <!-- Right: 3-photo grid -->
+        <div class="historyPhotos historyPhotos--three" aria-label="Ford-era photos">
+          <img src="assets/img/history-ford-1.jpg" alt="Ford-era photo 1" loading="lazy" decoding="async" />
+          <img src="assets/img/history-ford-2.jpg" alt="Ford-era photo 2" loading="lazy" decoding="async" />
+          <img src="assets/img/history-ford-3.jpg" alt="Ford-era photo 3" loading="lazy" decoding="async" />
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 2) WWII / Arsenal of Democracy -->
+  <!-- SECTION 2 -->
   <section class="section section--alt" id="history-ww2">
     <div class="wrap">
       <div class="sectionHead">
-        <h2>Arsenal of Democracy</h2>
-        <p class="muted">How this site contributed during World War II.</p>
+        <h2>Arsenal of Democracy (WWII)</h2>
+        <p class="muted">The building’s contribution during World War II.</p>
       </div>
 
-      <!-- ✅ GUARANTEED: photos left, text right -->
-      <div class="grid2">
-        <!-- PHOTOS LEFT (constrained thumbnails) -->
-        <div class="galleryGrid" aria-label="World War II era photos" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
-          <div class="galleryItem">
-            <img src="assets/img/history-ww2-1.jpg" alt="World War II era photo related to the site" loading="lazy" decoding="async" />
-          </div>
-          <div class="galleryItem">
-            <img src="assets/img/history-ww2-2.jpg" alt="Historic wartime production or workers photo" loading="lazy" decoding="async" />
-          </div>
-          <div class="galleryItem" style="grid-column: 1 / -1;">
-            <img src="assets/img/history-ww2-3.jpg" alt="Arsenal of Democracy related photo" loading="lazy" decoding="async" />
-          </div>
+      <div class="historySplit">
+        <!-- Left: text -->
+        <div class="card">
+          <h3>Supporting the war effort</h3>
+          <p class="muted">
+            Write your WWII story here — what was made, who it supported, and how it tied into the Arsenal of Democracy.
+          </p>
+          <p class="muted">
+            If you have a specific fact or quote, add it here as a callout.
+          </p>
         </div>
 
-        <!-- TEXT RIGHT -->
-        <div class="card">
-          <h3>Wartime production & impact</h3>
-          <p class="muted">
-            Use this to explain the WWII connection: what was produced, how operations shifted, and the broader
-            historical context of Michigan’s wartime manufacturing.
-          </p>
-          <ul class="list">
-            <li>What changed during WWII</li>
-            <li>Output / scale (if you have it)</li>
-            <li>Why it mattered locally + nationally</li>
-          </ul>
+        <!-- Right: 3-photo grid -->
+        <div class="historyPhotos historyPhotos--three" aria-label="WWII photos">
+          <img src="assets/img/history-ww2-1.jpg" alt="WWII photo 1" loading="lazy" decoding="async" />
+          <img src="assets/img/history-ww2-2.jpg" alt="WWII photo 2" loading="lazy" decoding="async" />
+          <img src="assets/img/history-ww2-3.jpg" alt="WWII photo 3" loading="lazy" decoding="async" />
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 3) Restoration / repurposing -->
+  <!-- SECTION 3 -->
   <section class="section" id="history-restoration">
     <div class="wrap">
       <div class="sectionHead">
-        <h2>Restoration & repurposing</h2>
-        <p class="muted">From preservation to a warm, modern venue — with the character kept intact.</p>
+        <h2>Restoration & Repurposing</h2>
+        <p class="muted">Bringing the building back to life while preserving its character.</p>
       </div>
 
-      <div class="card">
-        <h3>Bringing the building back to life</h3>
+      <div class="card" style="margin-bottom: 18px;">
         <p class="muted">
-          Tell the “before and after” story: what condition the building was in, major restoration milestones,
-          and how the design choices kept the historic feel while improving flow for events.
+          Write the restoration story here — your vision, what was preserved, what was modernized, and how the building
+          was reimagined for events.
         </p>
-        <ul class="list">
-          <li>Key restoration phases (roof, windows, structural, interiors)</li>
-          <li>What was preserved vs. replaced</li>
-          <li>How the space was redesigned for weddings + corporate events</li>
-        </ul>
       </div>
 
-      <div style="height:16px"></div>
+      <div class="historyGallery" aria-label="Restoration photos">
+        <img src="assets/img/history-restoration-1.jpg" alt="Restoration photo 1" loading="lazy" decoding="async" />
+        <img src="assets/img/history-restoration-2.jpg" alt="Restoration photo 2" loading="lazy" decoding="async" />
+        <img src="assets/img/history-restoration-3.jpg" alt="Restoration photo 3" loading="lazy" decoding="async" />
+        <img src="assets/img/history-restoration-4.jpg" alt="Restoration photo 4" loading="lazy" decoding="async" />
+        <img src="assets/img/history-restoration-5.jpg" alt="Restoration photo 5" loading="lazy" decoding="async" />
+        <img src="assets/img/history-restoration-6.jpg" alt="Restoration photo 6" loading="lazy" decoding="async" />
+        <img src="assets/img/history-restoration-7.jpg" alt="Restoration photo 7" loading="lazy" decoding="async" />
+        <img src="assets/img/history-restoration-8.jpg" alt="Restoration photo 8" loading="lazy" decoding="async" />
+        <img src="assets/img/history-restoration-9.jpg" alt="Restoration photo 9" loading="lazy" decoding="async" />
+      </div>
 
-      <!-- ✅ 9-photo grid using your existing constrained gallery styles -->
-      <div class="galleryGrid" aria-label="Restoration photos">
-        <div class="galleryItem"><img src="assets/img/history-restoration-1.jpg" alt="Restoration photo 1" loading="lazy" decoding="async" /></div>
-        <div class="galleryItem"><img src="assets/img/history-restoration-2.jpg" alt="Restoration photo 2" loading="lazy" decoding="async" /></div>
-        <div class="galleryItem"><img src="assets/img/history-restoration-3.jpg" alt="Restoration photo 3" loading="lazy" decoding="async" /></div>
-        <div class="galleryItem"><img src="assets/img/history-restoration-4.jpg" alt="Restoration photo 4" loading="lazy" decoding="async" /></div>
-        <div class="galleryItem"><img src="assets/img/history-restoration-5.jpg" alt="Restoration photo 5" loading="lazy" decoding="async" /></div>
-        <div class="galleryItem"><img src="assets/img/history-restoration-6.jpg" alt="Restoration photo 6" loading="lazy" decoding="async" /></div>
-        <div class="galleryItem"><img src="assets/img/history-restoration-7.jpg" alt="Restoration photo 7" loading="lazy" decoding="async" /></div>
-        <div class="galleryItem"><img src="assets/img/history-restoration-8.jpg" alt="Restoration photo 8" loading="lazy" decoding="async" /></div>
-        <div class="galleryItem"><img src="assets/img/history-restoration-9.jpg" alt="Restoration photo 9" loading="lazy" decoding="async" /></div>
+      <div class="actions" style="margin-top: 20px;">
+        <a class="btn" href="get-started.html">Get Started</a>
+        <a class="btn btn--ghost" href="gallery.html">View Gallery</a>
       </div>
     </div>
   </section>
