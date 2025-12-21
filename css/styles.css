@@ -804,3 +804,10 @@ h2{font-size:40px}
     gap: 22px;
   }
 }
+
+.nav a.is-active{
+  opacity: 1;
+  font-weight: 800;
+  border-bottom: 2px solid var(--accent);
+  pointer-events: none; /* optional */
+}
