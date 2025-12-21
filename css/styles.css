@@ -739,66 +739,67 @@ h2{font-size:40px}
   .historyGrid9{ grid-template-columns: 1fr; }
 }
 
-/* ===== Footer upgrades ===== */
+/* ===== Footer spacing + alignment fix ===== */
+.footer{
+  padding: 48px 0 22px; /* a bit more top, less bottom */
+}
+
 .footer__grid{
   display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr;
-  gap: 24px;
-  padding-top: 8px;
+  grid-template-columns: 1.15fr 0.9fr 0.95fr; /* balances contact vs hours vs links/cta */
+  gap: 28px; /* tighter than before */
+  align-items: start;
 }
 
+.footer__col{
+  min-width: 0;
+  text-align: left; /* prevents the weird centered look */
+}
+
+/* Headings inside footer */
 .footer__title{
-  margin: 0 0 8px;
-  font-family: Georgia, "Times New Roman", serif;
-  letter-spacing: .3px;
+  margin: 0 0 12px;
+  font-size: 16px;
+  letter-spacing: .02em;
+  text-transform: none;
 }
 
-.footer__heading{
+/* Paragraph/list spacing inside footer */
+.footer__col p,
+.footer__col li{
   margin: 0 0 10px;
-  font-weight: 800;
-}
-
-.footer__muted{
-  opacity: .85;
-  line-height: 1.6;
-  margin: 0;
-}
-
-.footer__list{
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 10px;
-  opacity: .92;
   line-height: 1.55;
 }
 
-.footer__list a{ text-decoration: underline; text-underline-offset: 3px; }
-.footer__list a:hover{ opacity: .9; }
-
-.footer__ctaRow{ margin-top: 14px; }
-
-.footer__social{
-  margin-top: 14px;
-  display: flex;
+/* Links group spacing */
+.footer__links{
+  display: grid;
   gap: 10px;
-  flex-wrap: wrap;
-  opacity: .95;
+  margin-top: 6px;
 }
 
+.footer__cta{
+  margin-top: 14px;
+}
+
+/* Bottom strip (if you have it) */
 .footer__bottom{
+  margin-top: 26px;
+  padding-top: 16px;
   border-top: 1px solid rgba(231,240,234,.18);
-  margin-top: 22px;
-  padding-top: 14px;
-}
-
-.footer__small{
-  margin: 0;
-  opacity: .75;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
   font-size: 13px;
+  opacity: .9;
 }
 
+/* Tablet/phone */
 @media (max-width: 900px){
-  .footer__grid{ grid-template-columns: 1fr; }
+  .footer__grid{
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .footer__cta .btn{ width: fit-content; }
 }
