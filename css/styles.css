@@ -650,10 +650,10 @@ h2{font-size:40px}
 
 /* Responsive */
 @media (max-width: 1200px){
-  .galleryGrid{ grid-template-columns: repeat(3, 1fr)); }
+  .galleryGrid{ grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 800px){
-  .galleryGrid{ grid-template-columns: repeat(2, 1fr)); }
+  .galleryGrid{ grid-template-columns: repeat(2, 1fr); }
   .galleryItem{ height: 170px; }
 }
 @media (max-width: 480px){
