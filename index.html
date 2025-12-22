@@ -530,42 +530,6 @@
     </div>
   </div>
 </footer>
-
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
-
-<script>
-  // Event Types tabs: buttons -> panes + media sets
-  (function () {
-    const tabs = Array.from(document.querySelectorAll('#event-types .eventTab'));
-    const panes = Array.from(document.querySelectorAll('#event-types .featurePane'));
-    const mediaSets = Array.from(document.querySelectorAll('#event-types .eventTypesMedia .mediaSet'));
-
-    if (!tabs.length || !panes.length || !mediaSets.length) return;
-
-    function activate(key) {
-      tabs.forEach(b => {
-        const active = b.dataset.feature === key;
-        b.classList.toggle('is-active', active);
-        b.setAttribute('aria-selected', active ? 'true' : 'false');
-      });
-
-      panes.forEach(p => p.classList.toggle('is-active', p.dataset.pane === key));
-      mediaSets.forEach(m => m.classList.toggle('is-active', m.dataset.media === key));
-    }
-
-    tabs.forEach(btn => {
-      btn.addEventListener('click', () => activate(btn.dataset.feature));
-    });
-
-    // Ensure initial state is correct on load
-    const initial = (tabs.find(t => t.classList.contains('is-active')) || tabs[0]).dataset.feature;
-    activate(initial);
-  })();
-</script>
-
-
 </body>
 </html>
 
