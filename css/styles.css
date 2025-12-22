@@ -732,101 +732,116 @@ h2{font-size:40px}
   .historyGrid9{ grid-template-columns: 1fr; }
 }
 
-/* ================= FOOTER ================= */
+/* ================= FOOTER (REBUILD) ================= */
 
 .footer{
   background: #0f2a20;
   color: #e7f0ea;
-  padding: 16px 0 10px;
+
+  /* half-height feel */
+  padding: 12px 0 10px;
+
+  /* stop global airy typography from leaking in */
+  line-height: 1.25;
 }
 
 .footer a{ color:#e7f0ea; }
 .footer a:hover{ opacity:.92; }
 
+/* Hard reset spacing inside footer */
+.footer h3,
+.footer h4,
+.footer p,
+.footer ul,
+.footer li{
+  margin: 0;
+  padding: 0;
+}
+
+/* Layout */
 .footer__grid{
   max-width: var(--wrap);
   margin: 0 auto;
-  padding: 0 10px;
+  padding: 0 20px;
 
   display: grid;
-  grid-template-columns: 1.2fr 0.9fr 1fr;
-  gap: 16px;
+  grid-template-columns: 1.2fr 0.95fr 0.85fr;
+  gap: 18px;
   align-items: start;
 }
 
 /* Column 1 */
 .footer__title{
-  margin: 0 0 8px;
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 1.15;
-}
-
-.footer__muted{
-  margin: 0;
-  line-height: 1.35;
-  opacity: .9;
-}
-
-.footer__ctaRow{
-  margin-top: 10px;
-}
-
-/* Column headings (Contact / Hours) */
-.footer__heading{
-  margin: 0 0 8px;     /* IMPORTANT: kills the big dead space */
   font-size: 14px;
   font-weight: 700;
   line-height: 1.15;
+  margin-bottom: 6px;
 }
 
-/* Lists: remove browser defaults + tighten spacing */
+.footer__muted{
+  opacity: .9;
+  font-size: 13px;
+  line-height: 1.25;
+  margin-bottom: 8px;
+  max-width: 44ch;
+}
+
+.footer__ctaRow{ margin-top: 6px; }
+
+/* Headings */
+.footer__heading{
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 6px;
+}
+
+/* Tight lists */
 .footer__list{
-  margin: 0;           /* IMPORTANT */
-  padding: 0;          /* IMPORTANT */
   list-style: none;
+  display: grid;
+  gap: 4px;              /* key: tight vertical spacing */
+  font-size: 13px;
+  line-height: 1.2;      /* key: removes tall rows */
 }
 
-.footer__list li{
-  margin: 0;
-  padding: 4px 0;      /* tight but readable */
-  line-height: 1.25;   /* IMPORTANT: removes tall airy rows */
-}
+.footer__list strong{ font-weight: 700; }
 
 /* Social row */
 .footer__social{
-  margin-top: 10px;
+  margin-top: 8px;
   display: flex;
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
+  font-size: 13px;
+  line-height: 1.2;
 }
 
 /* Bottom bar */
 .footer__bottom{
-  margin-top: 12px;
-  padding-top: 10px;
+  max-width: var(--wrap);
+  margin: 10px auto 0;
+  padding: 8px 20px 0;
   border-top: 1px solid rgba(231,240,234,.18);
 
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   flex-wrap: wrap;
 
-  font-size: 13px;
+  font-size: 12px;
   opacity: .9;
 }
 
-.footer__small{
-  margin: 0;           /* IMPORTANT: avoid extra vertical space */
-  line-height: 1.2;
-}
+.footer__small{ line-height: 1.2; }
 
 /* Mobile */
 @media (max-width: 900px){
   .footer__grid{
     grid-template-columns: 1fr;
-    gap: 18px;
+    gap: 14px;
   }
+  .footer__muted{ max-width: none; }
 }
