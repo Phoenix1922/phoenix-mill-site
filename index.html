@@ -482,57 +482,66 @@
     </div>
   </div>
 
-<!-- Footer -->
-  <footer class="footer">
-    <div class="wrap footer__grid">
-      <!-- Column 1 -->
-      <div class="footer__col">
-        <h3 class="footer__title">Phoenix Mill Events</h3>
-        <p class="footer__muted">
-          A historic Michigan venue for weddings, corporate gatherings, celebrations, and community events.
-        </p>
-        <div class="footer__ctaRow">
-          <a class="btn btn--sm" href="get-started.html">Get Started</a>
+<!-- Site Footer -->
+<footer class="siteFooter">
+  <div class="wrap siteFooter__inner">
+    <!-- Brand / blurb -->
+    <div class="siteFooter__brand">
+      <div class="siteFooter__brandRow">
+        <img class="siteFooter__logo" src="assets/img/logo.png" alt="Phoenix Mill Events logo" />
+        <div>
+          <div class="siteFooter__name">Phoenix Mill Events</div>
+          <div class="siteFooter__tag">A historic Michigan venue for weddings, corporate gatherings, celebrations, and community events.</div>
         </div>
       </div>
 
-      <!-- Column 2 -->
-      <div class="footer__col">
-        <h4 class="footer__heading">Contact</h4>
-        <ul class="footer__list">
-          <li><strong>Address:</strong> 15000 Edward N Hines Dr, Plymouth, MI 48170</li>
-          <li><strong>Phone:</strong> <a href="tel:+17342529747">734-252-9747</a></li>
-          <li><strong>Email:</strong> <a href="mailto:info@phoenixmillevents.com">info@phoenixmillevents.com</a></li>
-        </ul>
-      </div>
-
-      <!-- Column 3 -->
-      <div class="footer__col">
-        <h4 class="footer__heading">Hours</h4>
-        <ul class="footer__list">
-          <li><strong>Mon–Fri:</strong> 9:00 AM – 5:00 PM</li>
-          <li><strong>Sat:</strong> By appointment</li>
-          <li><strong>Sun:</strong> By appointment</li>
-        </ul>
-
-        <div class="footer__social">
-          <a href="https://www.instagram.com/phoenixmillevents/" target="_blank" rel="noopener">Instagram</a>
-          <span class="dot">•</span>
-          <a href="https://www.facebook.com/phoenixmillevents" target="_blank" rel="noopener">Facebook</a>
-        </div>
+      <div class="siteFooter__cta">
+        <a class="btn btn--sm" href="get-started.html">Get Started</a>
       </div>
     </div>
 
-    <div class="wrap footer__bottom">
-      <p class="footer__small">© <span id="year"></span> Phoenix Mill Events. All rights reserved.</p>
+    <!-- Contact -->
+    <div class="siteFooter__col">
+      <div class="siteFooter__head">Contact</div>
+      <div class="siteFooter__stack">
+        <div>15000 Edward N Hines Dr<br>Plymouth, MI 48170</div>
+        <div><a href="tel:+17342529747">734-252-9747</a></div>
+        <div><a href="mailto:info@phoenixmillevents.com">info@phoenixmillevents.com</a></div>
+      </div>
     </div>
-  </footer>
 
-  <script>
-    // Footer year (tiny + safe)
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-  
-  <script defer src="./js/main.js"></script>
-</body>
-</html>
+    <!-- Hours -->
+    <div class="siteFooter__col">
+      <div class="siteFooter__head">Hours</div>
+      <div class="siteFooter__stack">
+        <div><strong>Mon–Fri:</strong> 9:00 AM – 5:00 PM</div>
+        <div><strong>Sat:</strong> By appointment</div>
+        <div><strong>Sun:</strong> By appointment</div>
+      </div>
+    </div>
+
+    <!-- Social / quick links -->
+    <div class="siteFooter__col">
+      <div class="siteFooter__head">Follow</div>
+      <div class="siteFooter__links">
+        <a href="https://www.instagram.com/phoenixmillevents/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/phoenixmillevents" target="_blank" rel="noopener">Facebook</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="siteFooter__bar">
+    <div class="wrap siteFooter__barInner">
+      <div>© <span id="footerYear"></span> Phoenix Mill Events</div>
+      <div class="siteFooter__barLinks">
+        <a href="gallery.html">Gallery</a>
+        <span class="dot">•</span>
+        <a href="history.html">History</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('footerYear').textContent = new Date().getFullYear();
+</script>
