@@ -734,105 +734,100 @@ h2{font-size:40px}
 
 /* ================= FOOTER ================= */
 
-.footer{
-  background:#0f2a20;
-  color:#e7f0ea;
-  padding: 14px 0 12px; /* ~half height vs what you had */
+.siteFooter{
+  background: #0f2a20;
+  color: #e7f0ea;
+  padding: 14px 0 10px;              /* compact */
 }
 
-.footer a{ color:#e7f0ea; }
-.footer a:hover{ opacity:.92; }
+.siteFooter a{ color:#e7f0ea; text-decoration:none; }
+.siteFooter a:hover{ opacity:.92; }
 
-/* Layout */
-.footer__grid{
-  max-width: var(--wrap);
-  margin: 0 auto;
-  padding: 0 20px;
+.siteFooter__inner{ }
 
+.siteFooter__grid{
   display: grid;
-  grid-template-columns: 1.2fr .95fr .85fr;
-  gap: 18px;
+  grid-template-columns: 1.4fr 1fr 1fr .8fr; /* tighter + real “Follow” column */
+  gap: 18px;                                 /* less empty space */
   align-items: start;
 }
 
-/* KILL all default spacing inside footer columns */
-.footer__col h3,
-.footer__col h4,
-.footer__col p,
-.footer__col ul{
-  margin: 0;
-}
-
-/* Column 1 */
-.footer__title{
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 1.15;
-  margin-bottom: 6px;
-}
-
-.footer__muted{
-  opacity: .9;
-  line-height: 1.35;
-}
-
-/* Headings (Contact / Hours) */
-.footer__heading{
-  font-size: 13px;
-  font-weight: 700;
-  line-height: 1.15;
-  margin-bottom: 6px;
-}
-
-/* Lists */
-.footer__list{
-  list-style: none;
-  padding: 0;          /* removes the big left indent */
-  margin: 0;           /* removes the big top/bottom gap */
-}
-
-.footer__list li{
-  padding: 2px 0;      /* tight, readable */
-  line-height: 1.25;   /* NOT airy */
-}
-
-/* CTA + Social */
-.footer__ctaRow{ margin-top: 8px; }
-
-.footer__social{
-  margin-top: 8px;
-  display: flex;
+.siteFooter__brandRow{
+  display:flex;
   align-items: center;
   gap: 10px;
-  flex-wrap: wrap;
-  line-height: 1.2;
 }
 
-/* Bottom bar */
-.footer__bottom{
-  max-width: var(--wrap);
-  margin: 10px auto 0;
-  padding: 8px 20px 0;
-  border-top: 1px solid rgba(231,240,234,.18);
+.siteFooter__name{
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+  letter-spacing: .3px;
+  line-height: 1.1;
+}
 
-  display: flex;
+.siteFooter__tagline{
+  margin: 6px 0 8px;
+  opacity: .9;
+  line-height: 1.25;          /* tighter text block */
+  font-size: 13px;
+  max-width: 38ch;
+}
+
+.siteFooter__cta{
+  margin-top: 2px;
+}
+
+.siteFooter__head{
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  opacity: .9;
+  margin: 0 0 6px;            /* kills the “dead space” */
+  line-height: 1.1;
+}
+
+.siteFooter__list{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 6px;                   /* tighter than your current */
+  line-height: 1.15;
+  font-size: 13px;
+}
+
+.siteFooter__list strong{
+  font-weight: 700;
+}
+
+.siteFooter__bottom{
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(231,240,234,.16);
+  display:flex;
   justify-content: space-between;
-  gap: 10px;
+  align-items: center;
+  gap: 12px;
   flex-wrap: wrap;
-
-  font-size: 12.5px;
+  font-size: 12px;
   opacity: .9;
 }
 
-.footer__small{
-  margin: 0;
-  line-height: 1.2;
+.siteFooter__smallLinks{
+  display:flex;
+  gap: 12px;
 }
 
-/* Mobile */
-@media (max-width: 900px){
-  .footer__grid{
-    grid-template-columns: 1fr;
+/* Responsive */
+@media (max-width: 980px){
+  .siteFooter__grid{
+    grid-template-columns: 1fr 1fr;
     gap: 14px;
+  }
+}
+
+@media (max-width: 560px){
+  .siteFooter__grid{
+    grid-template-columns: 1fr;
   }
 }
