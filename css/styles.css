@@ -739,10 +739,11 @@ h2{font-size:40px}
   color: #e7f0ea;
 
   /* half-height feel */
-  padding: 12px 0 10px;
+  padding: 14px 0 10px;
 
   /* stop global airy typography from leaking in */
-  line-height: 1.25;
+  font-size: 13px;
+  line-height: 1.12;
 }
 
 .footer a{ color:#e7f0ea; }
@@ -780,42 +781,46 @@ h2{font-size:40px}
 
 .footer__muted{
   opacity: .9;
-  font-size: 13px;
-  line-height: 1.25;
-  margin-bottom: 8px;
-  max-width: 44ch;
+  line-height: 1.18;
+  margin: 0 0 6px
 }
 
 .footer__ctaRow{ margin-top: 6px; }
 
 /* Headings */
 .footer__heading{
+  margin: 0 0 4px;
   font-size: 13px;
   font-weight: 700;
-  line-height: 1.15;
-  margin-bottom: 6px;
+  line-height: 1.1;
 }
 
 /* Tight lists */
 .footer__list{
+  margin: 0;
+  padding: 0;
   list-style: none;
+
   display: grid;
-  gap: 4px;              /* key: tight vertical spacing */
-  font-size: 13px;
-  line-height: 1.2;      /* key: removes tall rows */
+  gap: 2px;              /* was too tall */
+}
+
+.footer__list li{
+  margin: 0;
+  padding: 0;            /* IMPORTANT: kills the “double spaced” feel */
+  line-height: 1.12;     /* tighter rows */
 }
 
 .footer__list strong{ font-weight: 700; }
 
 /* Social row */
 .footer__social{
-  margin-top: 8px;
+  margin-top: 6px;
   display: flex;
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
-  font-size: 13px;
-  line-height: 1.2;
+  line-height: 1.1;
 }
 
 /* Bottom bar */
