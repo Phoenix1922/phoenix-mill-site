@@ -737,53 +737,44 @@ h2{font-size:40px}
 .siteFooter{
   background: #0f2a20;
   color: #e7f0ea;
-  padding: 14px 0 10px;              /* compact */
+  padding: 12px 0 10px; /* compact */
 }
 
-.siteFooter a{ color:#e7f0ea; text-decoration:none; }
+.siteFooter a{ color:#e7f0ea; }
 .siteFooter a:hover{ opacity:.92; }
 
 .siteFooter__inner{ }
 
 .siteFooter__grid{
-  display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr .8fr; /* tighter + real “Follow” column */
-  gap: 18px;                                 /* less empty space */
-  align-items: start;
-}
-
-.siteFooter__brandRow{
-  display:flex;
-  align-items: center;
-  gap: 10px;
+  display:grid;
+  grid-template-columns: 1.2fr 1fr 1fr .75fr;
+  gap: 16px;
+  align-items:start;
 }
 
 .siteFooter__name{
   font-family: Georgia, "Times New Roman", serif;
   font-size: 16px;
-  letter-spacing: .3px;
-  line-height: 1.1;
+  font-weight: 700;
+  line-height: 1.05;
+  margin: 0 0 6px;
 }
 
 .siteFooter__tagline{
-  margin: 6px 0 8px;
-  opacity: .9;
-  line-height: 1.25;          /* tighter text block */
+  margin: 0 0 8px;
   font-size: 13px;
-  max-width: 38ch;
-}
-
-.siteFooter__cta{
-  margin-top: 2px;
+  line-height: 1.25; /* tighter */
+  opacity: .9;
+  max-width: 42ch;
 }
 
 .siteFooter__head{
   font-size: 12px;
   letter-spacing: .12em;
   text-transform: uppercase;
-  opacity: .9;
-  margin: 0 0 6px;            /* kills the “dead space” */
+  margin: 0 0 6px;
   line-height: 1.1;
+  opacity: .9;
 }
 
 .siteFooter__list{
@@ -791,13 +782,9 @@ h2{font-size:40px}
   padding: 0;
   list-style: none;
   display: grid;
-  gap: 6px;                   /* tighter than your current */
-  line-height: 1.15;
+  gap: 6px;          /* controls the “double spaced” look */
   font-size: 13px;
-}
-
-.siteFooter__list strong{
-  font-weight: 700;
+  line-height: 1.2;  /* tighter */
 }
 
 .siteFooter__bottom{
@@ -806,8 +793,8 @@ h2{font-size:40px}
   border-top: 1px solid rgba(231,240,234,.16);
   display:flex;
   justify-content: space-between;
-  align-items: center;
-  gap: 12px;
+  align-items:center;
+  gap: 10px;
   flex-wrap: wrap;
   font-size: 12px;
   opacity: .9;
@@ -820,14 +807,8 @@ h2{font-size:40px}
 
 /* Responsive */
 @media (max-width: 980px){
-  .siteFooter__grid{
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-  }
+  .siteFooter__grid{ grid-template-columns: 1fr 1fr; }
 }
-
 @media (max-width: 560px){
-  .siteFooter__grid{
-    grid-template-columns: 1fr;
-  }
+  .siteFooter__grid{ grid-template-columns: 1fr; }
 }
