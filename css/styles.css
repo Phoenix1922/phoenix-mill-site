@@ -566,3 +566,75 @@ h2{ font-size: 40px; }
 @media (max-width: 480px){
   .galleryGrid{ grid-template-columns: 1fr; }
 }
+
+/* =========================================================
+   History page: force consistent image tiles (matches Gallery)
+   Works with your current HTML classes:
+   .historyRow, .historyTiles3, .historyGrid9, .tile
+   ========================================================= */
+
+/* Two-column layout: photos left, text right */
+.historyRow{
+  display: grid;
+  grid-template-columns: .95fr 1.05fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* 3-photo layout: 1 wide on top, 2 below */
+.historyTiles3{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.historyTiles3 .tile:nth-child(1){
+  grid-column: 1 / -1; /* make the first image span full width */
+}
+
+/* The tile wrapper should crop the image */
+.historyTiles3 .tile,
+.historyGrid9 .tile{
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid rgba(23,58,44,.12);
+  box-shadow: 0 10px 28px var(--shadow);
+  background: rgba(255,255,255,.55);
+}
+
+/* Force consistent sizing + cropping */
+.historyTiles3 .tile{
+  height: 180px; /* adjust if you want taller */
+}
+
+.historyTiles3 img,
+.historyGrid9 img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* 9-photo grid: keep consistent tiles */
+.historyGrid9{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.historyGrid9 .tile{
+  height: 180px; /* same height as above for consistency */
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .historyRow{ grid-template-columns: 1fr; }
+  .historyGrid9{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 520px){
+  .historyGrid9{ grid-template-columns: 1fr; }
+  .historyTiles3 .tile,
+  .historyGrid9 .tile{ height: 220px; }
+}
