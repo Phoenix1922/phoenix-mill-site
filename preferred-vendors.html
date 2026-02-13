@@ -37,27 +37,36 @@
     </div>
   </div>
 
-<!-- Header -->
+  <!-- Header / Nav -->
 <header class="header">
-  <div class="wrap header__inner">
-    <a class="brand" href="index.html">
-      <img class="brand__logo" src="assets/img/logo.png" alt="Phoenix Mill Events logo" />
-      <span class="brand__name">Phoenix Mill Events</span>
-    </a>
+  <div class="wrap header__inner">
+    <a class="brand" href="index.html" aria-label="Phoenix Mill Events home">
+      <img
+        class="brand__logo"
+        src="assets/img/logo.png"
+        alt="Phoenix Mill Events logo"
+        decoding="async"
+      />
+      <span class="brand__name">Phoenix Mill Events</span>
+    </a>
 
-    <nav class="nav">
-      <a href="index.html#venue">Venue</a>
-      <a href="index.html#event-types">Event Types</a>
-      <a href="index.html#amenities">Amenities</a>
-      <a href="index.html#vendors">Partners</a>
-      <a href="index.html#articles">Planning</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="history.html">History</a>
-      <a class="btn btn--sm" href="get-started.html">Get Started</a>
-    </nav>
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html#venue">Venue</a>
+      <a href="index.html#event-types">Event Types</a>
+      <a href="index.html#amenities">Amenities</a>
+      <a href="index.html#vendors">Partners</a>
+      <a href="index.html#articles">Planning</a>
 
-    <button class="navToggle">Menu</button>
-  </div>
+      <!-- These now match normal ribbon links, but go to separate pages -->
+      <a href="gallery.html">Gallery</a>
+      <a href="history.html">History</a>
+
+      <!-- Keep Get Started as the primary CTA -->
+      <a class="btn btn--sm" href="get-started.html">Get Started</a>
+    </nav>
+
+    <button class="navToggle" aria-label="Open menu" aria-expanded="false">Menu</button>
+  </div>
 </header>
 
 <!-- Hero -->
