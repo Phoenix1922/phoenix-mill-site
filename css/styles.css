@@ -742,3 +742,12 @@ h2{ font-size: 40px; }
   transform: translateY(-1px);
   box-shadow: 0 10px 24px rgba(0,0,0,.18);
 }
+
+/* Force vendor cards to fill grid columns */
+.vendorsGrid{
+  justify-items: stretch;
+}
+
+.vendorCard{
+  width: 100%;
+}
