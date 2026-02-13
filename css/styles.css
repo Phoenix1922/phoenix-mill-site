@@ -638,3 +638,18 @@ h2{ font-size: 40px; }
   .historyTiles3 .tile,
   .historyGrid9 .tile{ height: 220px; }
 }
+
+/* === Fix: ensure Venue section header buttons are clickable === */
+#venue .sectionHead{
+  position: relative;
+  z-index: 5;
+}
+
+#venue .sectionHead .actions{
+  position: relative;
+  z-index: 6;
+}
+
+#venue .sectionHead .actions a{
+  pointer-events: auto;
+}
