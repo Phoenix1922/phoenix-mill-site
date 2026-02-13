@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Phoenix Mill Events | 3D Tour</title>
+  <meta name="description" content="Take a virtual 3D tour of Phoenix Mill Events in Plymouth, Michigan." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <!-- Top contact ribbon -->
+  <div class="topbar">
+    <div class="wrap topbar__inner">
+      <div class="topbar__left">
+        <a href="tel:+17342529747">Call: 734-252-9747</a>
+        <span class="dot">•</span>
+        <a href="mailto:info@phoenixmillevents.com">info@phoenixmillevents.com</a>
+      </div>
+      <div class="topbar__right">
+        <a href="https://www.instagram.com/phoenixmillevents/" aria-label="Instagram" target="_blank" rel="noopener">Instagram</a>
+        <span class="dot">•</span>
+        <a href="https://www.facebook.com/phoenixmillevents" aria-label="Facebook" target="_blank" rel="noopener">Facebook</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header / Nav -->
+  <header class="header">
+    <div class="wrap header__inner">
+      <a class="brand" href="index.html" aria-label="Phoenix Mill Events home">
+        <img class="brand__logo" src="assets/img/logo.png" alt="Phoenix Mill Events logo" decoding="async" />
+        <span class="brand__name">Phoenix Mill Events</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html#venue">Venue</a>
+        <a href="index.html#event-types">Event Types</a>
+        <a href="index.html#amenities">Amenities</a>
+        <a href="index.html#vendors">Partners</a>
+        <a href="index.html#articles">Planning</a>
+
+        <a href="gallery.html">Gallery</a>
+        <a href="history.html">History</a>
+        <a href="tour.html" class="is-active">3D Tour</a>
+
+        <a class="btn btn--sm" href="get-started.html">Get Started</a>
+      </nav>
+
+      <button class="navToggle" aria-label="Open menu" aria-expanded="false">Menu</button>
+    </div>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="section">
+    <div class="wrap">
+      <div class="card" style="background:linear-gradient(120deg, rgba(15,42,32,.92), rgba(15,42,32,.55)); color:#fff;">
+        <p class="kicker">PHOENIX MILL EVENTS</p>
+        <h1 style="margin-top:6px">Virtual 3D Tour</h1>
+        <p class="lead" style="max-width:720px">
+          Explore the venue from anywhere. Click and drag to move through the space.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tour Embed -->
+  <section class="section section--alt">
+    <div class="wrap">
+      <div class="sectionHead">
+        <h2>Walk through Phoenix Mill</h2>
+        <p class="muted">If the tour doesn’t load, try refreshing or opening it in a new tab.</p>
+      </div>
+
+      <div class="tourEmbed">
+        <iframe
+          src="https://my.matterport.com/show/?m=tQKZBCvbtoy"
+          allowfullscreen
+          allow="autoplay; fullscreen; web-share; xr-spatial-tracking;"
+          loading="lazy">
+        </iframe>
+      </div>
+
+      <div style="height:16px"></div>
+
+      <div class="actions">
+        <a class="btn" href="get-started.html">Request a Tour</a>
+        <a class="btn btn--ghost" href="https://my.matterport.com/show/?m=tQKZBCvbtoy" target="_blank" rel="noopener">Open tour in a new tab</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="siteFooter">
+    <div class="wrap siteFooter__inner">
+      <div class="siteFooter__grid">
+        <div>
+          <div class="siteFooter__name">Phoenix Mill Events</div>
+          <p class="siteFooter__tagline">
+            A historic Michigan venue for weddings, corporate gatherings, celebrations, and community events.
+          </p>
+          <a class="btn btn--sm" href="get-started.html">Get Started</a>
+        </div>
+
+        <div>
+          <div class="siteFooter__head">Contact</div>
+          <ul class="siteFooter__list">
+            <li>15000 Edward N Hines Dr<br />Plymouth, MI 48170</li>
+            <li><a href="tel:+17342529747">734-252-9747</a></li>
+            <li><a href="mailto:info@phoenixmillevents.com">info@phoenixmillevents.com</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="siteFooter__head">Hours</div>
+          <ul class="siteFooter__list">
+            <li>Mon–Fri: 9:00 AM – 5:00 PM</li>
+            <li>Sat: By appointment</li>
+            <li>Sun: By appointment</li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="siteFooter__head">Follow</div>
+          <ul class="siteFooter__list">
+            <li><a href="https://www.instagram.com/phoenixmillevents/" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://www.facebook.com/phoenixmillevents" target="_blank" rel="noopener">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="siteFooter__bottom">
+        <div>© <span id="year"></span> Phoenix Mill Events</div>
+        <div class="siteFooter__smallLinks">
+          <a href="get-started.html">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="./js/main.js"></script>
+</body>
+</html>
