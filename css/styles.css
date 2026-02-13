@@ -743,11 +743,30 @@ h2{ font-size: 40px; }
   box-shadow: 0 10px 24px rgba(0,0,0,.18);
 }
 
-/* Force vendor cards to fill grid columns */
-.vendorsGrid{
-  justify-items: stretch;
+/* === Preferred Vendors: stop vendor tiles from spilling out === */
+
+/* Make each vendor row a normal full-width tile inside the card */
+.vendorList { 
+  width: 100%;
 }
 
-.vendorCard{
+.vendorItem{
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;           /* prevents any internal bleed */
+}
+
+/* Ensure the "Visit" pill never forces the tile wider than its container */
+.vendorItem__info{
+  min-width: 0;               /* allows text to wrap instead of forcing width */
+}
+
+.vendorVisit{
+  flex: 0 0 auto;
+}
+
+/* Optional: if anything still tries to spill, clamp it at the card level */
+.vendorCard{
+  overflow: hidden;
 }
