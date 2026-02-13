@@ -10,43 +10,69 @@
 
 <body>
 
-  <!-- Top ribbon -->
-  <div class="topbar">
-    <div class="wrap topbar__inner">
-      <div class="topbar__left">
-        <a href="tel:+17342529747">Call: 734-252-9747</a>
-        <span class="dot">•</span>
-        <a href="mailto:info@phoenixmillevents.com">info@phoenixmillevents.com</a>
-      </div>
-      <div class="topbar__right">
-        <a href="https://www.instagram.com/phoenixmillevents/" target="_blank" rel="noopener">Instagram</a>
-        <span class="dot">•</span>
-        <a href="https://www.facebook.com/phoenixmillevents" target="_blank" rel="noopener">Facebook</a>
-      </div>
-    </div>
-  </div>
+  <!-- =========================================================
+       Top Contact Ribbon
+       - Phone + email (left)
+       - Social links (right)
+       ========================================================= -->
+  <div class="topbar">
+    <div class="wrap topbar__inner">
+      <div class="topbar__left">
+        <a href="tel:+17342529747">Call: 734-252-9747</a>
+        <span class="dot">•</span>
+        <a href="mailto:info@phoenixmillevents.com">info@phoenixmillevents.com</a>
+      </div>
 
-  <!-- Header -->
-  <header class="header">
-    <div class="wrap header__inner">
-      <a class="brand" href="index.html">
-        <img class="brand__logo" src="assets/img/logo.png" alt="Phoenix Mill Events logo" />
-        <span class="brand__name">Phoenix Mill Events</span>
-      </a>
+      <div class="topbar__right">
+        <a href="https://www.instagram.com/phoenixmillevents/"
+           aria-label="Instagram"
+           target="_blank"
+           rel="noopener">Instagram</a>
+        <span class="dot">•</span>
+        <a href="https://www.facebook.com/phoenixmillevents"
+           aria-label="Facebook"
+           target="_blank"
+           rel="noopener">Facebook</a>
+      </div>
+    </div>
+  </div>
 
-      <nav class="nav" aria-label="Primary">
-        <a href="index.html#venue">Venue</a>
-        <a href="index.html#event-types">Event Types</a>
-        <a href="index.html#amenities">Amenities</a>
-        <a href="index.html#vendors" class="is-active">Partners</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="history.html">History</a>
-        <a class="btn btn--sm" href="get-started.html">Get Started</a>
-      </nav>
+  <!-- =========================================================
+       Header / Nav
+       - Logo + brand name
+       - Primary navigation
+       - Mobile menu button (requires JS if you use it)
+       ========================================================= -->
+  <header class="header">
+    <div class="wrap header__inner">
+      <a class="brand" href="index.html" aria-label="Phoenix Mill Events home">
+        <img
+          class="brand__logo"
+          src="assets/img/logo.png"
+          alt="Phoenix Mill Events logo"
+          decoding="async"
+        />
+        <span class="brand__name">Phoenix Mill Events</span>
+      </a>
 
-      <button class="navToggle" aria-label="Open menu" aria-expanded="false">Menu</button>
-    </div>
-  </header>
+      <nav class="nav" aria-label="Primary">
+        <a href="#venue">Venue</a>
+        <a href="#event-types">Event Types</a>
+        <a href="#amenities">Amenities</a>
+        <a href="#vendors">Partners</a>
+        <a href="#articles">Planning</a>
+
+        <!-- These now match normal ribbon links, but go to separate pages -->
+        <a href="gallery.html">Gallery</a>
+        <a href="history.html">History</a>
+
+        <!-- Keep Get Started as the primary CTA -->
+        <a class="btn btn--sm" href="get-started.html">Get Started</a>
+      </nav>
+
+      <button class="navToggle" aria-label="Open menu" aria-expanded="false">Menu</button>
+    </div>
+  </header>
 
   <!-- Hero -->
   <section class="section">
