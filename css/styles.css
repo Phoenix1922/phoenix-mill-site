@@ -770,3 +770,36 @@ h2{ font-size: 40px; }
 .vendorCard{
   overflow: hidden;
 }
+
+/* === Preferred Vendors: clean vendor row typography (no stupid wrapping) === */
+
+.vendorItem{
+  display: grid;
+  grid-template-columns: 1fr auto; /* info left, button right */
+  align-items: center;
+  gap: 14px;
+}
+
+.vendorItem__info{
+  min-width: 0; /* allows safe truncation/wrap of NAME only */
+}
+
+.vendorName{
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 6px;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+.vendorMeta{
+  font-size: 14px;
+  opacity: .78;
+  white-space: nowrap;    /* keeps 734-837-3668 on ONE line */
+  letter-spacing: .02em;  /* makes numbers feel cleaner */
+}
+
+/* Optional: if a long vendor name gets crazy, it wraps nicely without breaking every word */
+.vendorName{
+  overflow-wrap: anywhere;
+}
