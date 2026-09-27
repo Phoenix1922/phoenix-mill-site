@@ -1,0 +1,1108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Phoenix Mill Events</title>
+  <meta name="description" content="Learn how to choose an event layout for receptions, corporate training, cocktail events, celebrations, and more at Hayden Mill Events" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <!-- =========================================================
+       Top Contact Ribbon
+       - Phone + email (left)
+       - Social links (right)
+       ========================================================= -->
+  <div class="topbar">
+    <div class="wrap topbar__inner">
+      <div class="topbar__left">
+        <a href="tel:+17342529747">Call: 734-252-9747</a>
+        <span class="dot">•</span>
+        <a href="mailto:info@phoenixmillevents.com">info@phoenixmillevents.com</a>
+      </div>
+
+      <div class="topbar__right">
+        <a href="https://www.instagram.com/phoenixmillevents/"
+           aria-label="Instagram"
+           target="_blank"
+           rel="noopener">Instagram</a>
+        <span class="dot">•</span>
+        <a href="https://www.facebook.com/phoenixmillevents"
+           aria-label="Facebook"
+           target="_blank"
+           rel="noopener">Facebook</a>
+        <span class="dot">•</span>
+        <a href="https://www.linkedin.com/company/phoenix-mill-events"
+           aria-label="LinkedIn"
+           target="_blank"
+           rel="noopener">LinkedIn</a> 
+      </div>
+    </div>
+  </div>
+
+  <!-- Header / Nav -->
+<header class="header">
+  <div class="wrap header__inner">
+    <a class="brand" href="index.html" aria-label="Phoenix Mill Events home">
+      <img
+        class="brand__logo"
+        src="assets/img/logo.png"
+        alt="Phoenix Mill Events logo"
+        decoding="async"
+      />
+      <span class="brand__name">Phoenix Mill Events</span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html#venue">Venue</a>
+      <a href="index.html#event-types">Event Types</a>
+      <a href="index.html#amenities">Amenities</a>
+      <a href="index.html#vendors">Partners</a>
+      <a href="index.html#article1" class="is-active">Planning</a>
+
+      <!-- These now match normal ribbon links, but go to separate pages -->
+      <a href="gallery.html">Gallery</a>
+      <a href="history.html">History</a>
+
+      <!-- Keep Get Started as the primary CTA -->
+      <a class="btn btn--sm" href="get-started.html">Get Started</a>
+    </nav>
+
+    <button class="navToggle" aria-label="Open menu" aria-expanded="false">Menu</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- =========================================================
+       Article Header
+       ========================================================= -->
+  <section class="section">
+    <div class="wrap">
+
+      <div
+        class="card"
+        style="
+          background:linear-gradient(
+            120deg,
+            rgba(15,42,32,.96),
+            rgba(15,42,32,.72)
+          );
+          color:#fff;
+          text-align:center;
+          padding:72px 30px;
+        "
+      >
+        <p class="kicker">PLANNING GUIDE</p>
+
+        <h1 style="margin:6px auto 0; max-width:850px;">
+          Choosing a Layout That Fits Your Event
+        </h1>
+
+        <p
+          class="lead"
+          style="
+            max-width:720px;
+            margin:18px auto 0;
+          "
+        >
+          Reception, training, cocktail — what works best and why.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================
+       Article Body
+       ========================================================= -->
+  <section class="section" style="padding-top:20px;">
+    <div class="wrap">
+
+      <article
+        style="
+          max-width:820px;
+          margin:0 auto;
+          font-size:1.05rem;
+          line-height:1.8;
+        "
+      >
+
+        <p class="lead">
+          Tables and chairs may seem like one of the simplest parts of
+          planning an event.
+        </p>
+
+        <p>
+          Put enough seats in the room for everyone, leave some space to
+          walk, and you're finished. Right?
+        </p>
+
+        <p>
+          Not quite.
+        </p>
+
+        <p>
+          The layout of a room can have a surprisingly large effect on how
+          an event feels. It determines what guests see when they enter, how
+          easily they move around, whether conversations happen naturally,
+          whether everyone can see a speaker, and even whether a room feels
+          energetic or empty.
+        </p>
+
+        <p>
+          <strong>
+            The best layout isn't necessarily the one that fits the most
+            people. It's the one that best supports what you want those
+            people to do.
+          </strong>
+        </p>
+
+        <p>
+          Before deciding where a single table should go, start there.
+        </p>
+
+
+        <h2 style="margin-top:48px;">Begin With the Purpose of the Event</h2>
+
+        <p>
+          Ask yourself one simple question:
+        </p>
+
+        <p>
+          <strong>What will guests spend most of their time doing?</strong>
+        </p>
+
+        <p>
+          At a wedding reception, they may eat, socialize, watch speeches,
+          and dance.
+        </p>
+
+        <p>
+          At a corporate training event, they'll need to see a presenter,
+          take notes, and perhaps work in groups.
+        </p>
+
+        <p>
+          At a cocktail reception, movement and conversation may matter far
+          more than assigned seating.
+        </p>
+
+        <p>
+          At a shower, graduation party, or anniversary celebration, guests
+          may move frequently between tables, food, gifts, and conversation
+          areas.
+        </p>
+
+        <p>
+          Those are very different activities. So they shouldn't necessarily
+          use the same room layout.
+        </p>
+
+
+        <h2 style="margin-top:48px;">
+          Reception Layouts: Create a Center of Gravity
+        </h2>
+
+        <p>
+          For weddings, anniversary parties, awards dinners, and other seated
+          celebrations, round tables are popular for good reason. They
+          encourage conversation while allowing guests to see much of the
+          room.
+        </p>
+
+        <p>
+          But don't begin by simply filling every available area with tables.
+        </p>
+
+        <p>First identify the important destinations:</p>
+
+        <ul>
+          <li>Where will the couple or guests of honor sit?</li>
+          <li>Where will speeches happen?</li>
+          <li>Where is dinner being served?</li>
+          <li>Where is the bar?</li>
+          <li>Where will people dance?</li>
+          <li>Where is the DJ or band?</li>
+        </ul>
+
+        <p>
+          Once those locations are established, arrange guest seating around
+          them.
+        </p>
+
+
+        <h3 style="margin-top:34px;">Think About Sightlines</h3>
+
+        <p>
+          Guests don't need a perfect view of everything all night, but they
+          shouldn't have to stand up or turn completely around to see every
+          important moment.
+        </p>
+
+        <p>
+          If speeches, presentations, or first dances will occur in a
+          particular location, think about how the majority of chairs relate
+          to that point.
+        </p>
+
+        <p>
+          The same applies to the guests of honor. A beautifully decorated
+          head table isn't doing much visually if it's hidden behind other
+          tables.
+        </p>
+
+
+        <h3 style="margin-top:34px;">Give the Room a Focal Point</h3>
+
+        <p>
+          A reception generally feels more intentional when there is
+          something that visually anchors the space.
+        </p>
+
+        <p>
+          That could be a sweetheart or head table, dance floor, fireplace,
+          historic architectural feature, floral installation, stage,
+          dramatic window wall, or another natural focal point.
+        </p>
+
+        <p>
+          Let the room help you.
+        </p>
+
+        <p>
+          Sometimes the best layout comes from emphasizing what is already
+          interesting about the venue rather than bringing in more
+          decoration.
+        </p>
+
+
+        <h2 style="margin-top:48px;">
+          Corporate Training: Prioritize the View
+        </h2>
+
+        <p>
+          Corporate events have a different priority:
+          <strong>Can everyone comfortably see, hear, and participate?</strong>
+        </p>
+
+        <p>
+          For presentations and training sessions, orient the room around
+          the speaker and presentation area first. Then work backward.
+        </p>
+
+
+        <h3 style="margin-top:34px;">Classroom Style</h3>
+
+        <p>
+          Rows of rectangular tables facing the presenter work well when
+          attendees need laptops, notebooks, or printed materials.
+        </p>
+
+        <p>This arrangement is particularly useful for:</p>
+
+        <ul>
+          <li>Training sessions</li>
+          <li>Seminars</li>
+          <li>Continuing education</li>
+          <li>Workshops with substantial presentation time</li>
+          <li>Company meetings</li>
+        </ul>
+
+        <p>
+          The tradeoff is that it places most of the attention forward rather
+          than encouraging conversation between attendees.
+        </p>
+
+
+        <h3 style="margin-top:34px;">Theater Style</h3>
+
+        <p>
+          Rows of chairs without tables can accommodate a presentation
+          efficiently when attendees don't need much workspace.
+        </p>
+
+        <p>This can work well for:</p>
+
+        <ul>
+          <li>Presentations</li>
+          <li>Lectures</li>
+          <li>Company announcements</li>
+          <li>Panel discussions</li>
+          <li>Ceremonies</li>
+        </ul>
+
+        <p>
+          It also leaves more of the room available for circulation,
+          refreshments, or breakout areas.
+        </p>
+
+
+        <h3 style="margin-top:34px;">Pods or Small Groups</h3>
+
+        <p>
+          For interactive workshops, consider several smaller tables with
+          attendees grouped around them.
+        </p>
+
+        <p>
+          Now the layout itself encourages collaboration.
+        </p>
+
+        <p>
+          This works especially well when a presenter alternates between
+          teaching and asking groups to work together.
+        </p>
+
+        <p>
+          The key is making sure people seated sideways or backward can still
+          comfortably turn toward the presenter when necessary.
+        </p>
+
+
+        <h3 style="margin-top:34px;">U-Shape or Horseshoe</h3>
+
+        <p>
+          For smaller groups, a U-shaped arrangement can create an excellent
+          balance between presentation and conversation.
+        </p>
+
+        <p>
+          Everyone can see one another, while the open end provides a natural
+          place for a presenter, monitor, or whiteboard.
+        </p>
+
+        <p>This is particularly effective for:</p>
+
+        <ul>
+          <li>Leadership meetings</li>
+          <li>Board retreats</li>
+          <li>Training</li>
+          <li>Strategy sessions</li>
+          <li>Group discussions</li>
+        </ul>
+
+
+        <h2 style="margin-top:48px;">
+          Cocktail Events: Don't Give Everyone a Chair
+        </h2>
+
+        <p>
+          This can seem counterintuitive.
+        </p>
+
+        <p>
+          If you're expecting 100 people, shouldn't you have 100 seats?
+          Not necessarily.
+        </p>
+
+        <p>
+          For a true cocktail-style event, providing a chair for every guest
+          can actually work against the atmosphere you're trying to create.
+          People find seats. Then they stay there.
+        </p>
+
+        <p>
+          Instead, a cocktail layout can use a mixture of
+          <strong>
+            high-top tables, some traditional seating, lounge areas, and
+            open standing space.
+          </strong>
+        </p>
+
+        <p>
+          That encourages guests to move through the room and interact with
+          different groups. The room becomes part of the event.
+        </p>
+
+
+        <h3 style="margin-top:34px;">Spread Out the Attractions</h3>
+
+        <p>
+          One common mistake is putting the bar, food, and every other
+          attraction in the same corner.
+        </p>
+
+        <p>
+          Everyone goes there. Suddenly, much of the room sits empty while
+          one area becomes congested.
+        </p>
+
+        <p>
+          Instead, consider distributing destinations throughout the space.
+          The bar might be in one area. Food in another. Dessert somewhere
+          else. Lounge seating near an interesting architectural feature or
+          windows. A photo opportunity somewhere that naturally draws people
+          farther into the room.
+        </p>
+
+        <p>
+          You're subtly giving guests reasons to circulate.
+        </p>
+
+
+        <h2 style="margin-top:48px;">
+          Buffet Placement Can Make or Break Your Flow
+        </h2>
+
+        <p>
+          Buffets require more space than just the dimensions of the tables
+          holding the food.
+        </p>
+
+        <p>
+          You also need space for <strong>people waiting for the food.</strong>
+        </p>
+
+        <p>
+          Imagine 20 or 30 guests standing in line. Where are they?
+        </p>
+
+        <ul>
+          <li>Are they blocking the entrance?</li>
+          <li>Are they trapping people at nearby tables?</li>
+          <li>Are they standing directly in front of the bar?</li>
+          <li>Are they cutting across a major walkway?</li>
+          <li>
+            Can guests return to their seats without walking against the line?
+          </li>
+        </ul>
+
+        <p>
+          If you expect a large crowd, talk with your caterer about whether
+          the buffet can be accessed from both sides or whether multiple
+          service points make sense.
+        </p>
+
+        <p>
+          The best buffet location isn't necessarily the empty wall where the
+          tables happen to fit.
+        </p>
+
+        <p><strong>It's the location where the line fits too.</strong></p>
+
+
+        <h2 style="margin-top:48px;">Protect Your Main Pathways</h2>
+
+        <p>
+          Once you have a tentative layout, imagine yourself as a guest.
+          Walk through the event mentally.
+        </p>
+
+        <p>
+          You enter the venue. Where do you go first?
+        </p>
+
+        <p>
+          Can you immediately tell where the event is happening? Can you
+          reach your table without squeezing between chairs? Can you get to
+          the restroom? Can you reach the bar? Can you get food? Can you move
+          from one side of the room to another after everyone is seated?
+        </p>
+
+        <p>
+          Now imagine you're a server carrying a tray. Or a photographer
+          trying to move quickly before a toast begins. Or a guest who uses a
+          wheelchair or mobility device.
+        </p>
+
+        <p>
+          A room can look spacious when it's empty and become surprisingly
+          tight once chairs are pulled away from tables and people are
+          standing in the aisles.
+        </p>
+
+        <p>
+          <strong>
+            Circulation space should be designed into the layout, not whatever
+            happens to be left over afterward.
+          </strong>
+        </p>
+
+
+        <h2 style="margin-top:48px;">
+          Don't Forget What Happens When Chairs Are Occupied
+        </h2>
+
+        <p>
+          When you're looking at a floor plan, a chair may appear to occupy
+          only a small rectangle.
+        </p>
+
+        <p>A person sitting in it occupies considerably more.</p>
+
+        <p>
+          And when that person pushes the chair back to stand up, they need
+          even more room.
+        </p>
+
+        <p>
+          Two tables that look comfortably separated on paper can feel very
+          different when guests are seated back-to-back.
+        </p>
+
+        <p>
+          So when evaluating a layout, don't ask only:
+          <strong>"Do these tables fit?"</strong>
+        </p>
+
+        <p>
+          Ask: <strong>"Can people comfortably use these tables?"</strong>
+        </p>
+
+        <p>That's a much better test.</p>
+
+
+        <h2 style="margin-top:48px;">
+          Give Important Destinations Some Breathing Room
+        </h2>
+
+        <p>Certain places naturally create crowds.</p>
+
+        <p>The bar is one. A buffet is another. So are:</p>
+
+        <ul>
+          <li>Guest-book tables</li>
+          <li>Seating charts</li>
+          <li>Gift and card tables</li>
+          <li>Photo booths</li>
+          <li>Dessert displays</li>
+          <li>Coat areas</li>
+          <li>Restrooms</li>
+          <li>Entrances and exits</li>
+        </ul>
+
+        <p>
+          Don't place two congestion points directly on top of one another
+          unless there's plenty of room to accommodate them.
+        </p>
+
+        <p>
+          For example, a beautiful seating chart immediately inside the
+          entrance might seem perfect—until ten guests stop to find their
+          names while another twenty are trying to enter behind them.
+        </p>
+
+        <p>
+          Sometimes moving something just a few feet can completely change
+          the flow.
+        </p>
+
+
+        <h2 style="margin-top:48px;">Think About the First Impression</h2>
+
+        <p>Layout isn't purely functional. It's visual.</p>
+
+        <p>
+          Imagine the moment your guests first enter the room.
+          <strong>What do you want them to see?</strong>
+        </p>
+
+        <p>
+          Ideally, their first view shouldn't be the back of a DJ booth,
+          stacks of catering equipment, or a crowded service station.
+        </p>
+
+        <p>
+          Consider the room from the entrance and identify the strongest
+          visual direction.
+        </p>
+
+        <p>
+          Maybe it's a wall of windows. Maybe it's the decorated tables.
+          Maybe it's a dance floor. Maybe it's the head table or a floral
+          installation. Maybe it's one of the building's historic
+          architectural features.
+        </p>
+
+        <p>
+          Then consider whether your layout
+          <strong>frames that view or blocks it.</strong>
+        </p>
+
+        <p>
+          A good floor plan can make the exact same room feel dramatically
+          more impressive without adding a single decoration.
+        </p>
+
+
+        <h2 style="margin-top:48px;">
+          Let Interesting Architecture Remain Visible
+        </h2>
+
+        <p>
+          This is particularly important in a historic venue.
+        </p>
+
+        <p>
+          If you've chosen a venue because you love its character, don't
+          cover all of that character with the event.
+        </p>
+
+        <p>
+          Windows don't necessarily need something placed in front of every
+          one. Historic walls don't all need backdrops. Architectural
+          features don't all need decorations.
+        </p>
+
+        <p>
+          Sometimes <strong>negative space is part of the design.</strong>
+        </p>
+
+        <p>
+          Leaving portions of a room open can make the event feel more
+          sophisticated and allow the building itself to become part of the
+          visual experience.
+        </p>
+
+        <p>
+          At Phoenix Mill, that's something worth considering as you develop
+          your layout:
+          <strong>
+            you've already chosen a venue with character. Let some of it show.
+          </strong>
+        </p>
+
+
+        <h2 style="margin-top:48px;">
+          Don't Design Only for the Beginning of the Event
+        </h2>
+
+        <p>An event changes throughout the day.</p>
+
+        <p>
+          A wedding reception might begin with everyone seated for dinner.
+          Two hours later, half of those people may be on the dance floor.
+        </p>
+
+        <p>
+          A corporate event might begin with a presentation and transition
+          into small breakout groups.
+        </p>
+
+        <p>
+          A shower may move from brunch to gifts to mingling.
+        </p>
+
+        <p>
+          A cocktail event may start sparsely and become much more crowded
+          within 30 minutes.
+        </p>
+
+        <p>
+          So ask:
+          <strong>Does the layout still work when the event changes?</strong>
+        </p>
+
+        <p>
+          If tables need to be moved halfway through the event, who moves
+          them? If a dance floor opens after dinner, is it already clear?
+          If chairs need to turn toward a presentation, is there enough room?
+        </p>
+
+        <p>
+          Whenever possible, a layout that works throughout the event is
+          better than one requiring a major room transformation while guests
+          are present.
+        </p>
+
+
+        <h2 style="margin-top:48px;">Bigger Isn't Always Better</h2>
+
+        <p>
+          Here's another counterintuitive point:
+          <strong>
+            Don't automatically use every square foot available to you.
+          </strong>
+        </p>
+
+        <p>
+          If you have an intimate event, spreading guests across the largest
+          possible area can make the gathering feel sparse.
+        </p>
+
+        <p>
+          Bringing tables slightly closer together and concentrating activity
+          in one portion of the room can make an event feel warmer and more
+          energetic.
+        </p>
+
+        <p>The reverse is also true.</p>
+
+        <p>
+          For a larger event, trying to squeeze in one more table may
+          technically increase capacity but make the entire experience less
+          comfortable.
+        </p>
+
+        <p>There is a difference between:</p>
+
+        <p><strong>"It fits."</strong></p>
+
+        <p>and</p>
+
+        <p><strong>"It works."</strong></p>
+
+        <p>Choose <em>works</em>.</p>
+
+
+        <h2 style="margin-top:48px;">Try the Five-Minute Floor Plan Test</h2>
+
+        <p>
+          Once you think you have your layout, put yourself in the position
+          of five different people.
+        </p>
+
+
+        <h3 style="margin-top:30px;">1. The Guest</h3>
+
+        <p>
+          Can I enter, find where I'm going, sit comfortably, get food or a
+          drink, find the restroom, and move around easily?
+        </p>
+
+
+        <h3 style="margin-top:30px;">2. The Guest of Honor</h3>
+
+        <p>
+          Can I move through the room, greet people, and participate in the
+          important moments without navigating an obstacle course?
+        </p>
+
+
+        <h3 style="margin-top:30px;">3. The Caterer</h3>
+
+        <p>
+          Can I get food into the room and clear tables without constantly
+          passing through guest congestion?
+        </p>
+
+
+        <h3 style="margin-top:30px;">4. The Photographer</h3>
+
+        <p>
+          Can I move around the room and get clear views of the important
+          moments?
+        </p>
+
+
+        <h3 style="margin-top:30px;">5. The DJ, Speaker, or Presenter</h3>
+
+        <p>
+          Can the audience see and hear me, and can I see what's happening
+          in the room?
+        </p>
+
+        <p>
+          If the layout works for all five, you're probably getting close.
+        </p>
+
+
+        <!-- =====================================================
+             Quick Reference Table
+             ===================================================== -->
+        <div
+          class="card"
+          style="
+            margin-top:50px;
+            padding:32px;
+          "
+        >
+
+          <p class="kicker">QUICK REFERENCE</p>
+
+          <h2 style="margin-top:6px;">Match the Layout to the Event</h2>
+
+          <p>
+            These aren't rules. They're starting points.
+          </p>
+
+          <div style="overflow-x:auto; margin-top:24px;">
+            <table
+              style="
+                width:100%;
+                border-collapse:collapse;
+                text-align:left;
+              "
+            >
+              <thead>
+                <tr>
+                  <th style="padding:12px; border-bottom:2px solid currentColor;">
+                    Event Style
+                  </th>
+                  <th style="padding:12px; border-bottom:2px solid currentColor;">
+                    Layout to Consider
+                  </th>
+                  <th style="padding:12px; border-bottom:2px solid currentColor;">
+                    Primary Goal
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td style="padding:12px; border-bottom:1px solid #ddd;">
+                    Wedding reception
+                  </td>
+                  <td style="padding:12px; border-bottom:1px solid #ddd;">
+                    Round tables + focal area + dance floor
+                  </td>
+                  <td style="padding:12px; border-bottom:1px solid #ddd;">
+                    Dining, celebration, and movement
+                  </td>
+                </tr>
+
+                <tr>
+                  <td style="padding:12px; border-bottom:1px solid #ddd;">
+                    Anniversary / awards dinner
+                  </td>
+                  <td style="padding:12px; border-bottom:1px solid #ddd;">
+                    Round tables
+                  </td>
+                  <td style="padding:12px; border-bottom:1px solid #ddd;">
+                    Conversation and presentation
+                  </td>
+                </tr>
+
+                <tr>
+                  <td style="padding:12px; border-bottom:1px solid #ddd;">
+                    Corporate training
+                  </td>
+                  <td style="padding:12px; border-bottom:1px solid #ddd;">
+                    Classroom
+                  </td>
+                  <td style="padding:12px; border-bottom:1px solid #ddd;">
+                    Visibility + workspace
+                  </td>
+                </tr>
+
+                <tr>
+                  <td style="padding:12px; border-bottom:1px solid #ddd;">
+                    Leadership retreat
+                  </td>
+                  <td style="padding:12px; border-bottom:1px solid #ddd;">
+                    U-shape or pods
+                  </td>
+                  <td style="padding:12px; border-bottom:1px solid #ddd;">
+                    Discussion and collaboration
+                  </td>
+                </tr>
+
+                <tr>
+                  <td style="padding:12px; border-bottom:1px solid #ddd;">
+                    Presentation
+                  </td>
+                  <td style="padding:12px; border-bottom:1px solid #ddd;">
+                    Theater
+                  </td>
+                  <td style="padding:12px; border-bottom:1px solid #ddd;">
+                    Attention toward speaker
+                  </td>
+                </tr>
+
+                <tr>
+                  <td style="padding:12px; border-bottom:1px solid #ddd;">
+                    Cocktail reception
+                  </td>
+                  <td style="padding:12px; border-bottom:1px solid #ddd;">
+                    High-tops + lounge + limited seating
+                  </td>
+                  <td style="padding:12px; border-bottom:1px solid #ddd;">
+                    Movement and conversation
+                  </td>
+                </tr>
+
+                <tr>
+                  <td style="padding:12px; border-bottom:1px solid #ddd;">
+                    Shower / brunch
+                  </td>
+                  <td style="padding:12px; border-bottom:1px solid #ddd;">
+                    Round tables or mixed seating
+                  </td>
+                  <td style="padding:12px; border-bottom:1px solid #ddd;">
+                    Socializing and activities
+                  </td>
+                </tr>
+
+                <tr>
+                  <td style="padding:12px;">
+                    Networking event
+                  </td>
+                  <td style="padding:12px;">
+                    High-tops + strategically placed seating
+                  </td>
+                  <td style="padding:12px;">
+                    Encourage circulation
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
+
+        <h2 style="margin-top:50px;">
+          Your Event Should Determine Your Layout — Not the Other Way Around
+        </h2>
+
+        <p>
+          It's easy to fall in love with a photograph of a beautiful event
+          setup and decide, <strong>"That's exactly how I want the room."</strong>
+        </p>
+
+        <p>Take inspiration from it.</p>
+
+        <p>
+          But then ask whether that arrangement actually supports
+          <strong>your</strong> event.
+        </p>
+
+        <p>
+          How many guests are coming? Are they eating a full meal? Will there
+          be dancing? Are there presentations? Do people need work surfaces?
+          Will guests arrive simultaneously or throughout the event? Are you
+          trying to encourage movement or keep everyone's attention focused
+          in one direction?
+        </p>
+
+        <p>
+          Once you answer those questions, the right layout usually becomes
+          much easier to see.
+        </p>
+
+        <p>
+          At Phoenix Mill Events, we believe the room should work
+          <strong>with</strong> your celebration—not dictate it.
+        </p>
+
+        <p>
+          Plan around the moments that matter, preserve comfortable
+          circulation, take advantage of the building's natural focal points,
+          and give your guests enough room to enjoy themselves.
+        </p>
+
+        <p
+          style="
+            font-size:1.25rem;
+            margin-top:34px;
+            text-align:center;
+          "
+        >
+          <strong>
+            Because the best floor plan isn't the one that looks perfect when
+            the room is empty. It's the one nobody has to think about once
+            the room is full.
+          </strong>
+        </p>
+
+
+        <!-- =====================================================
+             Article CTA
+             ===================================================== -->
+        <div
+          class="card"
+          style="
+            margin-top:60px;
+            text-align:center;
+            padding:42px 30px;
+          "
+        >
+          <p class="kicker">PLAN YOUR EVENT</p>
+
+          <h2 style="margin-top:6px;">
+            Ready to See What Works for Your Event?
+          </h2>
+
+          <p
+            style="
+              max-width:620px;
+              margin:16px auto 24px;
+            "
+          >
+            Tell us what you're planning, your estimated guest count, and
+            how you'd like to use the space. We'll help you start imagining
+            your event at Phoenix Mill.
+          </p>
+
+          <a class="btn" href="get-started.html">
+            Get Started
+          </a>
+        </div>
+
+
+        <p
+          style="
+            text-align:center;
+            margin-top:32px;
+          "
+        >
+          <a href="index.html#articles">
+            ← Back to Planning Tips
+          </a>
+        </p>
+
+      </article>
+
+    </div>
+  </section>
+
+</main>
+
+  <footer class="siteFooter">
+    <div class="wrap siteFooter__inner">
+      <div class="siteFooter__grid">
+        <div>
+          <div class="siteFooter__name">Phoenix Mill Events</div>
+          <p class="siteFooter__tagline">
+            A historic Michigan venue for weddings, corporate gatherings, celebrations, and community events.
+          </p>
+          <a class="btn btn--sm" href="get-started.html">Get Started</a>
+        </div>
+
+        <div>
+              <div class="siteFooter__head">Contact</div>
+          <ul class="siteFooter__list">
+            <li>
+              <a href="https://www.google.com/maps?q=15000+Edward+Hines+Dr+Plymouth+MI+48170" target="_blank" rel="noopener">
+                15000 Edward N. Hines Dr.<br />Plymouth, MI 48170
+              </a>
+            </li>
+            <li><a href="tel:+17342529747">734-252-9747</a></li>
+            <li><a href="mailto:info@phoenixmillevents.com">info@phoenixmillevents.com</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="siteFooter__head">Hours</div>
+          <ul class="siteFooter__list">
+            <li>Mon–Fri: 9:00 AM – 5:00 PM</li>
+            <li>Sat: By appointment</li>
+            <li>Sun: By appointment</li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="siteFooter__head">Follow</div>
+          <ul class="siteFooter__list">
+            <li><a href="https://www.instagram.com/phoenixmillevents/" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://www.facebook.com/phoenixmillevents" target="_blank" rel="noopener">Facebook</a></li>
+            <li><a href="https://www.linkedin.com/company/phoenix-mill-events" target="_blank" rel="noopener">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="siteFooter__bottom">
+        <div>© <span id="year"></span> Phoenix Mill Events</div>
+        <div class="siteFooter__smallLinks">
+          <a href="get-started.html">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </footer>  
+  
+  <script defer src="./js/main.js"></script>
+</body>
+</html>
